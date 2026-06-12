@@ -39,6 +39,14 @@ apis:
     properties:
       - type: Documentation
         url: https://dub.co/docs/api-reference/introduction
+      - type: OpenAPI
+        url: openapi/dub-openapi.yml
+      - type: JSONSchema
+        url: json-schema/dub-link-schema.json
+      - type: Example
+        url: examples/dub-create-link-example.json
+      - type: Example
+        url: examples/dub-link-response-example.json
   - aid: dub:analytics
     name: Dub Analytics API
     description: >-
@@ -54,6 +62,12 @@ apis:
     properties:
       - type: Documentation
         url: https://dub.co/docs/api-reference/introduction
+      - type: JSONSchema
+        url: json-schema/dub-analyticscount-schema.json
+      - type: JSONSchema
+        url: json-schema/dub-analyticstimeseries-schema.json
+      - type: Example
+        url: examples/dub-analytics-response-example.json
   - aid: dub:partners
     name: Dub Partners API
     description: >-
@@ -69,6 +83,8 @@ apis:
     properties:
       - type: Documentation
         url: https://dub.co/docs/api-reference/introduction
+      - type: Example
+        url: examples/dub-track-sale-example.json
   - aid: dub:domains
     name: Dub Domains API
     description: >-
@@ -82,6 +98,8 @@ apis:
     properties:
       - type: Documentation
         url: https://dub.co/docs/api-reference/introduction
+      - type: JSONSchema
+        url: json-schema/dub-domain-schema.json
 common:
   - type: Website
     url: https://dub.co
@@ -119,6 +137,12 @@ common:
     url: rate-limits/dub-rate-limits.yml
   - type: FinOps
     url: finops/dub-finops.yml
+  - type: Vocabulary
+    url: vocabulary/dub-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/dub-context.jsonld
+  - type: JSONSchema
+    url: json-schema/dub-folder-schema.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

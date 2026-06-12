@@ -1,0 +1,12 @@
+{
+  "clickId": "click_abc123",
+  "eventName": "Purchase",
+  "customerId": "customer_abc",
+  "amount": 4999,
+  "currency": "usd",
+  "paymentProcessor": "stripe",
+  "metadata": {
+    "plan": "pro",
+    "invoiceId": "inv_123"
+  }
+}

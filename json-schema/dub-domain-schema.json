@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/json-schema/dub-domain-schema.json",
+  "title": "DomainSchema",
+  "description": "Dub DomainSchema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the domain."
+    },
+    "slug": {
+      "type": "string",
+      "description": "The domain name.",
+      "example": "acme.com"
+    },
+    "verified": {
+      "default": false,
+      "description": "Whether the domain is verified.",
+      "type": "boolean"
+    },
+    "primary": {
+      "default": false,
+      "description": "Whether the domain is the primary domain for the workspace.",
+      "type": "boolean"
+    },
+    "archived": {
+      "default": false,
+      "type": "boolean",
+      "description": "Whether the domain is archived."
+    },
+    "placeholder": {
+      "nullable": true,
+      "description": "Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.",
+      "example": "https://dub.co/help/article/dub-links",
+      "type": "string"
+    },
+    "expiredUrl": {
+      "nullable": true,
+      "description": "The URL to redirect to when a link under this domain has expired.",
+      "example": "https://acme.com/expired",
+      "type": "string"
+    },
+    "notFoundUrl": {
+      "nullable": true,
+      "description": "The URL to redirect to when a link under this domain doesn't exist.",
+      "example": "https://acme.com/not-found",
+      "type": "string"
+    },
+    "logo": {
+      "nullable": true,
+      "description": "The logo of the domain.",
+      "type": "string"
+    },
+    "assetLinks": {
+      "default": null,
+      "description": "assetLinks.json configuration file (for deep link support on Android).",
+      "nullable": true,
+      "type": "string"
+    },
+    "appleAppSiteAssociation": {
+      "default": null,
+      "description": "apple-app-site-association configuration file (for deep link support on iOS).",
+      "nullable": true,
+      "type": "string"
+    },
+    "createdAt": {
+      "description": "The date the domain was created.",
+      "type": "string"
+    },
+    "updatedAt": {
+      "description": "The date the domain was last updated.",
+      "type": "string"
+    },
+    "registeredDomain": {
+      "nullable": true,
+      "description": "The registered domain record.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the registered domain record."
+        },
+        "autoRenewalDisabledAt": {
+          "nullable": true,
+          "description": "The date the domain auto-renew is disabled.",
+          "type": "string"
+        },
+        "createdAt": {
+          "description": "The date the domain was created.",
+          "type": "string"
+        },
+        "expiresAt": {
+          "description": "The date the domain expires.",
+          "type": "string"
+        },
+        "renewalFee": {
+          "type": "number",
+          "description": "The fee to renew the domain."
+        }
+      },
+      "required": [
+        "id",
+        "autoRenewalDisabledAt",
+        "createdAt",
+        "expiresAt",
+        "renewalFee"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "slug",
+    "verified",
+    "primary",
+    "archived",
+    "placeholder",
+    "expiredUrl",
+    "notFoundUrl",
+    "logo",
+    "assetLinks",
+    "appleAppSiteAssociation",
+    "createdAt",
+    "updatedAt",
+    "registeredDomain"
+  ],
+  "additionalProperties": false
+}

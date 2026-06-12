@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/json-schema/dub-analyticscount-schema.json",
+  "title": "AnalyticsCount",
+  "description": "Dub AnalyticsCount",
+  "type": "object",
+  "properties": {
+    "clicks": {
+      "default": 0,
+      "type": "number",
+      "description": "The total number of clicks"
+    },
+    "leads": {
+      "default": 0,
+      "type": "number",
+      "description": "The total number of leads"
+    },
+    "sales": {
+      "default": 0,
+      "type": "number",
+      "description": "The total number of sales"
+    },
+    "saleAmount": {
+      "description": "The total amount of sales, in cents",
+      "default": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "clicks",
+    "leads",
+    "sales",
+    "saleAmount"
+  ],
+  "additionalProperties": false
+}

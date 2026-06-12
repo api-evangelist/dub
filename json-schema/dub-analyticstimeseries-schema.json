@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/json-schema/dub-analyticstimeseries-schema.json",
+  "title": "AnalyticsTimeseries",
+  "description": "Dub AnalyticsTimeseries",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "string",
+      "description": "The starting timestamp of the interval"
+    },
+    "clicks": {
+      "default": 0,
+      "type": "number",
+      "description": "The number of clicks in the interval"
+    },
+    "leads": {
+      "default": 0,
+      "type": "number",
+      "description": "The number of leads in the interval"
+    },
+    "sales": {
+      "default": 0,
+      "type": "number",
+      "description": "The number of sales in the interval"
+    },
+    "saleAmount": {
+      "description": "The total amount of sales in the interval, in cents",
+      "default": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "start",
+    "clicks",
+    "leads",
+    "sales",
+    "saleAmount"
+  ],
+  "additionalProperties": false
+}

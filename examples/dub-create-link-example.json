@@ -1,0 +1,20 @@
+{
+  "url": "https://example.com/landing-page",
+  "domain": "dub.sh",
+  "key": "my-campaign",
+  "externalId": "ext_123456",
+  "tagIds": [
+    "tag_abc123"
+  ],
+  "comments": "Campaign link for Q3",
+  "expiresAt": "2026-12-31T23:59:59Z",
+  "ios": "https://apps.apple.com/app/example",
+  "android": "https://play.google.com/store/apps/details?id=com.example",
+  "password": null,
+  "proxy": false,
+  "rewrite": false,
+  "doIndex": false,
+  "utm_source": "newsletter",
+  "utm_medium": "email",
+  "utm_campaign": "q3-launch"
+}

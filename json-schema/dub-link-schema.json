@@ -1,0 +1,350 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/json-schema/dub-link-schema.json",
+  "title": "Link",
+  "description": "Dub LinkSchema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique ID of the short link."
+    },
+    "domain": {
+      "type": "string",
+      "description": "The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains)."
+    },
+    "key": {
+      "type": "string",
+      "description": "The short link slug. If not provided, a random 7-character slug will be generated."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The destination URL of the short link."
+    },
+    "trackConversion": {
+      "default": false,
+      "description": "Whether to track conversions for the short link.",
+      "type": "boolean"
+    },
+    "externalId": {
+      "nullable": true,
+      "description": "The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.",
+      "type": "string"
+    },
+    "tenantId": {
+      "nullable": true,
+      "description": "The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.",
+      "type": "string"
+    },
+    "programId": {
+      "nullable": true,
+      "description": "The ID of the program the short link is associated with.",
+      "type": "string"
+    },
+    "partnerId": {
+      "nullable": true,
+      "description": "The ID of the partner the short link is associated with.",
+      "type": "string"
+    },
+    "archived": {
+      "default": false,
+      "description": "Whether the short link is archived.",
+      "type": "boolean"
+    },
+    "expiresAt": {
+      "nullable": true,
+      "description": "The date and time when the short link will expire in ISO-8601 format.",
+      "type": "string"
+    },
+    "expiredUrl": {
+      "nullable": true,
+      "description": "The URL to redirect to when the short link has expired.",
+      "type": "string",
+      "format": "uri"
+    },
+    "disabledAt": {
+      "nullable": true,
+      "description": "The date and time when the short link was disabled. When a short link is disabled, it will redirect to its domain's not found URL, and its stats will be excluded from your overall stats.",
+      "type": "string"
+    },
+    "password": {
+      "nullable": true,
+      "description": "The password required to access the destination URL of the short link.",
+      "type": "string"
+    },
+    "proxy": {
+      "default": false,
+      "description": "Whether the short link uses Custom Link Previews feature.",
+      "type": "boolean"
+    },
+    "title": {
+      "nullable": true,
+      "description": "The title of the short link. Will be used for Custom Link Previews if `proxy` is true.",
+      "type": "string"
+    },
+    "description": {
+      "nullable": true,
+      "description": "The description of the short link. Will be used for Custom Link Previews if `proxy` is true.",
+      "type": "string"
+    },
+    "image": {
+      "nullable": true,
+      "description": "The image of the short link. Will be used for Custom Link Previews if `proxy` is true.",
+      "type": "string"
+    },
+    "video": {
+      "nullable": true,
+      "description": "The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og",
+      "type": "string"
+    },
+    "rewrite": {
+      "default": false,
+      "description": "Whether the short link uses link cloaking.",
+      "type": "boolean"
+    },
+    "doIndex": {
+      "default": false,
+      "description": "Whether to allow search engines to index the short link.",
+      "type": "boolean"
+    },
+    "ios": {
+      "nullable": true,
+      "description": "The iOS destination URL for the short link for iOS device targeting.",
+      "type": "string"
+    },
+    "android": {
+      "nullable": true,
+      "description": "The Android destination URL for the short link for Android device targeting.",
+      "type": "string"
+    },
+    "geo": {
+      "nullable": true,
+      "description": "Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "publicStats": {
+      "default": false,
+      "description": "Whether the short link's stats are publicly accessible.",
+      "type": "boolean"
+    },
+    "tags": {
+      "nullable": true,
+      "description": "The tags assigned to the short link.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/LinkTagSchemaOutput"
+      }
+    },
+    "folderId": {
+      "nullable": true,
+      "description": "The unique ID of the folder assigned to the short link.",
+      "type": "string"
+    },
+    "webhookIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The IDs of the webhooks that the short link is associated with."
+    },
+    "comments": {
+      "nullable": true,
+      "description": "The comments for the short link.",
+      "type": "string"
+    },
+    "shortLink": {
+      "type": "string",
+      "format": "uri",
+      "description": "The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`)."
+    },
+    "qrCode": {
+      "type": "string",
+      "format": "uri",
+      "description": "The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`)."
+    },
+    "utm_source": {
+      "nullable": true,
+      "description": "The UTM source of the short link.",
+      "type": "string"
+    },
+    "utm_medium": {
+      "nullable": true,
+      "description": "The UTM medium of the short link.",
+      "type": "string"
+    },
+    "utm_campaign": {
+      "nullable": true,
+      "description": "The UTM campaign of the short link.",
+      "type": "string"
+    },
+    "utm_term": {
+      "nullable": true,
+      "description": "The UTM term of the short link.",
+      "type": "string"
+    },
+    "utm_content": {
+      "nullable": true,
+      "description": "The UTM content of the short link.",
+      "type": "string"
+    },
+    "testVariants": {
+      "nullable": true,
+      "minItems": 2,
+      "maxItems": 4,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "percentage": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 90
+          }
+        },
+        "required": [
+          "url",
+          "percentage"
+        ],
+        "additionalProperties": false
+      },
+      "description": "An array of A/B test URLs and the percentage of traffic to send to each URL.",
+      "example": [
+        {
+          "url": "https://example.com/variant-1",
+          "percentage": 50
+        },
+        {
+          "url": "https://example.com/variant-2",
+          "percentage": 50
+        }
+      ]
+    },
+    "testStartedAt": {
+      "description": "The date and time when the tests started.",
+      "nullable": true,
+      "type": "string"
+    },
+    "testCompletedAt": {
+      "description": "The date and time when the tests were or will be completed.",
+      "nullable": true,
+      "type": "string"
+    },
+    "userId": {
+      "nullable": true,
+      "description": "The user ID of the creator of the short link.",
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string",
+      "description": "The workspace ID of the short link."
+    },
+    "clicks": {
+      "default": 0,
+      "description": "The number of clicks on the short link.",
+      "type": "number"
+    },
+    "leads": {
+      "default": 0,
+      "description": "The number of leads the short link has generated.",
+      "type": "number"
+    },
+    "conversions": {
+      "default": 0,
+      "description": "The number of leads that converted to paying customers.",
+      "type": "number"
+    },
+    "sales": {
+      "default": 0,
+      "description": "The total number of sales (includes recurring sales) generated by the short link.",
+      "type": "number"
+    },
+    "saleAmount": {
+      "description": "The total dollar value of sales (in cents) generated by the short link.",
+      "default": 0,
+      "type": "number"
+    },
+    "lastClicked": {
+      "nullable": true,
+      "description": "The date and time when the short link was last clicked.",
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "The date and time when the short link was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "The date and time when the short link was last updated."
+    },
+    "tagId": {
+      "nullable": true,
+      "description": "Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.",
+      "deprecated": true,
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Deprecated: Use `workspaceId` instead. The project ID of the short link.",
+      "deprecated": true
+    }
+  },
+  "required": [
+    "id",
+    "domain",
+    "key",
+    "url",
+    "trackConversion",
+    "externalId",
+    "tenantId",
+    "programId",
+    "partnerId",
+    "archived",
+    "expiresAt",
+    "expiredUrl",
+    "disabledAt",
+    "password",
+    "proxy",
+    "title",
+    "description",
+    "image",
+    "video",
+    "rewrite",
+    "doIndex",
+    "ios",
+    "android",
+    "geo",
+    "publicStats",
+    "tags",
+    "folderId",
+    "webhookIds",
+    "comments",
+    "shortLink",
+    "qrCode",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "userId",
+    "workspaceId",
+    "clicks",
+    "leads",
+    "conversions",
+    "sales",
+    "saleAmount",
+    "lastClicked",
+    "createdAt",
+    "updatedAt",
+    "tagId",
+    "projectId"
+  ],
+  "additionalProperties": false
+}

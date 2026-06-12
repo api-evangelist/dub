@@ -1,0 +1,160 @@
+{
+  "@context": {
+    "@vocab": "https://dub.co/schema/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "dub": "https://dub.co/schema/",
+
+    "Link": "dub:Link",
+    "Domain": "dub:Domain",
+    "Workspace": "dub:Workspace",
+    "Analytics": "dub:Analytics",
+    "Event": "dub:Event",
+    "ClickEvent": "dub:ClickEvent",
+    "LeadEvent": "dub:LeadEvent",
+    "SaleEvent": "dub:SaleEvent",
+    "Partner": "dub:Partner",
+    "Commission": "dub:Commission",
+    "Payout": "dub:Payout",
+    "Tag": "dub:Tag",
+    "Folder": "dub:Folder",
+
+    "id": "@id",
+    "type": "@type",
+
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "shortLink": {
+      "@id": "dub:shortLink",
+      "@type": "@id"
+    },
+    "domain": "dub:domain",
+    "key": "dub:key",
+    "externalId": "dub:externalId",
+    "tenantId": "dub:tenantId",
+
+    "clicks": {
+      "@id": "dub:clicks",
+      "@type": "xsd:integer"
+    },
+    "leads": {
+      "@id": "dub:leads",
+      "@type": "xsd:integer"
+    },
+    "sales": {
+      "@id": "dub:sales",
+      "@type": "xsd:integer"
+    },
+    "saleAmount": {
+      "@id": "dub:saleAmount",
+      "@type": "xsd:integer"
+    },
+    "amount": {
+      "@id": "dub:amount",
+      "@type": "xsd:integer"
+    },
+    "currency": "dub:currency",
+
+    "archived": {
+      "@id": "dub:archived",
+      "@type": "xsd:boolean"
+    },
+    "proxy": {
+      "@id": "dub:proxy",
+      "@type": "xsd:boolean"
+    },
+    "rewrite": {
+      "@id": "dub:rewrite",
+      "@type": "xsd:boolean"
+    },
+    "doIndex": {
+      "@id": "dub:doIndex",
+      "@type": "xsd:boolean"
+    },
+
+    "title": "schema:name",
+    "description": "schema:description",
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+
+    "expiresAt": {
+      "@id": "dub:expiresAt",
+      "@type": "xsd:dateTime"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "lastClicked": {
+      "@id": "dub:lastClicked",
+      "@type": "xsd:dateTime"
+    },
+
+    "userId": "dub:userId",
+    "workspaceId": "dub:workspaceId",
+    "tags": "dub:tags",
+    "tagId": "dub:tagId",
+    "color": "dub:color",
+
+    "utm_source": "dub:utmSource",
+    "utm_medium": "dub:utmMedium",
+    "utm_campaign": "dub:utmCampaign",
+    "utm_term": "dub:utmTerm",
+    "utm_content": "dub:utmContent",
+
+    "ios": {
+      "@id": "dub:iosDeepLink",
+      "@type": "@id"
+    },
+    "android": {
+      "@id": "dub:androidDeepLink",
+      "@type": "@id"
+    },
+    "geo": "dub:geoTargeting",
+
+    "qrCode": {
+      "@id": "dub:qrCode",
+      "@type": "@id"
+    },
+
+    "name": "schema:name",
+    "email": "schema:email",
+    "country": "schema:addressCountry",
+    "status": "dub:status",
+
+    "earnings": {
+      "@id": "dub:earnings",
+      "@type": "xsd:integer"
+    },
+    "payoutMethodId": "dub:payoutMethodId",
+
+    "clickId": "dub:clickId",
+    "eventName": "dub:eventName",
+    "paymentProcessor": "dub:paymentProcessor",
+    "customerId": "dub:customerId",
+    "metadata": "dub:metadata",
+
+    "verified": {
+      "@id": "dub:verified",
+      "@type": "xsd:boolean"
+    },
+    "primary": {
+      "@id": "dub:primary",
+      "@type": "xsd:boolean"
+    },
+    "slug": "dub:slug",
+    "placeholder": "dub:placeholder",
+    "expiredUrl": {
+      "@id": "dub:expiredUrl",
+      "@type": "@id"
+    }
+  }
+}

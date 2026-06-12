@@ -1,0 +1,172 @@
+---
+vocabulary:
+  provider: Dub
+  version: "0.0.1"
+  description: >-
+    Domain vocabulary for the Dub link attribution platform API, covering
+    short links, analytics, affiliate partners, domains, and conversion tracking.
+  terms:
+    - term: link
+      definition: >-
+        A short link created by Dub that redirects to a destination URL.
+        Supports custom domains, UTM parameters, password protection,
+        expiration, device/geo targeting, and deep linking.
+      type: resource
+      properties:
+        - id
+        - domain
+        - key
+        - url
+        - shortLink
+        - externalId
+        - tenantId
+        - clicks
+        - leads
+        - sales
+        - saleAmount
+
+    - term: domain
+      definition: >-
+        A custom domain associated with a Dub workspace used for creating
+        branded short links. Includes SSL provisioning and free .link domain support.
+      type: resource
+      properties:
+        - slug
+        - verified
+        - primary
+        - target
+        - type
+        - placeholder
+        - expiredUrl
+
+    - term: workspace
+      definition: >-
+        An organizational unit in Dub that groups users, links, domains,
+        and analytics together. Billing and rate limits are scoped per workspace.
+      type: resource
+
+    - term: analytics
+      definition: >-
+        Aggregated or time-series metrics for a link or workspace, including
+        clicks, leads, sales, geographic breakdowns, device types, referrers,
+        and conversion events.
+      type: resource
+      properties:
+        - clicks
+        - leads
+        - sales
+        - saleAmount
+
+    - term: event
+      definition: >-
+        A specific user action tracked by Dub, including clicks (link visits),
+        leads (sign-ups or form fills), and sales (purchases). Events power
+        conversion tracking and affiliate attribution.
+      type: event
+      subtypes:
+        - click
+        - lead
+        - sale
+
+    - term: click
+      definition: >-
+        A recorded visit to a Dub short link. Captures browser, OS, device,
+        country, city, referrer, and timestamp metadata.
+      type: event
+
+    - term: lead
+      definition: >-
+        A conversion event representing a sign-up or form submission attributed
+        to a Dub short link. Tracked via the /track/lead endpoint.
+      type: event
+
+    - term: sale
+      definition: >-
+        A conversion event representing a completed purchase attributed to
+        a Dub short link. Includes amount and currency. Tracked via /track/sale.
+      type: event
+
+    - term: partner
+      definition: >-
+        An affiliate participant in a Dub program who earns commissions for
+        driving clicks, leads, or sales via their partner links.
+      type: resource
+      properties:
+        - id
+        - name
+        - email
+        - status
+        - country
+        - payoutMethodId
+
+    - term: commission
+      definition: >-
+        An earnings record for a partner, generated when a tracked conversion
+        event (lead or sale) is attributed to the partner's link.
+      type: resource
+      properties:
+        - id
+        - amount
+        - currency
+        - status
+        - type
+        - earnings
+
+    - term: payout
+      definition: >-
+        A payment issued to a partner for accumulated commissions, managed
+        through Dub's payout infrastructure.
+      type: resource
+
+    - term: tag
+      definition: >-
+        A label applied to links for organization and filtering within
+        a Dub workspace.
+      type: resource
+      properties:
+        - id
+        - name
+        - color
+
+    - term: folder
+      definition: >-
+        A container for grouping related links within a Dub workspace,
+        supporting access controls and organizational hierarchies.
+      type: resource
+
+    - term: qrCode
+      definition: >-
+        A QR code image generated for a Dub short link, available via the
+        /qr endpoint as a PNG image.
+      type: resource
+
+    - term: externalId
+      definition: >-
+        An identifier from the customer's own database that maps to a Dub link
+        or customer record, enabling cross-system correlation.
+      type: property
+
+    - term: tenantId
+      definition: >-
+        An identifier for a tenant within a customer's multi-tenant system,
+        used to scope links and analytics to a specific end-customer.
+      type: property
+
+    - term: utmParameters
+      definition: >-
+        Campaign tracking parameters (utm_source, utm_medium, utm_campaign,
+        utm_term, utm_content) embedded in destination URLs for marketing
+        attribution.
+      type: property
+
+    - term: geoTargeting
+      definition: >-
+        Configuration that routes link visitors to different destination URLs
+        based on their detected geographic location (country code).
+      type: feature
+
+    - term: deepLink
+      definition: >-
+        A mobile deep link destination that routes iOS or Android users directly
+        into a native app rather than a web page.
+      type: feature
