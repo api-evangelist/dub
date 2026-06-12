@@ -1,0 +1,366 @@
+---
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Dub
+providerId: dub
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Link Management
+  - URL Shortener
+  - Analytics
+  - Affiliate Programs
+description: >-
+  Dub offers a free tier plus three paid tiers (Pro, Business, Advanced) and an
+  Enterprise tier with custom pricing. Plans are differentiated by monthly link
+  creation quotas, tracked events, custom domains, workspace seats, API rate
+  limits, analytics retention, and partner/payout capabilities.
+sources:
+  - https://dub.co/pricing
+plans:
+  - id: dub-free
+    name: Free
+    type: free
+    description: >-
+      Free forever plan with basic link shortening, QR codes, UTM templates,
+      API access, up to 3 custom domains, 25 new links per month, and 1,000
+      tracked events per month. No credit card required.
+    entries:
+      - label: New Links per Month
+        name: links_per_month
+        type: quota
+        metric: links
+        limit: 25
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tracked Events per Month
+        name: tracked_events_per_month
+        type: quota
+        metric: events
+        limit: 1000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Custom Domains
+        name: custom_domains
+        type: quota
+        metric: domains
+        limit: 3
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Access
+        name: api_access
+        type: boolean
+        metric: feature
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Rate Limit (requests per minute)
+        name: api_rate_limit
+        type: quota
+        metric: requests_per_minute
+        limit: 60
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: dub-pro
+    name: Pro
+    type: paid
+    description: >-
+      Pro plan at $25/month including 1,000 new links per month, 50,000 tracked
+      events, 1-year analytics retention, link folders, cloaking, expiration,
+      password protection, device and geo targeting, and app deep links.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: USD
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '25.00'
+        userMultiplied: false
+      - label: New Links per Month
+        name: links_per_month
+        type: quota
+        metric: links
+        limit: 1000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tracked Events per Month
+        name: tracked_events_per_month
+        type: quota
+        metric: events
+        limit: 50000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Analytics Retention
+        name: analytics_retention
+        type: quota
+        metric: years
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Rate Limit (requests per minute)
+        name: api_rate_limit
+        type: quota
+        metric: requests_per_minute
+        limit: 600
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: dub-business
+    name: Business
+    type: paid
+    description: >-
+      Business plan at $75/month with 10,000 new links per month, 250,000
+      tracked events, 3-year analytics retention, 100 custom domains, 10
+      workspace users, conversion tracking, partner management (500 partners,
+      $2.5K monthly payouts), and 1,200 API requests per minute.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: USD
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '75.00'
+        userMultiplied: false
+      - label: New Links per Month
+        name: links_per_month
+        type: quota
+        metric: links
+        limit: 10000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tracked Events per Month
+        name: tracked_events_per_month
+        type: quota
+        metric: events
+        limit: 250000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Custom Domains
+        name: custom_domains
+        type: quota
+        metric: domains
+        limit: 100
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Workspace Users
+        name: workspace_users
+        type: quota
+        metric: users
+        limit: 10
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Analytics Retention
+        name: analytics_retention
+        type: quota
+        metric: years
+        limit: 3
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Partner Monthly Payouts
+        name: partner_payouts
+        type: quota
+        metric: USD
+        limit: 2500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Rate Limit (requests per minute)
+        name: api_rate_limit
+        type: quota
+        metric: requests_per_minute
+        limit: 1200
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: dub-advanced
+    name: Advanced
+    type: paid
+    description: >-
+      Advanced plan at $250/month with 50,000 new links per month, 1M tracked
+      events, 5-year analytics retention, 250 custom domains, 20 workspace
+      users, unlimited partners, $15K monthly payouts, advanced reward
+      structures, priority Slack support, and 3,000 API requests per minute.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: USD
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '250.00'
+        userMultiplied: false
+      - label: New Links per Month
+        name: links_per_month
+        type: quota
+        metric: links
+        limit: 50000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tracked Events per Month
+        name: tracked_events_per_month
+        type: quota
+        metric: events
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Custom Domains
+        name: custom_domains
+        type: quota
+        metric: domains
+        limit: 250
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Workspace Users
+        name: workspace_users
+        type: quota
+        metric: users
+        limit: 20
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Analytics Retention
+        name: analytics_retention
+        type: quota
+        metric: years
+        limit: 5
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Partner Monthly Payouts
+        name: partner_payouts
+        type: quota
+        metric: USD
+        limit: 15000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Rate Limit (requests per minute)
+        name: api_rate_limit
+        type: quota
+        metric: requests_per_minute
+        limit: 3000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: dub-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Enterprise plan with custom annual pricing. Includes unlimited links,
+      unlimited tracked events, unlimited analytics retention, unlimited domains,
+      unlimited workspace users, unlimited partner payouts, custom API rate
+      limits, SSO/SAML, audit logs, dedicated success manager, custom SLA,
+      and volume discounts.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: USD
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false
+      - label: New Links per Month
+        name: links_per_month
+        type: quota
+        metric: links
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tracked Events per Month
+        name: tracked_events_per_month
+        type: quota
+        metric: events
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: API Rate Limit (requests per minute)
+        name: api_rate_limit
+        type: quota
+        metric: requests_per_minute
+        limit: -1
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false

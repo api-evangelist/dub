@@ -1,0 +1,85 @@
+---
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Dub
+providerId: dub
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+description: >-
+  Dub enforces per-minute rate limits on API requests, varying by subscription
+  plan. Standard endpoints use per-minute limits while analytics endpoints
+  (GET /analytics and GET /events) use per-second limits. IETF-standard
+  rate limit response headers are included in all API responses. A 429 Too
+  Many Requests response is returned when limits are exceeded.
+sources:
+  - https://dub.co/docs/api-reference/rate-limits
+headers:
+  retryAfter: Retry-After
+  rateLimitLimit: X-RateLimit-Limit
+  rateLimitRemaining: X-RateLimit-Remaining
+  rateLimitReset: X-RateLimit-Reset
+responseCodes:
+  throttled: 429
+limits:
+  - name: Free Plan - Standard Endpoints
+    scope: key
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+    plan: free
+  - name: Pro Plan - Standard Endpoints
+    scope: key
+    metric: requests_per_minute
+    limit: 600
+    timeFrame: minute
+    plan: pro
+  - name: Business Plan - Standard Endpoints
+    scope: key
+    metric: requests_per_minute
+    limit: 1200
+    timeFrame: minute
+    plan: business
+  - name: Advanced Plan - Standard Endpoints
+    scope: key
+    metric: requests_per_minute
+    limit: 3000
+    timeFrame: minute
+    plan: advanced
+  - name: Enterprise Plan - Standard Endpoints
+    scope: key
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute
+    plan: enterprise
+    notes: Custom rate limits negotiated with sales
+  - name: Pro Plan - Analytics Endpoints
+    scope: key
+    metric: requests_per_second
+    limit: 2
+    timeFrame: second
+    plan: pro
+    endpoints:
+      - GET /analytics
+      - GET /events
+  - name: Business Plan - Analytics Endpoints
+    scope: key
+    metric: requests_per_second
+    limit: 4
+    timeFrame: second
+    plan: business
+    endpoints:
+      - GET /analytics
+      - GET /events
+  - name: Advanced Plan - Analytics Endpoints
+    scope: key
+    metric: requests_per_second
+    limit: 8
+    timeFrame: second
+    plan: advanced
+    endpoints:
+      - GET /analytics
+      - GET /events

@@ -1,0 +1,58 @@
+---
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Dub
+providerId: dub
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+description: FOCUS-aligned FinOps for Dub.
+sources:
+  - https://dub.co/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Dub
+serviceCategory: SaaS / Link Management
+billingModel:
+  pricingCategory: Subscription + Usage
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: Dub
+  ServiceCategory: SaaS / Link Management
+  ProviderName: Dub
+  PublisherName: Dub
+  BillingCurrency: USD
+meters:
+  - name: Short Links Created
+    unit: links
+    aggregation: sum
+  - name: Tracked Events
+    unit: events
+    aggregation: sum
+  - name: API Requests
+    unit: requests
+    aggregation: sum
+  - name: Partner Payouts
+    unit: USD
+    aggregation: sum
+  - name: Custom Domains
+    unit: domains
+    aggregation: max
+principles:
+  - name: Visibility
+    description: Track Dub link creation, event consumption, and API usage monthly against plan limits.
+  - name: Optimization
+    description: Right-size plan based on monthly link creation and event tracking volumes; downgrade if consistently under quota.
+  - name: Accountability
+    description: Assign workspace seats to teams; monitor per-workspace API usage and payout spend via the Dub dashboard.
+  - name: Forecasting
+    description: Project partner payout growth to ensure plan payout caps are not exceeded; upgrade before hitting limits.
