@@ -11,7 +11,7 @@ description: >-
   and Framer. The platform offers native SDKs in TypeScript, Python, Go, Ruby,
   and PHP, along with mobile SDKs for iOS and React Native.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Link Management
   - URL Shortener
