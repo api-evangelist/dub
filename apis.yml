@@ -43,9 +43,9 @@ apis:
         url: openapi/dub-openapi.yml
       - type: JSONSchema
         url: json-schema/dub-link-schema.json
-      - type: Example
+      - type: Examples
         url: examples/dub-create-link-example.json
-      - type: Example
+      - type: Examples
         url: examples/dub-link-response-example.json
   - aid: dub:analytics
     name: Dub Analytics API
@@ -66,7 +66,7 @@ apis:
         url: json-schema/dub-analyticscount-schema.json
       - type: JSONSchema
         url: json-schema/dub-analyticstimeseries-schema.json
-      - type: Example
+      - type: Examples
         url: examples/dub-analytics-response-example.json
   - aid: dub:partners
     name: Dub Partners API
@@ -83,7 +83,7 @@ apis:
     properties:
       - type: Documentation
         url: https://dub.co/docs/api-reference/introduction
-      - type: Example
+      - type: Examples
         url: examples/dub-track-sale-example.json
   - aid: dub:domains
     name: Dub Domains API
@@ -115,7 +115,7 @@ common:
     url: https://x.com/dubdotco
   - type: Blog
     url: https://dub.co/blog
-  - type: Changelog
+  - type: ChangeLog
     url: https://dub.co/changelog
   - type: Pricing
     url: https://dub.co/pricing
