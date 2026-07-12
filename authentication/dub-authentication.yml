@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dub-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: token
+  type: http
+  scheme: bearer
+  description: Default authentication mechanism
+  sources:
+  - openapi/dub-openapi.yml

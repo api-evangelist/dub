@@ -101,6 +101,14 @@ apis:
       - type: JSONSchema
         url: json-schema/dub-domain-schema.json
 common:
+  - type: TrustCenter
+    url: security/dub-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/dub-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/dub-domain-security.yml
+  - type: Authentication
+    url: authentication/dub-authentication.yml
   - type: Website
     url: https://dub.co
   - type: Documentation
