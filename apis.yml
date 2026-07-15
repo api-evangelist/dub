@@ -101,6 +101,8 @@ apis:
       - type: JSONSchema
         url: json-schema/dub-domain-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/dub-agentic-access.yml
   - type: TrustCenter
     url: security/dub-trust-center.yml
   - type: VulnerabilityDisclosure
