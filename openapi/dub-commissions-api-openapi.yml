@@ -1,0 +1,1182 @@
+openapi: 3.0.3
+info:
+  title: Dub Analytics Commissions API
+  description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
+  version: 0.0.1
+  contact:
+    name: Dub Support
+    email: support@dub.co
+    url: https://dub.co/support
+  license:
+    name: AGPL-3.0 license
+    url: https://github.com/dubinc/dub/blob/main/LICENSE.md
+servers:
+- url: https://api.dub.co
+  description: Production API
+tags:
+- name: Commissions
+paths:
+  /commissions:
+    post:
+      operationId: createCommission
+      x-speakeasy-name-override: create
+      summary: Create commission
+      description: Create one or more commissions (custom, lead or sale) for a partner. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created.
+      tags:
+      - Commissions
+      security:
+      - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - custom
+                  partnerId:
+                    type: string
+                    description: The ID of the partner to create the commission for.
+                  amount:
+                    description: The commission amount in cents.
+                    type: number
+                  date:
+                    description: If not provided, the current date will be used.
+                    nullable: true
+                    type: string
+                  description:
+                    description: The description of the commission.
+                    nullable: true
+                    type: string
+                    maxLength: 190
+                required:
+                - type
+                - partnerId
+                - amount
+              - type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - lead
+                  partnerId:
+                    type: string
+                    description: The ID of the partner to create the commission for.
+                  customerId:
+                    description: The customer ID to associate the commission with. Useful if the customer was already created in a prior operation and you want to associate the commission with it.
+                    nullable: true
+                    type: string
+                  customer:
+                    description: The full customer object to associate the commission with. Useful for creating the customer on demand.
+                    nullable: true
+                    type: object
+                    properties:
+                      email:
+                        description: The customer's email address.
+                        nullable: true
+                        type: string
+                        format: email
+                        pattern: ^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$
+                      name:
+                        description: The customer's name. If not provided, the email address will be used, and if email is not provided, a random name will be generated.
+                        nullable: true
+                        type: string
+                      avatar:
+                        description: The customer's avatar URL. If not provided, a random avatar will be generated.
+                        nullable: true
+                        type: string
+                        format: uri
+                      externalId:
+                        type: string
+                        description: The customer's unique identifier your database. This is useful for associating subsequent conversion events from Dub's API to your internal systems.
+                      stripeCustomerId:
+                        description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
+                        nullable: true
+                        type: string
+                      country:
+                        type: string
+                        description: The customer's country in ISO 3166-1 alpha-2 format. Updating this field will only affect the customer's country in Dub's system (and has no effect on existing conversion events).
+                    required:
+                    - externalId
+                    - country
+                  linkId:
+                    description: The partner link ID to associate the commission with. If not provided, default to the link with the most revenue.
+                    nullable: true
+                    type: string
+                  leadEventDate:
+                    description: The date and time of the lead event. If not provided, defaults to the current date and time.
+                    nullable: true
+                    type: string
+                  leadEventName:
+                    default: Sign up
+                    description: The name of the lead event. If not provided, defaults to 'Sign up'.
+                    nullable: true
+                    type: string
+                required:
+                - type
+                - partnerId
+              - type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - sale
+                  partnerId:
+                    type: string
+                    description: The ID of the partner to create the commission for.
+                  customerId:
+                    description: The customer ID to associate the commission with. Useful if the customer was already created in a prior operation and you want to associate the commission with it.
+                    nullable: true
+                    type: string
+                  customer:
+                    description: The full customer object to associate the commission with. Useful for creating the customer on demand.
+                    nullable: true
+                    type: object
+                    properties:
+                      email:
+                        description: The customer's email address.
+                        nullable: true
+                        type: string
+                        format: email
+                        pattern: ^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$
+                      name:
+                        description: The customer's name. If not provided, the email address will be used, and if email is not provided, a random name will be generated.
+                        nullable: true
+                        type: string
+                      avatar:
+                        description: The customer's avatar URL. If not provided, a random avatar will be generated.
+                        nullable: true
+                        type: string
+                        format: uri
+                      externalId:
+                        type: string
+                        description: The customer's unique identifier your database. This is useful for associating subsequent conversion events from Dub's API to your internal systems.
+                      stripeCustomerId:
+                        description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
+                        nullable: true
+                        type: string
+                      country:
+                        type: string
+                        description: The customer's country in ISO 3166-1 alpha-2 format. Updating this field will only affect the customer's country in Dub's system (and has no effect on existing conversion events).
+                    required:
+                    - externalId
+                    - country
+                  linkId:
+                    description: The partner link ID to associate the commission with. If not provided, default to the link with the most revenue.
+                    nullable: true
+                    type: string
+                  importStripeInvoices:
+                    default: false
+                    description: When `true`, import all unimported paid Stripe invoices for the customer and create a commission for each. When `false`, create a single manual sale event using `saleAmount`.
+                    nullable: true
+                    type: boolean
+                  saleAmount:
+                    description: Required when `importStripeInvoices` is `false`. The sale amount in cents for the manual sale event. Ignored when importing from Stripe.
+                    nullable: true
+                    type: number
+                  saleEventDate:
+                    description: Only used when `importStripeInvoices` is `false`. The date of the manual sale event. Defaults to the current date and time if not provided.
+                    nullable: true
+                    type: string
+                  invoiceId:
+                    description: Only used when `importStripeInvoices` is `false`. An optional invoice ID to attach to the generated sale event and commission entry for deduplication.
+                    nullable: true
+                    type: string
+                  productId:
+                    description: Only used when `importStripeInvoices` is `false`. An optional product ID stored on the sale event metadata – will also impact commission earnings calculation (if a `Sale` `Product ID` modifier is set).
+                    nullable: true
+                    type: string
+                required:
+                - type
+                - partnerId
+              type: object
+      responses:
+        '202':
+          description: The request was accepted and commission creation was queued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                required:
+                - success
+                - message
+                additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    get:
+      operationId: listCommissions
+      x-speakeasy-name-override: list
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+        - name: startingAfter
+          in: parameters
+          type: cursor
+        outputs:
+          nextCursor: $[-1].id
+      summary: List all commissions
+      description: Retrieve a paginated list of commissions for your partner program.
+      tags:
+      - Commissions
+      security:
+      - token: []
+      parameters:
+      - in: query
+        name: type
+        schema:
+          description: 'Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.'
+          type: string
+          enum:
+          - click
+          - lead
+          - sale
+          - referral
+          - custom
+        description: 'Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.'
+      - in: query
+        name: customerId
+        schema:
+          description: Filter the list of commissions by the associated customer.
+          type: string
+        description: Filter the list of commissions by the associated customer.
+      - in: query
+        name: payoutId
+        schema:
+          description: Filter the list of commissions by the associated payout.
+          type: string
+        description: Filter the list of commissions by the associated payout.
+      - in: query
+        name: partnerId
+        schema:
+          description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.'
+          type: string
+        description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.'
+      - in: query
+        name: tenantId
+        schema:
+          description: Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).
+          type: string
+        description: Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).
+      - in: query
+        name: groupId
+        schema:
+          description: 'Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+          type: string
+        description: 'Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+      - in: query
+        name: partnerTagId
+        schema:
+          description: 'Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.'
+          type: string
+        description: 'Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.'
+      - in: query
+        name: invoiceId
+        schema:
+          description: Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
+          type: string
+        description: Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
+      - in: query
+        name: status
+        schema:
+          description: Filter the list of commissions by their corresponding status.
+          type: string
+          enum:
+          - pending
+          - processed
+          - paid
+          - refunded
+          - duplicate
+          - fraud
+          - canceled
+        description: Filter the list of commissions by their corresponding status.
+      - in: query
+        name: sortBy
+        schema:
+          default: createdAt
+          description: The field to sort the list of commissions by.
+          type: string
+          enum:
+          - createdAt
+          - amount
+        description: The field to sort the list of commissions by.
+      - in: query
+        name: sortOrder
+        schema:
+          default: desc
+          description: The sort order for the list of commissions.
+          type: string
+          enum:
+          - asc
+          - desc
+        description: The sort order for the list of commissions.
+      - in: query
+        name: interval
+        schema:
+          default: all
+          description: The interval to retrieve commissions for.
+          type: string
+          enum:
+          - 24h
+          - 7d
+          - 30d
+          - 90d
+          - 1y
+          - mtd
+          - qtd
+          - ytd
+          - all
+        description: The interval to retrieve commissions for.
+      - in: query
+        name: start
+        schema:
+          description: The start date of the date range to filter the commissions by.
+          type: string
+        description: The start date of the date range to filter the commissions by.
+      - in: query
+        name: end
+        schema:
+          description: The end date of the date range to filter the commissions by.
+          type: string
+        description: The end date of the date range to filter the commissions by.
+      - in: query
+        name: timezone
+        schema:
+          type: string
+      - in: query
+        name: endingBefore
+        schema:
+          description: If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
+          example: cm_1KAP4CGN2Z5TPYYQ1W4JEYD56
+          type: string
+        description: If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
+      - in: query
+        name: startingAfter
+        schema:
+          description: If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.
+          example: cm_1KAP4CGN2Z5TPYYQ1W4JEYD56
+          type: string
+        description: If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.
+      - in: query
+        name: page
+        schema:
+          description: DEPRECATED. Use `startingAfter` instead.
+          example: 1
+          deprecated: true
+          type: number
+          minimum: 0
+          exclusiveMinimum: true
+        description: DEPRECATED. Use `startingAfter` instead.
+      - in: query
+        name: pageSize
+        schema:
+          default: 100
+          description: The number of items per page.
+          example: 50
+          type: number
+          minimum: 0
+          exclusiveMinimum: true
+          maximum: 100
+        description: The number of items per page.
+      responses:
+        '200':
+          description: The list of commissions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The commission's unique ID on Dub.
+                      example: cm_1JVR7XRCSR0EDBAF39FZ4PMYE
+                    type:
+                      type: string
+                      enum:
+                      - click
+                      - lead
+                      - sale
+                      - referral
+                      - custom
+                    amount:
+                      type: number
+                    earnings:
+                      type: number
+                    currency:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                      - pending
+                      - processed
+                      - paid
+                      - refunded
+                      - duplicate
+                      - fraud
+                      - canceled
+                    invoiceId:
+                      nullable: true
+                      type: string
+                    description:
+                      nullable: true
+                      type: string
+                    quantity:
+                      type: number
+                    userId:
+                      description: The user who created the manual commission.
+                      nullable: true
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+                    partner:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The partner's unique ID on Dub.
+                        name:
+                          type: string
+                          maxLength: 190
+                          description: The partner's full legal name.
+                        email:
+                          nullable: true
+                          description: The partner's email address. Should be a unique value across Dub.
+                          type: string
+                          maxLength: 190
+                        image:
+                          nullable: true
+                          description: The partner's avatar image.
+                          type: string
+                        payoutsEnabledAt:
+                          nullable: true
+                          description: The date when the partner enabled payouts.
+                          type: string
+                        country:
+                          nullable: true
+                          description: The partner's country (required for tax purposes).
+                          type: string
+                        groupId:
+                          description: The partner's group ID on Dub.
+                          nullable: true
+                          type: string
+                      required:
+                      - id
+                      - name
+                      - email
+                      - image
+                      - payoutsEnabledAt
+                      - country
+                      additionalProperties: false
+                    customer:
+                      nullable: true
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
+                        name:
+                          description: Name of the customer.
+                          nullable: true
+                          type: string
+                        email:
+                          description: Email of the customer.
+                          nullable: true
+                          type: string
+                        avatar:
+                          description: Avatar URL of the customer.
+                          nullable: true
+                          type: string
+                        externalId:
+                          type: string
+                          description: Unique identifier for the customer in the client's app.
+                        stripeCustomerId:
+                          description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
+                          nullable: true
+                          type: string
+                        country:
+                          description: Country of the customer.
+                          nullable: true
+                          type: string
+                        sales:
+                          description: Total number of sales for the customer.
+                          nullable: true
+                          type: number
+                        saleAmount:
+                          description: Total amount of sales for the customer.
+                          nullable: true
+                          type: number
+                        createdAt:
+                          description: The date the customer was created (usually the signup date or trial start date).
+                          type: string
+                        firstSaleAt:
+                          description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
+                          nullable: true
+                          type: string
+                        subscriptionCanceledAt:
+                          description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
+                          nullable: true
+                          type: string
+                      required:
+                      - id
+                      - externalId
+                      - createdAt
+                      additionalProperties: false
+                  required:
+                  - id
+                  - amount
+                  - earnings
+                  - currency
+                  - status
+                  - invoiceId
+                  - description
+                  - quantity
+                  - createdAt
+                  - updatedAt
+                  - partner
+                  additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /commissions/{id}:
+    patch:
+      operationId: updateCommission
+      x-speakeasy-name-override: update
+      summary: Update a commission
+      description: Update an existing commission amount. This is useful for handling refunds (partial or full) or fraudulent sales.
+      tags:
+      - Commissions
+      security:
+      - token: []
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          description: The commission's unique ID on Dub.
+          example: cm_1JVR7XRCSR0EDBAF39FZ4PMYE
+        required: true
+        description: The commission's unique ID on Dub.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                earnings:
+                  description: The new earnings amount for the commission. Paid commissions cannot be updated. If provided, will override the earnings calculated based on the sale amount and currency.
+                  type: number
+                  minimum: 0
+                saleAmount:
+                  description: The new absolute amount for the sale. Paid commissions cannot be updated.
+                  type: number
+                  minimum: 0
+                modifySaleAmount:
+                  description: 'Modify the current sale amount: use positive values to increase the amount, negative values to decrease it. Takes precedence over `saleAmount`. Paid commissions cannot be updated.'
+                  type: number
+                currency:
+                  description: The currency of the sale amount to update. Accepts ISO 4217 currency codes.
+                  default: usd
+                  type: string
+                status:
+                  description: Useful for marking a commission as pending, refunded, duplicate, canceled, or fraudulent. Takes precedence over `saleAmount` and `modifySaleAmount`. When a commission is marked as pending, refunded, duplicate, canceled, or fraudulent, it will be omitted from the payout, and the payout amount will be recalculated accordingly. Paid commissions cannot be updated.
+                  type: string
+                  enum:
+                  - pending
+                  - refunded
+                  - duplicate
+                  - canceled
+                  - fraud
+                amount:
+                  description: Deprecated. Use `saleAmount` instead.
+                  deprecated: true
+                  type: number
+                  minimum: 0
+                modifyAmount:
+                  description: Deprecated. Use `modifySaleAmount` instead.
+                  deprecated: true
+                  type: number
+      responses:
+        '200':
+          description: The updated commission.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The commission's unique ID on Dub.
+                    example: cm_1JVR7XRCSR0EDBAF39FZ4PMYE
+                  type:
+                    type: string
+                    enum:
+                    - click
+                    - lead
+                    - sale
+                    - referral
+                    - custom
+                  amount:
+                    type: number
+                  earnings:
+                    type: number
+                  currency:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                    - pending
+                    - processed
+                    - paid
+                    - refunded
+                    - duplicate
+                    - fraud
+                    - canceled
+                  invoiceId:
+                    nullable: true
+                    type: string
+                  description:
+                    nullable: true
+                    type: string
+                  quantity:
+                    type: number
+                  userId:
+                    description: The user who created the manual commission.
+                    nullable: true
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  partner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The partner's unique ID on Dub.
+                      name:
+                        type: string
+                        maxLength: 190
+                        description: The partner's full legal name.
+                      email:
+                        nullable: true
+                        description: The partner's email address. Should be a unique value across Dub.
+                        type: string
+                        maxLength: 190
+                      image:
+                        nullable: true
+                        description: The partner's avatar image.
+                        type: string
+                      payoutsEnabledAt:
+                        nullable: true
+                        description: The date when the partner enabled payouts.
+                        type: string
+                      country:
+                        nullable: true
+                        description: The partner's country (required for tax purposes).
+                        type: string
+                      groupId:
+                        description: The partner's group ID on Dub.
+                        nullable: true
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - email
+                    - image
+                    - payoutsEnabledAt
+                    - country
+                    additionalProperties: false
+                  customer:
+                    nullable: true
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
+                      name:
+                        description: Name of the customer.
+                        nullable: true
+                        type: string
+                      email:
+                        description: Email of the customer.
+                        nullable: true
+                        type: string
+                      avatar:
+                        description: Avatar URL of the customer.
+                        nullable: true
+                        type: string
+                      externalId:
+                        type: string
+                        description: Unique identifier for the customer in the client's app.
+                      stripeCustomerId:
+                        description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
+                        nullable: true
+                        type: string
+                      country:
+                        description: Country of the customer.
+                        nullable: true
+                        type: string
+                      sales:
+                        description: Total number of sales for the customer.
+                        nullable: true
+                        type: number
+                      saleAmount:
+                        description: Total amount of sales for the customer.
+                        nullable: true
+                        type: number
+                      createdAt:
+                        description: The date the customer was created (usually the signup date or trial start date).
+                        type: string
+                      firstSaleAt:
+                        description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
+                        nullable: true
+                        type: string
+                      subscriptionCanceledAt:
+                        description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
+                        nullable: true
+                        type: string
+                    required:
+                    - id
+                    - externalId
+                    - createdAt
+                    additionalProperties: false
+                required:
+                - id
+                - amount
+                - earnings
+                - currency
+                - status
+                - invoiceId
+                - description
+                - quantity
+                - createdAt
+                - updatedAt
+                - partner
+                additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /commissions/bulk:
+    patch:
+      operationId: bulkUpdateCommissions
+      x-speakeasy-name-override: updateMany
+      summary: Bulk update commissions
+      description: Bulk update up to 100 commissions with the same status.
+      tags:
+      - Commissions
+      security:
+      - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                commissionIds:
+                  minItems: 1
+                  maxItems: 100
+                  type: array
+                  items:
+                    type: string
+                status:
+                  type: string
+                  enum:
+                  - pending
+                  - refunded
+                  - duplicate
+                  - canceled
+                  - fraud
+                  description: The status to apply to every commission in the batch.
+              required:
+              - commissionIds
+              - status
+      responses:
+        '200':
+          description: The updated commissions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The commission's unique ID on Dub.
+                      example: cm_1JVR7XRCSR0EDBAF39FZ4PMYE
+                    status:
+                      type: string
+                      enum:
+                      - pending
+                      - processed
+                      - paid
+                      - refunded
+                      - duplicate
+                      - fraud
+                      - canceled
+                  required:
+                  - id
+                  - status
+                  additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  responses:
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: UnprocessableEntity
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unprocessable_entity
+                    description: A short code indicating the error code returned.
+                    example: unprocessable_entity
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '400':
+      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: BadRequest
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - bad_request
+                    description: A short code indicating the error code returned.
+                    example: bad_request
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#bad-request
+                required:
+                - code
+                - message
+            required:
+            - error
+    '409':
+      description: This response is sent when a request conflicts with the current state of the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Conflict
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - conflict
+                    description: A short code indicating the error code returned.
+                    example: conflict
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+  securitySchemes:
+    token:
+      type: http
+      description: Default authentication mechanism
+      scheme: bearer
+      x-speakeasy-example: DUB_API_KEY

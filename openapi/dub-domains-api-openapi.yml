@@ -1,0 +1,866 @@
+openapi: 3.0.3
+info:
+  title: Dub Analytics Domains API
+  description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
+  version: 0.0.1
+  contact:
+    name: Dub Support
+    email: support@dub.co
+    url: https://dub.co/support
+  license:
+    name: AGPL-3.0 license
+    url: https://github.com/dubinc/dub/blob/main/LICENSE.md
+servers:
+- url: https://api.dub.co
+  description: Production API
+tags:
+- name: Domains
+paths:
+  /domains:
+    post:
+      operationId: createDomain
+      x-speakeasy-name-override: create
+      summary: Create a domain
+      description: Create a domain for the authenticated workspace.
+      tags:
+      - Domains
+      security:
+      - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  minLength: 1
+                  maxLength: 190
+                  description: Name of the domain.
+                  example: acme.com
+                expiredUrl:
+                  description: Redirect users to a specific URL when any link under this domain has expired.
+                  example: https://acme.com/expired
+                  nullable: true
+                  type: string
+                  maxLength: 32000
+                notFoundUrl:
+                  description: Redirect users to a specific URL when a link under this domain doesn't exist.
+                  example: https://acme.com/not-found
+                  nullable: true
+                  type: string
+                  maxLength: 32000
+                archived:
+                  default: false
+                  description: Whether to archive this domain. `false` will unarchive a previously archived domain.
+                  example: false
+                  type: boolean
+                placeholder:
+                  description: Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
+                  example: https://dub.co/help/article/dub-links
+                  nullable: true
+                  type: string
+                  maxLength: 100
+                logo:
+                  description: The logo of the domain.
+                  nullable: true
+                  anyOf:
+                  - type: string
+                    pattern: ^data:image\/(png|jpeg|jpg|gif|webp);base64,
+                  - type: string
+                    format: uri
+                  - type: string
+                    format: uri
+                assetLinks:
+                  description: assetLinks.json configuration file (for deep link support on Android).
+                  nullable: true
+                  type: string
+                appleAppSiteAssociation:
+                  description: apple-app-site-association configuration file (for deep link support on iOS).
+                  nullable: true
+                  type: string
+              required:
+              - slug
+      responses:
+        '201':
+          description: The domain was created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainSchema'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    get:
+      operationId: listDomains
+      x-speakeasy-name-override: list
+      x-speakeasy-pagination:
+        type: offsetLimit
+        inputs:
+        - name: page
+          in: parameters
+          type: page
+        - name: pageSize
+          in: parameters
+          type: limit
+        outputs:
+          results: $
+      summary: List all domains
+      description: Retrieve a paginated list of domains for the authenticated workspace.
+      tags:
+      - Domains
+      security:
+      - token: []
+      parameters:
+      - in: query
+        name: archived
+        schema:
+          default: false
+          description: Whether to include archived domains in the response. Defaults to `false` if not provided.
+          type: boolean
+        description: Whether to include archived domains in the response. Defaults to `false` if not provided.
+      - in: query
+        name: search
+        schema:
+          description: The search term to filter the domains by.
+          type: string
+        description: The search term to filter the domains by.
+      - in: query
+        name: page
+        schema:
+          description: The page number for pagination.
+          example: 1
+          deprecated: false
+          type: number
+          minimum: 0
+          exclusiveMinimum: true
+        description: The page number for pagination.
+      - in: query
+        name: pageSize
+        schema:
+          default: 50
+          description: The number of items per page.
+          example: 50
+          type: number
+          minimum: 0
+          exclusiveMinimum: true
+          maximum: 50
+        description: The number of items per page.
+      responses:
+        '200':
+          description: The domains were retrieved.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DomainSchema'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /domains/{slug}:
+    patch:
+      operationId: updateDomain
+      x-speakeasy-name-override: update
+      x-speakeasy-max-method-params: 2
+      summary: Update a domain
+      description: Update a domain for the authenticated workspace.
+      tags:
+      - Domains
+      security:
+      - token: []
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+          description: The domain name.
+          example: acme.com
+        required: true
+        description: The domain name.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  minLength: 1
+                  maxLength: 190
+                  description: Name of the domain.
+                  example: acme.com
+                expiredUrl:
+                  description: Redirect users to a specific URL when any link under this domain has expired.
+                  example: https://acme.com/expired
+                  nullable: true
+                  type: string
+                  maxLength: 32000
+                notFoundUrl:
+                  description: Redirect users to a specific URL when a link under this domain doesn't exist.
+                  example: https://acme.com/not-found
+                  nullable: true
+                  type: string
+                  maxLength: 32000
+                archived:
+                  default: false
+                  description: Whether to archive this domain. `false` will unarchive a previously archived domain.
+                  example: false
+                  type: boolean
+                placeholder:
+                  description: Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
+                  example: https://dub.co/help/article/dub-links
+                  nullable: true
+                  type: string
+                  maxLength: 100
+                logo:
+                  description: The logo of the domain.
+                  nullable: true
+                  anyOf:
+                  - type: string
+                    pattern: ^data:image\/(png|jpeg|jpg|gif|webp);base64,
+                  - type: string
+                    format: uri
+                  - type: string
+                    format: uri
+                assetLinks:
+                  description: assetLinks.json configuration file (for deep link support on Android).
+                  nullable: true
+                  type: string
+                appleAppSiteAssociation:
+                  description: apple-app-site-association configuration file (for deep link support on iOS).
+                  nullable: true
+                  type: string
+      responses:
+        '200':
+          description: The domain was updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainSchema'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: deleteDomain
+      x-speakeasy-name-override: delete
+      x-speakeasy-max-method-params: 1
+      summary: Delete a domain
+      description: Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
+      tags:
+      - Domains
+      security:
+      - token: []
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+          description: The domain name.
+          example: acme.com
+        required: true
+        description: The domain name.
+      responses:
+        '200':
+          description: The domain was deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  slug:
+                    type: string
+                    description: The domain name.
+                    example: acme.com
+                required:
+                - slug
+                additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /domains/register:
+    post:
+      operationId: registerDomain
+      x-speakeasy-name-override: register
+      summary: Register a domain
+      description: Register a domain for the authenticated workspace. Only available for Enterprise Plans.
+      tags:
+      - Domains
+      security:
+      - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  description: The domain to claim. We only support .link domains for now.
+                  example: acme.link
+                  type: string
+                  minLength: 1
+                  pattern: .*\.link$
+              required:
+              - domain
+      responses:
+        '201':
+          description: The domain was registered.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                    description: The domain name.
+                  status:
+                    type: string
+                    description: The status of the domain registration.
+                  expiration:
+                    nullable: true
+                    type: number
+                    description: The expiration timestamp of the domain (Unix timestamp in milliseconds).
+                required:
+                - domain
+                - status
+                - expiration
+                additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /domains/status:
+    get:
+      operationId: checkDomainStatus
+      x-speakeasy-name-override: checkStatus
+      summary: Check the availability of one or more domains
+      description: Check if a domain name is available for purchase. You can check multiple domains at once.
+      tags:
+      - Domains
+      security:
+      - token: []
+      parameters:
+      - in: query
+        name: domains
+        schema:
+          description: The domains to search. We only support .link domains for now.
+          anyOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+        style: form
+        explode: false
+        required: true
+        description: The domains to search. We only support .link domains for now.
+      responses:
+        '200':
+          description: The domain status was retrieved.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                      description: The domain name.
+                    available:
+                      type: boolean
+                      description: Whether the domain is available.
+                    price:
+                      nullable: true
+                      description: The price description.
+                      type: string
+                    premium:
+                      nullable: true
+                      description: Whether the domain is a premium domain.
+                      type: boolean
+                  required:
+                  - domain
+                  - available
+                  - price
+                  - premium
+                  additionalProperties: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  responses:
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: UnprocessableEntity
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unprocessable_entity
+                    description: A short code indicating the error code returned.
+                    example: unprocessable_entity
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '400':
+      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: BadRequest
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - bad_request
+                    description: A short code indicating the error code returned.
+                    example: bad_request
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#bad-request
+                required:
+                - code
+                - message
+            required:
+            - error
+    '409':
+      description: This response is sent when a request conflicts with the current state of the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Conflict
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - conflict
+                    description: A short code indicating the error code returned.
+                    example: conflict
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+  schemas:
+    DomainSchema:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the domain.
+        slug:
+          type: string
+          description: The domain name.
+          example: acme.com
+        verified:
+          default: false
+          description: Whether the domain is verified.
+          type: boolean
+        primary:
+          default: false
+          description: Whether the domain is the primary domain for the workspace.
+          type: boolean
+        archived:
+          default: false
+          type: boolean
+          description: Whether the domain is archived.
+        placeholder:
+          nullable: true
+          description: Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
+          example: https://dub.co/help/article/dub-links
+          type: string
+        expiredUrl:
+          nullable: true
+          description: The URL to redirect to when a link under this domain has expired.
+          example: https://acme.com/expired
+          type: string
+        notFoundUrl:
+          nullable: true
+          description: The URL to redirect to when a link under this domain doesn't exist.
+          example: https://acme.com/not-found
+          type: string
+        logo:
+          nullable: true
+          description: The logo of the domain.
+          type: string
+        assetLinks:
+          default: null
+          description: assetLinks.json configuration file (for deep link support on Android).
+          nullable: true
+          type: string
+        appleAppSiteAssociation:
+          default: null
+          description: apple-app-site-association configuration file (for deep link support on iOS).
+          nullable: true
+          type: string
+        createdAt:
+          description: The date the domain was created.
+          type: string
+        updatedAt:
+          description: The date the domain was last updated.
+          type: string
+        registeredDomain:
+          nullable: true
+          description: The registered domain record.
+          type: object
+          properties:
+            id:
+              type: string
+              description: The ID of the registered domain record.
+            autoRenewalDisabledAt:
+              nullable: true
+              description: The date the domain auto-renew is disabled.
+              type: string
+            createdAt:
+              description: The date the domain was created.
+              type: string
+            expiresAt:
+              description: The date the domain expires.
+              type: string
+            renewalFee:
+              type: number
+              description: The fee to renew the domain.
+          required:
+          - id
+          - autoRenewalDisabledAt
+          - createdAt
+          - expiresAt
+          - renewalFee
+          additionalProperties: false
+      required:
+      - id
+      - slug
+      - verified
+      - primary
+      - archived
+      - placeholder
+      - expiredUrl
+      - notFoundUrl
+      - logo
+      - assetLinks
+      - appleAppSiteAssociation
+      - createdAt
+      - updatedAt
+      - registeredDomain
+      additionalProperties: false
+  securitySchemes:
+    token:
+      type: http
+      description: Default authentication mechanism
+      scheme: bearer
+      x-speakeasy-example: DUB_API_KEY
