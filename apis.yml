@@ -11,7 +11,20 @@ description: >-
   and Framer. The platform offers native SDKs in TypeScript, Python, Go, Ruby,
   and PHP, along with mobile SDKs for iOS and React Native.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dub.png
 tags:
   - Link Management
   - URL Shortener
@@ -24,83 +37,330 @@ created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.19'
 apis:
-  - aid: dub:links
-    name: Dub Links API
-    description: >-
-      Create, retrieve, update, and delete short links with support for custom
-      domains, UTM parameters, deep links, link cloaking, expiration, password
-      protection, and device/geo targeting.
-    humanURL: https://dub.co/docs/api-reference/introduction
-    baseURL: https://api.dub.co
-    tags:
-      - Links
-      - URL Shortener
-      - Short Links
-    properties:
-      - type: Documentation
-        url: https://dub.co/docs/api-reference/introduction
-      - type: OpenAPI
-        url: openapi/dub-openapi.yml
-      - type: JSONSchema
-        url: json-schema/dub-link-schema.json
-      - type: Examples
-        url: examples/dub-create-link-example.json
-      - type: Examples
-        url: examples/dub-link-response-example.json
-  - aid: dub:analytics
-    name: Dub Analytics API
-    description: >-
-      Retrieve analytics and event data for links and workspaces including
-      click counts, conversion events (leads and sales), geographic breakdowns,
-      device information, and referrer tracking.
-    humanURL: https://dub.co/docs/api-reference/introduction
-    baseURL: https://api.dub.co
-    tags:
-      - Analytics
-      - Events
-      - Conversion Tracking
-    properties:
-      - type: Documentation
-        url: https://dub.co/docs/api-reference/introduction
-      - type: JSONSchema
-        url: json-schema/dub-analyticscount-schema.json
-      - type: JSONSchema
-        url: json-schema/dub-analyticstimeseries-schema.json
-      - type: Examples
-        url: examples/dub-analytics-response-example.json
-  - aid: dub:partners
-    name: Dub Partners API
-    description: >-
-      Create and manage affiliate partners, partner groups, and partner tags.
-      Supports payout management and advanced reward structures including
-      geo-specific, product-specific, and performance-based rewards.
-    humanURL: https://dub.co/docs/api-reference/introduction
-    baseURL: https://api.dub.co
-    tags:
-      - Partners
-      - Affiliates
-      - Payouts
-    properties:
-      - type: Documentation
-        url: https://dub.co/docs/api-reference/introduction
-      - type: Examples
-        url: examples/dub-track-sale-example.json
-  - aid: dub:domains
-    name: Dub Domains API
-    description: >-
-      List and manage custom domains associated with a Dub workspace, including
-      SSL certificate provisioning and free .link domain support.
-    humanURL: https://dub.co/docs/api-reference/introduction
-    baseURL: https://api.dub.co
-    tags:
-      - Domains
-      - Custom Domains
-    properties:
-      - type: Documentation
-        url: https://dub.co/docs/api-reference/introduction
-      - type: JSONSchema
-        url: json-schema/dub-domain-schema.json
+- aid: dub:analytics
+  name: Dub Analytics API
+  description: >-
+    Retrieve analytics and event data for links and workspaces including click counts, conversion events
+    (leads and sales), geographic breakdowns, device information, and referrer tracking.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Analytics
+  - Events
+  - Conversion Tracking
+  properties:
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-analyticscount-schema.json
+  - type: JSONSchema
+    url: json-schema/dub-analyticstimeseries-schema.json
+  - type: Examples
+    url: examples/dub-analytics-response-example.json
+- aid: dub:partners
+  name: Dub Partners API
+  description: >-
+    Create and manage affiliate partners, partner groups, and partner tags. Supports payout management
+    and advanced reward structures including geo-specific, product-specific, and performance-based rewards.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Partners
+  - Affiliates
+  - Payouts
+  properties:
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: Examples
+    url: examples/dub-track-sale-example.json
+- aid: dub:domains
+  name: Dub Domains API
+  description: >-
+    List and manage custom domains associated with a Dub workspace, including SSL certificate provisioning
+    and free .link domain support.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Domains
+  - Custom Domains
+  properties:
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-domain-schema.json
+- aid: dub:dub-analytics-api
+  name: Dub Analytics API
+  description: The Analytics API from Dub — 1 operation(s) for analytics.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-bounties-api
+  name: Dub Bounties API
+  description: The Bounties API from Dub — 3 operation(s) for bounties.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Bounties
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-bounties-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-commissions-api
+  name: Dub Commissions API
+  description: The Commissions API from Dub — 3 operation(s) for commissions.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Commissions
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-commissions-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-customers-api
+  name: Dub Customers API
+  description: The Customers API from Dub — 2 operation(s) for customers.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-customers-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-domains-api
+  name: Dub Domains API
+  description: The Domains API from Dub — 4 operation(s) for domains.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-domains-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-embed-tokens-api
+  name: Dub Embed Tokens API
+  description: The Embed Tokens API from Dub — 1 operation(s) for embed tokens.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Embed Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-embed-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-events-api
+  name: Dub Events API
+  description: The Events API from Dub — 1 operation(s) for events.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-events-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-folders-api
+  name: Dub Folders API
+  description: The Folders API from Dub — 2 operation(s) for folders.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Folders
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-folders-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-links-api
+  name: Dub Links API
+  description: The Links API from Dub — 6 operation(s) for links.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Links
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-links-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-partner-applications-api
+  name: Dub Partner Applications API
+  description: The Partner Applications API from Dub — 3 operation(s) for partner applications.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Partner Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-partner-applications-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-partners-api
+  name: Dub Partners API
+  description: The Partners API from Dub — 6 operation(s) for partners.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-partners-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-payouts-api
+  name: Dub Payouts API
+  description: The Payouts API from Dub — 1 operation(s) for payouts.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Payouts
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-payouts-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-qr-codes-api
+  name: Dub QR Codes API
+  description: The QR Codes API from Dub — 1 operation(s) for qr codes.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - QR Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-qr-codes-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-tags-api
+  name: Dub Tags API
+  description: The Tags API from Dub — 2 operation(s) for tags.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-tags-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-track-api
+  name: Dub Track API
+  description: The Track API from Dub — 3 operation(s) for track.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Track
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-track-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/dub/overview
   - type: AgenticAccess
     url: agentic-access/dub-agentic-access.yml
   - type: TrustCenter
