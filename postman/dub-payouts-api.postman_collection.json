@@ -1,0 +1,952 @@
+{
+  "info": {
+    "_postman_id": "25e85e29-f241-4591-906b-be9f8c121557",
+    "name": "Dub Analytics Payouts API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:57.000Z",
+    "updatedAt": "2026-07-28T01:32:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-25e85e29-f241-4591-906b-be9f8c121557"
+  },
+  "item": [
+    {
+      "name": "payouts",
+      "item": [
+        {
+          "name": "List all payouts",
+          "id": "7c44e215-95c1-48e7-b278-328d23203c85",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payouts"
+              ],
+              "query": [
+                {
+                  "description": "Filter the list of payouts by their corresponding status.",
+                  "key": "status",
+                  "value": "failed"
+                },
+                {
+                  "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                  "key": "partnerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                  "key": "tenantId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                  "key": "invoiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The field to sort the list of payouts by.",
+                  "key": "sortBy",
+                  "value": "amount"
+                },
+                {
+                  "description": "The sort order for the list of payouts.",
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "description": "The page number for pagination.",
+                  "key": "page",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The number of items per page.",
+                  "key": "pageSize",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of payouts for your partner program."
+          },
+          "response": [
+            {
+              "id": "6f5e3a59-1b1d-4880-b9c4-11238e0dded9",
+              "name": "The list of payouts.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"failed\",\n    \"periodStart\": \"<string>\",\n    \"periodEnd\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"initiatedAt\": \"<string>\",\n    \"paidAt\": \"<string>\",\n    \"mode\": \"internal\",\n    \"method\": \"paypal\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"defaultPayoutMethod\": \"connect\",\n      \"payoutsEnabledAt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"groupId\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"failureReason\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"user\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"sent\",\n    \"periodStart\": \"<string>\",\n    \"periodEnd\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"initiatedAt\": \"<string>\",\n    \"paidAt\": \"<string>\",\n    \"mode\": \"internal\",\n    \"method\": \"paypal\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"defaultPayoutMethod\": \"stablecoin\",\n      \"payoutsEnabledAt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"groupId\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"failureReason\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"user\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-6f5e3a59-1b1d-4880-b9c4-11238e0dded9"
+            },
+            {
+              "id": "7ddbc173-cfbb-4d15-8a3f-29ef87827fc2",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-7ddbc173-cfbb-4d15-8a3f-29ef87827fc2"
+            },
+            {
+              "id": "8e3b4242-0332-40f8-9c24-92a97ecd7f57",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-8e3b4242-0332-40f8-9c24-92a97ecd7f57"
+            },
+            {
+              "id": "a79e01a3-14ef-4b30-b622-6a0e2a33f52b",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-a79e01a3-14ef-4b30-b622-6a0e2a33f52b"
+            },
+            {
+              "id": "4ccad11d-a46b-47bc-81eb-6b502bbc124f",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-4ccad11d-a46b-47bc-81eb-6b502bbc124f"
+            },
+            {
+              "id": "a4159a78-88ea-4735-bf8f-e94d47f0c0fb",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-a4159a78-88ea-4735-bf8f-e94d47f0c0fb"
+            },
+            {
+              "id": "06e489cd-1c7b-4328-8024-25f9e8c60190",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-06e489cd-1c7b-4328-8024-25f9e8c60190"
+            },
+            {
+              "id": "1c9358b1-3cf3-4000-8d74-787c7e6e9174",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-1c9358b1-3cf3-4000-8d74-787c7e6e9174"
+            },
+            {
+              "id": "97f275e7-bdb4-459d-8f81-c16363452acd",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-97f275e7-bdb4-459d-8f81-c16363452acd"
+            },
+            {
+              "id": "35496681-a7cf-42aa-943b-9bb28b089144",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payouts?status=failed&partnerId=<string>&tenantId=<string>&invoiceId=<string>&sortBy=amount&sortOrder=desc&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payouts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of payouts by their corresponding status.",
+                      "key": "status",
+                      "value": "failed"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field to sort the list of payouts by.",
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "description": "The sort order for the list of payouts.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:57.000Z",
+              "updatedAt": "2026-07-28T01:32:57.000Z",
+              "uid": "35240-35496681-a7cf-42aa-943b-9bb28b089144"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:57.000Z",
+          "updatedAt": "2026-07-28T01:32:57.000Z",
+          "uid": "35240-7c44e215-95c1-48e7-b278-328d23203c85"
+        }
+      ],
+      "id": "e44a3396-8f99-436d-a37e-8317c4a826a7",
+      "createdAt": "2026-07-28T01:32:57.000Z",
+      "updatedAt": "2026-07-28T01:32:57.000Z",
+      "uid": "35240-e44a3396-8f99-436d-a37e-8317c4a826a7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

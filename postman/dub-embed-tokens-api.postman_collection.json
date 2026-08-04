@@ -1,0 +1,684 @@
+{
+  "info": {
+    "_postman_id": "70d117eb-0696-4009-bfa2-fde4bd500342",
+    "name": "Dub Analytics Embed Tokens API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:49.000Z",
+    "updatedAt": "2026-07-28T01:32:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70d117eb-0696-4009-bfa2-fde4bd500342"
+  },
+  "item": [
+    {
+      "name": "tokens",
+      "item": [
+        {
+          "name": "embed",
+          "item": [
+            {
+              "name": "referrals",
+              "item": [
+                {
+                  "name": "Create a referrals embed token",
+                  "id": "15a1d775-a541-4da1-9f28-2ac132ec0417",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tokens/embed/referrals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tokens",
+                        "embed",
+                        "referrals"
+                      ]
+                    },
+                    "description": "Create a referrals embed token for the given partner/tenant. The endpoint first attempts to locate an existing enrollment using the provided tenantId. If no enrollment is found, it resolves the partner by email and creates a new enrollment as needed. This results in an upsert-style flow that guarantees a valid enrollment and returns a usable embed token."
+                  },
+                  "response": [
+                    {
+                      "id": "6c53c79b-e8e8-4455-a770-3a75923fd91c",
+                      "name": "The created public embed token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"publicToken\": \"<string>\",\n  \"expires\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-6c53c79b-e8e8-4455-a770-3a75923fd91c"
+                    },
+                    {
+                      "id": "a7a3e3d1-66c9-4e63-a72a-b1ec5e762b73",
+                      "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-a7a3e3d1-66c9-4e63-a72a-b1ec5e762b73"
+                    },
+                    {
+                      "id": "91a24882-3349-4b8a-9e41-86a04effcd5f",
+                      "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-91a24882-3349-4b8a-9e41-86a04effcd5f"
+                    },
+                    {
+                      "id": "dde961fb-b4a0-4a8c-9a59-69116a30587f",
+                      "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-dde961fb-b4a0-4a8c-9a59-69116a30587f"
+                    },
+                    {
+                      "id": "b870ef9a-c56b-472b-a152-9c59e705f9c9",
+                      "name": "The server cannot find the requested resource.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-b870ef9a-c56b-472b-a152-9c59e705f9c9"
+                    },
+                    {
+                      "id": "fd46d58d-2347-4f99-9391-ed6fabff135d",
+                      "name": "This response is sent when a request conflicts with the current state of the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-fd46d58d-2347-4f99-9391-ed6fabff135d"
+                    },
+                    {
+                      "id": "982fa033-2a95-4007-9995-1d01a9cf60ee",
+                      "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Gone",
+                      "code": 410,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-982fa033-2a95-4007-9995-1d01a9cf60ee"
+                    },
+                    {
+                      "id": "bd85f85a-8e67-49ed-b797-57b78467caa7",
+                      "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-bd85f85a-8e67-49ed-b797-57b78467caa7"
+                    },
+                    {
+                      "id": "2e646175-791b-44fc-9343-217db04d6357",
+                      "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-2e646175-791b-44fc-9343-217db04d6357"
+                    },
+                    {
+                      "id": "bd6d4b1a-1cdc-4d84-bbc1-01c7611e5f22",
+                      "name": "The server has encountered a situation it does not know how to handle.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"lx@0-JvsA.T.1UoIc4SKnCZ.QZng.1lv0txiwNaa.xD74oYwMi.yqTHW.s2azJJkRd.hfQRty\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tokens/embed/referrals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tokens",
+                            "embed",
+                            "referrals"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:50.000Z",
+                      "updatedAt": "2026-07-28T01:32:50.000Z",
+                      "uid": "35240-bd6d4b1a-1cdc-4d84-bbc1-01c7611e5f22"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:50.000Z",
+                  "updatedAt": "2026-07-28T01:32:50.000Z",
+                  "uid": "35240-15a1d775-a541-4da1-9f28-2ac132ec0417"
+                }
+              ],
+              "id": "fb52b20b-b4e9-4615-96fb-94a220d29c99",
+              "createdAt": "2026-07-28T01:32:50.000Z",
+              "updatedAt": "2026-07-28T01:32:50.000Z",
+              "uid": "35240-fb52b20b-b4e9-4615-96fb-94a220d29c99"
+            }
+          ],
+          "id": "5887b375-bbea-4388-91e0-dbb70ae3ca34",
+          "createdAt": "2026-07-28T01:32:50.000Z",
+          "updatedAt": "2026-07-28T01:32:50.000Z",
+          "uid": "35240-5887b375-bbea-4388-91e0-dbb70ae3ca34"
+        }
+      ],
+      "id": "590a4d4d-d6c5-4545-8e7c-285053c9f700",
+      "createdAt": "2026-07-28T01:32:50.000Z",
+      "updatedAt": "2026-07-28T01:32:50.000Z",
+      "uid": "35240-590a4d4d-d6c5-4545-8e7c-285053c9f700"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

@@ -1,0 +1,3763 @@
+{
+  "info": {
+    "_postman_id": "386e5fa8-d179-40a4-ad7a-79d224c0bda8",
+    "name": "Dub Analytics Domains API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:48.000Z",
+    "updatedAt": "2026-07-28T01:32:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-386e5fa8-d179-40a4-ad7a-79d224c0bda8"
+  },
+  "item": [
+    {
+      "name": "domains",
+      "item": [
+        {
+          "name": "{slug}",
+          "item": [
+            {
+              "name": "Update a domain",
+              "id": "002885a3-fc40-4a77-9669-a1ee3c0ff980",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains/:slug",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    ":slug"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f9519024-3b21-434c-abf6-bfe7b478ecb1",
+                      "key": "slug",
+                      "value": "<string>",
+                      "description": "(Required) The domain name."
+                    }
+                  ]
+                },
+                "description": "Update a domain for the authenticated workspace."
+              },
+              "response": [
+                {
+                  "id": "e9a209ed-09ac-4989-a8fd-2c841b33269a",
+                  "name": "The domain was updated.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"verified\": false,\n  \"primary\": false,\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"assetLinks\": null,\n  \"appleAppSiteAssociation\": null,\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"registeredDomain\": {\n    \"id\": \"<string>\",\n    \"autoRenewalDisabledAt\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"expiresAt\": \"<string>\",\n    \"renewalFee\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-e9a209ed-09ac-4989-a8fd-2c841b33269a"
+                },
+                {
+                  "id": "83b1ea5d-6ccf-4661-bd9c-5f225bbb260a",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-83b1ea5d-6ccf-4661-bd9c-5f225bbb260a"
+                },
+                {
+                  "id": "69c97455-5e62-4ccc-a41a-d35359cec175",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-69c97455-5e62-4ccc-a41a-d35359cec175"
+                },
+                {
+                  "id": "ea14445a-b7ba-4dbd-8d59-a1dddbc1c070",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-ea14445a-b7ba-4dbd-8d59-a1dddbc1c070"
+                },
+                {
+                  "id": "50f25359-40d1-4e20-be2e-f8d53eda28e1",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-50f25359-40d1-4e20-be2e-f8d53eda28e1"
+                },
+                {
+                  "id": "144d24cb-73cd-43ed-820e-4fcab2404092",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-144d24cb-73cd-43ed-820e-4fcab2404092"
+                },
+                {
+                  "id": "df7dfd81-035a-4153-bfdc-ca95e5de688a",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-df7dfd81-035a-4153-bfdc-ca95e5de688a"
+                },
+                {
+                  "id": "9ce3910b-fccf-483b-a557-0a379626bce7",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-9ce3910b-fccf-483b-a557-0a379626bce7"
+                },
+                {
+                  "id": "84745d54-18f6-4772-bb0b-ce49f90b3614",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-84745d54-18f6-4772-bb0b-ce49f90b3614"
+                },
+                {
+                  "id": "a7b6478e-4cdf-49c6-a2f3-49a60c468851",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/gif;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-a7b6478e-4cdf-49c6-a2f3-49a60c468851"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-002885a3-fc40-4a77-9669-a1ee3c0ff980"
+            },
+            {
+              "name": "Delete a domain",
+              "id": "43386b8f-bf8d-4ced-a595-3d6c0aa8a41f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains/:slug",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    ":slug"
+                  ],
+                  "variable": [
+                    {
+                      "id": "098c998b-5a7f-4243-92b2-26cbb3c02571",
+                      "key": "slug",
+                      "value": "<string>",
+                      "description": "(Required) The domain name."
+                    }
+                  ]
+                },
+                "description": "Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain."
+              },
+              "response": [
+                {
+                  "id": "13eaf0af-6bd7-49cd-a588-bf5c32a2c7f6",
+                  "name": "The domain was deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"slug\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-13eaf0af-6bd7-49cd-a588-bf5c32a2c7f6"
+                },
+                {
+                  "id": "e014e7f0-585d-4f84-a77c-ce31f45ac1c2",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-e014e7f0-585d-4f84-a77c-ce31f45ac1c2"
+                },
+                {
+                  "id": "9e490441-3261-4ddb-9b77-1a0629a037c6",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-9e490441-3261-4ddb-9b77-1a0629a037c6"
+                },
+                {
+                  "id": "634f059f-f0e8-4bdb-94a7-bc9a23fdc0b6",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-634f059f-f0e8-4bdb-94a7-bc9a23fdc0b6"
+                },
+                {
+                  "id": "7365f7e8-c75e-4ad5-bb3b-2bb170594b5f",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-7365f7e8-c75e-4ad5-bb3b-2bb170594b5f"
+                },
+                {
+                  "id": "bb299da6-0cf1-4c52-a02e-414057b51e80",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-bb299da6-0cf1-4c52-a02e-414057b51e80"
+                },
+                {
+                  "id": "a1a9f49e-5bbe-49fa-bf97-9449b920530a",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-a1a9f49e-5bbe-49fa-bf97-9449b920530a"
+                },
+                {
+                  "id": "d80c62c0-f15c-426b-808e-72606b4cdada",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-d80c62c0-f15c-426b-808e-72606b4cdada"
+                },
+                {
+                  "id": "af2d345d-5509-45be-b740-6e65acc2070f",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-af2d345d-5509-45be-b740-6e65acc2070f"
+                },
+                {
+                  "id": "eca39ce9-44d0-4699-9848-75141f8de90e",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "key": "slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-eca39ce9-44d0-4699-9848-75141f8de90e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-43386b8f-bf8d-4ced-a595-3d6c0aa8a41f"
+            }
+          ],
+          "id": "925c0113-9923-4ba8-8999-95f741720615",
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-925c0113-9923-4ba8-8999-95f741720615"
+        },
+        {
+          "name": "register",
+          "item": [
+            {
+              "name": "Register a domain",
+              "id": "1aa03443-f43c-470f-ab2a-422e22754436",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    "register"
+                  ]
+                },
+                "description": "Register a domain for the authenticated workspace. Only available for Enterprise Plans."
+              },
+              "response": [
+                {
+                  "id": "452b753d-9a7d-4089-9244-cdc21a8ba7ec",
+                  "name": "The domain was registered.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"domain\": \"<string>\",\n  \"status\": \"<string>\",\n  \"expiration\": \"<number>\"\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-452b753d-9a7d-4089-9244-cdc21a8ba7ec"
+                },
+                {
+                  "id": "2dcbd3d5-d958-4f37-b615-ba88c726f210",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-2dcbd3d5-d958-4f37-b615-ba88c726f210"
+                },
+                {
+                  "id": "ce69cb58-a3db-4a6a-9a17-324bc2144c91",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-ce69cb58-a3db-4a6a-9a17-324bc2144c91"
+                },
+                {
+                  "id": "a6e10b88-8b83-46e9-8a8a-8f48ae0e862f",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-a6e10b88-8b83-46e9-8a8a-8f48ae0e862f"
+                },
+                {
+                  "id": "62e57bc2-71b3-421e-ba72-9c89396ba1f8",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-62e57bc2-71b3-421e-ba72-9c89396ba1f8"
+                },
+                {
+                  "id": "fd55528a-65ee-4ab4-8ab4-88c825e69f4b",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-fd55528a-65ee-4ab4-8ab4-88c825e69f4b"
+                },
+                {
+                  "id": "6bf62651-6ea0-4ba3-a398-c6fee98ba171",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-6bf62651-6ea0-4ba3-a398-c6fee98ba171"
+                },
+                {
+                  "id": "24dd041e-9356-4eaa-ae58-f83d6787568e",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-24dd041e-9356-4eaa-ae58-f83d6787568e"
+                },
+                {
+                  "id": "b288ad43-dd5b-49a1-a90c-16e4c2d71785",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-b288ad43-dd5b-49a1-a90c-16e4c2d71785"
+                },
+                {
+                  "id": "8b447100-7083-45d9-8148-fde8d3040e0b",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domain\": \"_x^<1.1h.i.link\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-8b447100-7083-45d9-8148-fde8d3040e0b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-1aa03443-f43c-470f-ab2a-422e22754436"
+            }
+          ],
+          "id": "b547315f-dd48-4c35-b1d4-11cfe8c80226",
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-b547315f-dd48-4c35-b1d4-11cfe8c80226"
+        },
+        {
+          "name": "status",
+          "item": [
+            {
+              "name": "Check the availability of one or more domains",
+              "id": "ef7610ea-67a2-4322-88d4-f8410e4287cf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    "status"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The domains to search. We only support .link domains for now.",
+                      "key": "domains",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Check if a domain name is available for purchase. You can check multiple domains at once."
+              },
+              "response": [
+                {
+                  "id": "1444ae52-72f1-49a0-b5ce-86c52b9bc501",
+                  "name": "The domain status was retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"domain\": \"<string>\",\n    \"available\": \"<boolean>\",\n    \"price\": \"<string>\",\n    \"premium\": \"<boolean>\"\n  },\n  {\n    \"domain\": \"<string>\",\n    \"available\": \"<boolean>\",\n    \"price\": \"<string>\",\n    \"premium\": \"<boolean>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-1444ae52-72f1-49a0-b5ce-86c52b9bc501"
+                },
+                {
+                  "id": "b9636b46-3a42-47f3-b24a-8777435a6b1b",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-b9636b46-3a42-47f3-b24a-8777435a6b1b"
+                },
+                {
+                  "id": "a79e0f5e-19ce-4899-b65c-3e39f89df312",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-a79e0f5e-19ce-4899-b65c-3e39f89df312"
+                },
+                {
+                  "id": "ab8fefbc-fc44-4b95-bfc4-fe10aca9eda6",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-ab8fefbc-fc44-4b95-bfc4-fe10aca9eda6"
+                },
+                {
+                  "id": "0184af1b-686c-493e-b1f1-d7f1a830c5b3",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-0184af1b-686c-493e-b1f1-d7f1a830c5b3"
+                },
+                {
+                  "id": "50280461-9e19-4898-9b5b-9021c2464da2",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-50280461-9e19-4898-9b5b-9021c2464da2"
+                },
+                {
+                  "id": "a284baae-3b73-4b90-91b8-0deef6056d2e",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-a284baae-3b73-4b90-91b8-0deef6056d2e"
+                },
+                {
+                  "id": "34531d68-eb6e-4eca-8535-47ac98f0abd3",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-34531d68-eb6e-4eca-8535-47ac98f0abd3"
+                },
+                {
+                  "id": "2e9a9b4f-66c4-45a6-8b2a-d6583b80a4c2",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-2e9a9b4f-66c4-45a6-8b2a-d6583b80a4c2"
+                },
+                {
+                  "id": "81ad3e75-949a-4c22-9275-b8855f6ae087",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/status?domains=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The domains to search. We only support .link domains for now.",
+                          "key": "domains",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-81ad3e75-949a-4c22-9275-b8855f6ae087"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-ef7610ea-67a2-4322-88d4-f8410e4287cf"
+            }
+          ],
+          "id": "bdddba5e-4a47-4b97-a271-b697c0b11e7f",
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-bdddba5e-4a47-4b97-a271-b697c0b11e7f"
+        },
+        {
+          "name": "Create a domain",
+          "id": "a24e9fbd-c8b4-413b-b797-b524cbe3e1d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/domains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domains"
+              ]
+            },
+            "description": "Create a domain for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "1131157a-d5da-4971-8cb7-312147e40d0d",
+              "name": "The domain was created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"verified\": false,\n  \"primary\": false,\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"logo\": \"<string>\",\n  \"assetLinks\": null,\n  \"appleAppSiteAssociation\": null,\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"registeredDomain\": {\n    \"id\": \"<string>\",\n    \"autoRenewalDisabledAt\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"expiresAt\": \"<string>\",\n    \"renewalFee\": \"<number>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-1131157a-d5da-4971-8cb7-312147e40d0d"
+            },
+            {
+              "id": "ba1dadca-dc19-4bb0-965b-6125406477da",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-ba1dadca-dc19-4bb0-965b-6125406477da"
+            },
+            {
+              "id": "df507613-a28d-41e2-92e2-bf7a5df87974",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-df507613-a28d-41e2-92e2-bf7a5df87974"
+            },
+            {
+              "id": "d1266e94-f8eb-426f-8233-c521d837d000",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-d1266e94-f8eb-426f-8233-c521d837d000"
+            },
+            {
+              "id": "2c9ee3f2-e87d-4db5-8c97-b70230246da1",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-2c9ee3f2-e87d-4db5-8c97-b70230246da1"
+            },
+            {
+              "id": "cb62ff23-62a2-4bba-a6d1-de450596b123",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-cb62ff23-62a2-4bba-a6d1-de450596b123"
+            },
+            {
+              "id": "6c9ac131-8122-4741-9e9b-dd8d7b799789",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-6c9ac131-8122-4741-9e9b-dd8d7b799789"
+            },
+            {
+              "id": "1db01a50-0531-4318-9b81-e296a4846a2b",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-1db01a50-0531-4318-9b81-e296a4846a2b"
+            },
+            {
+              "id": "1ce4a32f-4652-4944-b401-b21682d7a321",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-1ce4a32f-4652-4944-b401-b21682d7a321"
+            },
+            {
+              "id": "6708e66c-11dd-4ce6-b016-75eaa555dec7",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"expiredUrl\": \"<string>\",\n  \"notFoundUrl\": \"<string>\",\n  \"archived\": false,\n  \"placeholder\": \"<string>\",\n  \"logo\": \"data:image/jpg;base64,\",\n  \"assetLinks\": \"<string>\",\n  \"appleAppSiteAssociation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-6708e66c-11dd-4ce6-b016-75eaa555dec7"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-a24e9fbd-c8b4-413b-b797-b524cbe3e1d9"
+        },
+        {
+          "name": "List all domains",
+          "id": "3b001965-03f9-4967-8f2f-4db5eed518db",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domains"
+              ],
+              "query": [
+                {
+                  "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                  "key": "archived",
+                  "value": "false"
+                },
+                {
+                  "description": "The search term to filter the domains by.",
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The page number for pagination.",
+                  "key": "page",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The number of items per page.",
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of domains for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "5ee4d454-bde5-4f38-8bbc-bf4cd8241e53",
+              "name": "The domains were retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"verified\": false,\n    \"primary\": false,\n    \"archived\": false,\n    \"placeholder\": \"<string>\",\n    \"expiredUrl\": \"<string>\",\n    \"notFoundUrl\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"assetLinks\": null,\n    \"appleAppSiteAssociation\": null,\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"registeredDomain\": {\n      \"id\": \"<string>\",\n      \"autoRenewalDisabledAt\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"renewalFee\": \"<number>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"verified\": false,\n    \"primary\": false,\n    \"archived\": false,\n    \"placeholder\": \"<string>\",\n    \"expiredUrl\": \"<string>\",\n    \"notFoundUrl\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"assetLinks\": null,\n    \"appleAppSiteAssociation\": null,\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"registeredDomain\": {\n      \"id\": \"<string>\",\n      \"autoRenewalDisabledAt\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"renewalFee\": \"<number>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-5ee4d454-bde5-4f38-8bbc-bf4cd8241e53"
+            },
+            {
+              "id": "b85dd5d6-7016-4fc7-91cf-16ccc47fa6c9",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-b85dd5d6-7016-4fc7-91cf-16ccc47fa6c9"
+            },
+            {
+              "id": "6ec39f45-f4b4-4370-82e9-9e9c2455e724",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-6ec39f45-f4b4-4370-82e9-9e9c2455e724"
+            },
+            {
+              "id": "43de1f6b-842e-4de4-b5d3-a3909dda4ceb",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-43de1f6b-842e-4de4-b5d3-a3909dda4ceb"
+            },
+            {
+              "id": "5b54f47d-110b-44c9-b6b6-49625f41fdb2",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-5b54f47d-110b-44c9-b6b6-49625f41fdb2"
+            },
+            {
+              "id": "1e12b1c1-d971-4cf1-bb34-8ba5b1a1103c",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-1e12b1c1-d971-4cf1-bb34-8ba5b1a1103c"
+            },
+            {
+              "id": "a518c1ce-ed25-4c60-897c-2de8240cb5b3",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-a518c1ce-ed25-4c60-897c-2de8240cb5b3"
+            },
+            {
+              "id": "a06c8c67-419a-4647-a368-518af2b9330f",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-a06c8c67-419a-4647-a368-518af2b9330f"
+            },
+            {
+              "id": "d918f55f-f2e0-4c78-9ecc-76a041ebe9cc",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-d918f55f-f2e0-4c78-9ecc-76a041ebe9cc"
+            },
+            {
+              "id": "17129ccf-9886-4ba6-bc06-171610f2216b",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains?archived=false&search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include archived domains in the response. Defaults to `false` if not provided.",
+                      "key": "archived",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The search term to filter the domains by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-17129ccf-9886-4ba6-bc06-171610f2216b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-3b001965-03f9-4967-8f2f-4db5eed518db"
+        }
+      ],
+      "id": "0183d97f-2968-4714-a64a-548d4717ada7",
+      "createdAt": "2026-07-28T01:32:49.000Z",
+      "updatedAt": "2026-07-28T01:32:49.000Z",
+      "uid": "35240-0183d97f-2968-4714-a64a-548d4717ada7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

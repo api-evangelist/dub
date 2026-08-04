@@ -1,0 +1,2515 @@
+{
+  "info": {
+    "_postman_id": "ed4ff0ea-b495-489b-95d3-40023e9cddd5",
+    "name": "Dub Analytics Folders API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:52.000Z",
+    "updatedAt": "2026-07-28T01:32:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed4ff0ea-b495-489b-95d3-40023e9cddd5"
+  },
+  "item": [
+    {
+      "name": "folders",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Update a folder",
+              "id": "f8aa9466-467e-457a-8ef8-3523cc5c396a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3a2fdcc1-5056-4a83-a812-d033fa1c5b96",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the folder to update."
+                    }
+                  ]
+                },
+                "description": "Update a folder in the workspace."
+              },
+              "response": [
+                {
+                  "id": "7c5fdbfa-ebf9-4a1c-afee-8d0dfcae03e6",
+                  "name": "The updated folder.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"mega\",\n  \"accessLevel\": null,\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-7c5fdbfa-ebf9-4a1c-afee-8d0dfcae03e6"
+                },
+                {
+                  "id": "31ebc953-b6e7-4cc7-bd71-a6d76b0f1777",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-31ebc953-b6e7-4cc7-bd71-a6d76b0f1777"
+                },
+                {
+                  "id": "81059e22-c3b3-48af-85b0-ed9f73f909cc",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-81059e22-c3b3-48af-85b0-ed9f73f909cc"
+                },
+                {
+                  "id": "2576244e-dd28-4b04-9c4d-4a8cd5aa951d",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-2576244e-dd28-4b04-9c4d-4a8cd5aa951d"
+                },
+                {
+                  "id": "1302b8f5-efef-4db1-8193-161e84b19f3d",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-1302b8f5-efef-4db1-8193-161e84b19f3d"
+                },
+                {
+                  "id": "167714c6-198b-4eb3-b723-e36fde2cc840",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-167714c6-198b-4eb3-b723-e36fde2cc840"
+                },
+                {
+                  "id": "29770900-fab7-44f0-8191-10c72426e698",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-29770900-fab7-44f0-8191-10c72426e698"
+                },
+                {
+                  "id": "8ce831a9-441b-4eec-a82e-be39cbb038ea",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-8ce831a9-441b-4eec-a82e-be39cbb038ea"
+                },
+                {
+                  "id": "92f78d6e-3262-46b4-923b-a6833a525a15",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-92f78d6e-3262-46b4-923b-a6833a525a15"
+                },
+                {
+                  "id": "c1ea8801-8f25-4d45-9400-2408f0313da8",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": \"read\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-c1ea8801-8f25-4d45-9400-2408f0313da8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-f8aa9466-467e-457a-8ef8-3523cc5c396a"
+            },
+            {
+              "name": "Delete a folder",
+              "id": "033de0e6-2d86-4121-afa4-9eabb67e7b6d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d80da297-c490-46dc-b7ad-4952dacaf5db",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the folder to delete."
+                    }
+                  ]
+                },
+                "description": "Delete a folder from the workspace. All existing links will still work, but they will no longer be associated with this folder."
+              },
+              "response": [
+                {
+                  "id": "5b9e115c-4ab2-4dc9-bc14-6e4f68707216",
+                  "name": "The deleted folder ID.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-5b9e115c-4ab2-4dc9-bc14-6e4f68707216"
+                },
+                {
+                  "id": "cac95e50-1b59-45e7-86f7-c4ee2b636392",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-cac95e50-1b59-45e7-86f7-c4ee2b636392"
+                },
+                {
+                  "id": "bb788e85-1235-4b08-b259-d7fcf76d44e6",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-bb788e85-1235-4b08-b259-d7fcf76d44e6"
+                },
+                {
+                  "id": "573e3a21-7ee0-4854-bb06-ed1716afcba2",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-573e3a21-7ee0-4854-bb06-ed1716afcba2"
+                },
+                {
+                  "id": "4630252d-e994-4405-a575-067dad127ef1",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-4630252d-e994-4405-a575-067dad127ef1"
+                },
+                {
+                  "id": "d9ba2dcd-4811-4f4c-b25c-d00e177597c6",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-d9ba2dcd-4811-4f4c-b25c-d00e177597c6"
+                },
+                {
+                  "id": "1293109d-6a80-4dce-82e5-6b7b3ac2d111",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-1293109d-6a80-4dce-82e5-6b7b3ac2d111"
+                },
+                {
+                  "id": "127d62bd-e9cf-492f-8bd5-b980c4c1295d",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-127d62bd-e9cf-492f-8bd5-b980c4c1295d"
+                },
+                {
+                  "id": "719505dc-e4d4-4809-a31b-e5af66c3520d",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-719505dc-e4d4-4809-a31b-e5af66c3520d"
+                },
+                {
+                  "id": "38cb946b-b0ea-4e88-8af9-5dc987435b79",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/folders/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "folders",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-38cb946b-b0ea-4e88-8af9-5dc987435b79"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-033de0e6-2d86-4121-afa4-9eabb67e7b6d"
+            }
+          ],
+          "id": "42c2b347-0e98-41d8-a8c9-8a16a719299d",
+          "createdAt": "2026-07-28T01:32:52.000Z",
+          "updatedAt": "2026-07-28T01:32:52.000Z",
+          "uid": "35240-42c2b347-0e98-41d8-a8c9-8a16a719299d"
+        },
+        {
+          "name": "Create a folder",
+          "id": "8da1d041-7f7a-40c5-a77a-52a4af753ec7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/folders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "folders"
+              ]
+            },
+            "description": "Create a folder for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "0ab87a11-803a-4e04-a06f-7d2f50d4a88f",
+              "name": "The created folder",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"mega\",\n  \"accessLevel\": null,\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-0ab87a11-803a-4e04-a06f-7d2f50d4a88f"
+            },
+            {
+              "id": "2cc65b18-1c9b-4c98-b46e-34414f983f89",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-2cc65b18-1c9b-4c98-b46e-34414f983f89"
+            },
+            {
+              "id": "fee68817-f146-44a0-a84f-729c3ace245b",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-fee68817-f146-44a0-a84f-729c3ace245b"
+            },
+            {
+              "id": "4b0ab3d6-9ff2-4514-8bd3-5a6ac5b1a255",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-4b0ab3d6-9ff2-4514-8bd3-5a6ac5b1a255"
+            },
+            {
+              "id": "3dc242f9-09c7-47dd-976d-e8d10b3829be",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-3dc242f9-09c7-47dd-976d-e8d10b3829be"
+            },
+            {
+              "id": "6ab58436-b84b-4e75-9019-1e44c8faecab",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-6ab58436-b84b-4e75-9019-1e44c8faecab"
+            },
+            {
+              "id": "b5435478-2846-4e9d-b138-17fff5f3206c",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-b5435478-2846-4e9d-b138-17fff5f3206c"
+            },
+            {
+              "id": "174d687a-4648-4514-a43b-861b22fb5d9d",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-174d687a-4648-4514-a43b-861b22fb5d9d"
+            },
+            {
+              "id": "5aa9d341-eb77-4e14-9f8a-749c5f315291",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-5aa9d341-eb77-4e14-9f8a-749c5f315291"
+            },
+            {
+              "id": "87d0836f-f21f-428d-bc50-be821eae0440",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessLevel\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/folders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-87d0836f-f21f-428d-bc50-be821eae0440"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:52.000Z",
+          "updatedAt": "2026-07-28T01:32:52.000Z",
+          "uid": "35240-8da1d041-7f7a-40c5-a77a-52a4af753ec7"
+        },
+        {
+          "name": "List all folders",
+          "id": "016fd160-ff2f-45c2-863f-3a4434aadde8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "folders"
+              ],
+              "query": [
+                {
+                  "description": "The search term to filter the folders by.",
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The page number for pagination.",
+                  "key": "page",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The number of items per page.",
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of folders for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "e76c8fb8-fbc3-40d1-be76-c7f32a6fcbb8",
+              "name": "A list of folders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"type\": \"default\",\n    \"accessLevel\": null,\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"type\": \"mega\",\n    \"accessLevel\": null,\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-e76c8fb8-fbc3-40d1-be76-c7f32a6fcbb8"
+            },
+            {
+              "id": "63c84db4-73e8-4c80-9756-a694a9b903d6",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-63c84db4-73e8-4c80-9756-a694a9b903d6"
+            },
+            {
+              "id": "f531a373-f5e6-4e30-a262-a51a15952eda",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-f531a373-f5e6-4e30-a262-a51a15952eda"
+            },
+            {
+              "id": "16b0ab23-d35a-406d-8768-9bf8ba66ae5a",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-16b0ab23-d35a-406d-8768-9bf8ba66ae5a"
+            },
+            {
+              "id": "8064b149-b883-452d-b061-f05d2395a1eb",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-8064b149-b883-452d-b061-f05d2395a1eb"
+            },
+            {
+              "id": "536acb70-9d79-4516-87e6-b26743a7bf48",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-536acb70-9d79-4516-87e6-b26743a7bf48"
+            },
+            {
+              "id": "260693f8-c7c8-45b2-b954-2185bebbc143",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-260693f8-c7c8-45b2-b954-2185bebbc143"
+            },
+            {
+              "id": "5a3dddd0-88aa-4ee9-9194-42e2d855a57d",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-5a3dddd0-88aa-4ee9-9194-42e2d855a57d"
+            },
+            {
+              "id": "2a8c7429-7bd3-47ec-bad7-5a5d57c8d45d",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-2a8c7429-7bd3-47ec-bad7-5a5d57c8d45d"
+            },
+            {
+              "id": "b9237526-dd01-48de-a2f7-02a5e9a5a15f",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folders?search=<string>&page=<number>&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "description": "The search term to filter the folders by.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-b9237526-dd01-48de-a2f7-02a5e9a5a15f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:52.000Z",
+          "updatedAt": "2026-07-28T01:32:52.000Z",
+          "uid": "35240-016fd160-ff2f-45c2-863f-3a4434aadde8"
+        }
+      ],
+      "id": "d237e1c7-a4c9-4a1e-98d7-23190abd2794",
+      "createdAt": "2026-07-28T01:32:52.000Z",
+      "updatedAt": "2026-07-28T01:32:52.000Z",
+      "uid": "35240-d237e1c7-a4c9-4a1e-98d7-23190abd2794"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

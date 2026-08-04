@@ -1,0 +1,2528 @@
+{
+  "info": {
+    "_postman_id": "3baae76a-6a04-4485-b295-32b313dcd594",
+    "name": "Dub Analytics Bounties API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:44.000Z",
+    "updatedAt": "2026-07-28T01:32:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3baae76a-6a04-4485-b295-32b313dcd594"
+  },
+  "item": [
+    {
+      "name": "bounties",
+      "item": [
+        {
+          "name": "{bountyId}",
+          "item": [
+            {
+              "name": "submissions",
+              "item": [
+                {
+                  "name": "{submissionId}",
+                  "item": [
+                    {
+                      "name": "approve",
+                      "item": [
+                        {
+                          "name": "Approve a bounty submission",
+                          "id": "15ff33a0-0bde-40ba-85ec-3bd83f68fc39",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bounties",
+                                ":bountyId",
+                                "submissions",
+                                ":submissionId",
+                                "approve"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f0675d0b-4a47-402b-893a-a0959e7220d6",
+                                  "key": "bountyId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the bounty"
+                                },
+                                {
+                                  "id": "b96fad5c-ba13-4106-9297-1f24193a25e0",
+                                  "key": "submissionId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the bounty submission"
+                                }
+                              ]
+                            },
+                            "description": "Approve a bounty submission. Optionally specify a custom reward amount."
+                          },
+                          "response": [
+                            {
+                              "id": "88463a6b-ba2f-46b7-bd9c-7b2999d06021",
+                              "name": "The approved bounty submission.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"bountyId\": \"<string>\",\n  \"partnerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"urls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"files\": [\n    {\n      \"url\": \"<uri>\",\n      \"fileName\": \"<string>\",\n      \"size\": \"<number>\"\n    },\n    {\n      \"url\": \"<uri>\",\n      \"fileName\": \"<string>\",\n      \"size\": \"<number>\"\n    }\n  ],\n  \"status\": \"approved\",\n  \"performanceCount\": \"<number>\",\n  \"socialMetricCount\": \"<integer>\",\n  \"createdAt\": \"<string>\",\n  \"completedAt\": \"<string>\",\n  \"reviewedAt\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"periodNumber\": \"<integer>\",\n  \"socialMetricsLastSyncedAt\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-88463a6b-ba2f-46b7-bd9c-7b2999d06021"
+                            },
+                            {
+                              "id": "0102de4c-961c-416a-80d3-4044d2de7a0f",
+                              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-0102de4c-961c-416a-80d3-4044d2de7a0f"
+                            },
+                            {
+                              "id": "4a682245-07f9-4f8f-b1d3-2e31c1902b4f",
+                              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-4a682245-07f9-4f8f-b1d3-2e31c1902b4f"
+                            },
+                            {
+                              "id": "e20f9016-1079-4988-9f15-341f445de94c",
+                              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-e20f9016-1079-4988-9f15-341f445de94c"
+                            },
+                            {
+                              "id": "66655b45-2361-458d-916f-7f28929da50b",
+                              "name": "The server cannot find the requested resource.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-66655b45-2361-458d-916f-7f28929da50b"
+                            },
+                            {
+                              "id": "fbc27af8-7452-4b4c-bb27-5dca8a922088",
+                              "name": "This response is sent when a request conflicts with the current state of the server.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-fbc27af8-7452-4b4c-bb27-5dca8a922088"
+                            },
+                            {
+                              "id": "79b3895f-97aa-443c-960b-baf656d92467",
+                              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Gone",
+                              "code": 410,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-79b3895f-97aa-443c-960b-baf656d92467"
+                            },
+                            {
+                              "id": "32d9aad6-e573-45a4-add4-9c6474b393b0",
+                              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-32d9aad6-e573-45a4-add4-9c6474b393b0"
+                            },
+                            {
+                              "id": "7d5f2261-aade-4107-b8a8-5fbca8d6534c",
+                              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-7d5f2261-aade-4107-b8a8-5fbca8d6534c"
+                            },
+                            {
+                              "id": "c17f0f0b-a291-41ac-b0df-413f848dfa95",
+                              "name": "The server has encountered a situation it does not know how to handle.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/approve",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "approve"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-c17f0f0b-a291-41ac-b0df-413f848dfa95"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:32:45.000Z",
+                          "updatedAt": "2026-07-28T01:32:45.000Z",
+                          "uid": "35240-15ff33a0-0bde-40ba-85ec-3bd83f68fc39"
+                        }
+                      ],
+                      "id": "64517854-d5d3-4b2f-a94d-4b99e9e08312",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-64517854-d5d3-4b2f-a94d-4b99e9e08312"
+                    },
+                    {
+                      "name": "reject",
+                      "item": [
+                        {
+                          "name": "Reject a bounty submission",
+                          "id": "e3af5d81-642a-42e3-abd3-88ec9cf318ba",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bounties",
+                                ":bountyId",
+                                "submissions",
+                                ":submissionId",
+                                "reject"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0210561f-c6e5-402f-8a03-748f2a79c645",
+                                  "key": "bountyId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the bounty"
+                                },
+                                {
+                                  "id": "c9e560dd-7697-49aa-8df6-ba253a01a24c",
+                                  "key": "submissionId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the bounty submission"
+                                }
+                              ]
+                            },
+                            "description": "Reject a bounty submission with a specified reason and optional note."
+                          },
+                          "response": [
+                            {
+                              "id": "b0ed9ddb-b6dd-430f-8fba-d63e520285eb",
+                              "name": "The rejected bounty submission.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"bountyId\": \"<string>\",\n  \"partnerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"urls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"files\": [\n    {\n      \"url\": \"<uri>\",\n      \"fileName\": \"<string>\",\n      \"size\": \"<number>\"\n    },\n    {\n      \"url\": \"<uri>\",\n      \"fileName\": \"<string>\",\n      \"size\": \"<number>\"\n    }\n  ],\n  \"status\": \"approved\",\n  \"performanceCount\": \"<number>\",\n  \"socialMetricCount\": \"<integer>\",\n  \"createdAt\": \"<string>\",\n  \"completedAt\": \"<string>\",\n  \"reviewedAt\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"periodNumber\": \"<integer>\",\n  \"socialMetricsLastSyncedAt\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-b0ed9ddb-b6dd-430f-8fba-d63e520285eb"
+                            },
+                            {
+                              "id": "56df8171-1e76-4f4e-90f9-24b2f4420a2c",
+                              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-56df8171-1e76-4f4e-90f9-24b2f4420a2c"
+                            },
+                            {
+                              "id": "9f92f59d-4ecd-4150-8309-ac511c38e900",
+                              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-9f92f59d-4ecd-4150-8309-ac511c38e900"
+                            },
+                            {
+                              "id": "f8238f36-059d-408f-acbd-a5a1547f2b3a",
+                              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-f8238f36-059d-408f-acbd-a5a1547f2b3a"
+                            },
+                            {
+                              "id": "42bbe00d-e0cb-4d17-847f-4a0d56c4a05f",
+                              "name": "The server cannot find the requested resource.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-42bbe00d-e0cb-4d17-847f-4a0d56c4a05f"
+                            },
+                            {
+                              "id": "f0725ddb-2076-444f-99a8-0ac396c3184d",
+                              "name": "This response is sent when a request conflicts with the current state of the server.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-f0725ddb-2076-444f-99a8-0ac396c3184d"
+                            },
+                            {
+                              "id": "ba8bd8ed-9abb-484b-bb62-3e6842d7aa13",
+                              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Gone",
+                              "code": 410,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-ba8bd8ed-9abb-484b-bb62-3e6842d7aa13"
+                            },
+                            {
+                              "id": "4b593a73-0d1b-4292-8f2e-983fbc113dc0",
+                              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-4b593a73-0d1b-4292-8f2e-983fbc113dc0"
+                            },
+                            {
+                              "id": "95d5b09e-e304-40e3-a8f7-7a4a44c6ac61",
+                              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-95d5b09e-e304-40e3-a8f7-7a4a44c6ac61"
+                            },
+                            {
+                              "id": "670c7c56-9993-40a6-a158-502fc344a2af",
+                              "name": "The server has encountered a situation it does not know how to handle.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"rejectionReason\": \"outOfTimeWindow\",\n  \"rejectionNote\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bounties/:bountyId/submissions/:submissionId/reject",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bounties",
+                                    ":bountyId",
+                                    "submissions",
+                                    ":submissionId",
+                                    "reject"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bountyId"
+                                    },
+                                    {
+                                      "key": "submissionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:32:45.000Z",
+                              "updatedAt": "2026-07-28T01:32:45.000Z",
+                              "uid": "35240-670c7c56-9993-40a6-a158-502fc344a2af"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:32:45.000Z",
+                          "updatedAt": "2026-07-28T01:32:45.000Z",
+                          "uid": "35240-e3af5d81-642a-42e3-abd3-88ec9cf318ba"
+                        }
+                      ],
+                      "id": "929aae37-59c1-476e-a880-f6a9e67bc8d9",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-929aae37-59c1-476e-a880-f6a9e67bc8d9"
+                    }
+                  ],
+                  "id": "42d77c73-1ccc-434f-9e5c-82ffd719d70c",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-42d77c73-1ccc-434f-9e5c-82ffd719d70c"
+                },
+                {
+                  "name": "List bounty submissions",
+                  "id": "bb73112b-cbf5-49f9-a4d4-b68f29a8f712",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bounties",
+                        ":bountyId",
+                        "submissions"
+                      ],
+                      "query": [
+                        {
+                          "description": "The status of the submissions to list.",
+                          "key": "status",
+                          "value": "rejected"
+                        },
+                        {
+                          "description": "The ID of the group to list submissions for.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the partner to list submissions for.",
+                          "key": "partnerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The field to sort the submissions by.",
+                          "key": "sortBy",
+                          "value": "completedAt"
+                        },
+                        {
+                          "description": "The order to sort the submissions by.",
+                          "key": "sortOrder",
+                          "value": "asc"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2107871e-dada-4942-8d16-dfe9f2d3730d",
+                          "key": "bountyId",
+                          "value": "<string>",
+                          "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                        }
+                      ]
+                    },
+                    "description": "List all submissions for a specific bounty in your partner program."
+                  },
+                  "response": [
+                    {
+                      "id": "567d4f08-3d7d-484d-89aa-7ee889f77ff3",
+                      "name": "The list of bounty submissions.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"bountyId\": \"<string>\",\n    \"partnerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"urls\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"url\": \"<uri>\",\n        \"fileName\": \"<string>\",\n        \"size\": \"<number>\"\n      },\n      {\n        \"url\": \"<uri>\",\n        \"fileName\": \"<string>\",\n        \"size\": \"<number>\"\n      }\n    ],\n    \"status\": \"approved\",\n    \"performanceCount\": \"<number>\",\n    \"socialMetricCount\": \"<integer>\",\n    \"createdAt\": \"<string>\",\n    \"completedAt\": \"<string>\",\n    \"reviewedAt\": \"<string>\",\n    \"rejectionReason\": \"<string>\",\n    \"rejectionNote\": \"<string>\",\n    \"periodNumber\": \"<integer>\",\n    \"socialMetricsLastSyncedAt\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"bountyId\": \"<string>\",\n    \"partnerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"urls\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"url\": \"<uri>\",\n        \"fileName\": \"<string>\",\n        \"size\": \"<number>\"\n      },\n      {\n        \"url\": \"<uri>\",\n        \"fileName\": \"<string>\",\n        \"size\": \"<number>\"\n      }\n    ],\n    \"status\": \"approved\",\n    \"performanceCount\": \"<number>\",\n    \"socialMetricCount\": \"<integer>\",\n    \"createdAt\": \"<string>\",\n    \"completedAt\": \"<string>\",\n    \"reviewedAt\": \"<string>\",\n    \"rejectionReason\": \"<string>\",\n    \"rejectionNote\": \"<string>\",\n    \"periodNumber\": \"<integer>\",\n    \"socialMetricsLastSyncedAt\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-567d4f08-3d7d-484d-89aa-7ee889f77ff3"
+                    },
+                    {
+                      "id": "3dc08289-53a4-44d4-95c0-1e6ea2e44db9",
+                      "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-3dc08289-53a4-44d4-95c0-1e6ea2e44db9"
+                    },
+                    {
+                      "id": "5178e734-2e05-468a-91e9-4e1c8c70ef4f",
+                      "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-5178e734-2e05-468a-91e9-4e1c8c70ef4f"
+                    },
+                    {
+                      "id": "5aa281d9-4812-495d-8c96-ff8cca2e5755",
+                      "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-5aa281d9-4812-495d-8c96-ff8cca2e5755"
+                    },
+                    {
+                      "id": "8f11f9ce-ad80-4652-a30f-bcde5806b55f",
+                      "name": "The server cannot find the requested resource.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-8f11f9ce-ad80-4652-a30f-bcde5806b55f"
+                    },
+                    {
+                      "id": "2ba3d5ff-35f6-45cf-b1fe-b31e60539d1c",
+                      "name": "This response is sent when a request conflicts with the current state of the server.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-2ba3d5ff-35f6-45cf-b1fe-b31e60539d1c"
+                    },
+                    {
+                      "id": "f4de7ea6-c5ea-4ff2-af9a-e56073fec90f",
+                      "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gone",
+                      "code": 410,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-f4de7ea6-c5ea-4ff2-af9a-e56073fec90f"
+                    },
+                    {
+                      "id": "fa743eae-f816-44e1-bc1b-5e8965db1ab8",
+                      "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-fa743eae-f816-44e1-bc1b-5e8965db1ab8"
+                    },
+                    {
+                      "id": "5698b2ab-8314-4298-97ea-f4b9be385ed6",
+                      "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-5698b2ab-8314-4298-97ea-f4b9be385ed6"
+                    },
+                    {
+                      "id": "f2a4ff47-b582-4a2a-898b-983305200fe9",
+                      "name": "The server has encountered a situation it does not know how to handle.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bounties/:bountyId/submissions?status=rejected&groupId=<string>&partnerId=<string>&sortBy=completedAt&sortOrder=asc&page=<number>&pageSize=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bounties",
+                            ":bountyId",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The status of the submissions to list.",
+                              "key": "status",
+                              "value": "rejected"
+                            },
+                            {
+                              "description": "The ID of the group to list submissions for.",
+                              "key": "groupId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the partner to list submissions for.",
+                              "key": "partnerId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field to sort the submissions by.",
+                              "key": "sortBy",
+                              "value": "completedAt"
+                            },
+                            {
+                              "description": "The order to sort the submissions by.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "The page number for pagination.",
+                              "key": "page",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of items per page.",
+                              "key": "pageSize",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "bountyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:45.000Z",
+                      "updatedAt": "2026-07-28T01:32:45.000Z",
+                      "uid": "35240-f2a4ff47-b582-4a2a-898b-983305200fe9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-bb73112b-cbf5-49f9-a4d4-b68f29a8f712"
+                }
+              ],
+              "id": "5bb63ff1-bb23-4083-b6cc-0b5cd455b4da",
+              "createdAt": "2026-07-28T01:32:45.000Z",
+              "updatedAt": "2026-07-28T01:32:45.000Z",
+              "uid": "35240-5bb63ff1-bb23-4083-b6cc-0b5cd455b4da"
+            }
+          ],
+          "id": "418835d3-1819-4a04-b3fc-4eba153e1ed6",
+          "createdAt": "2026-07-28T01:32:45.000Z",
+          "updatedAt": "2026-07-28T01:32:45.000Z",
+          "uid": "35240-418835d3-1819-4a04-b3fc-4eba153e1ed6"
+        }
+      ],
+      "id": "9b45b524-760b-4a6e-b00e-b26fc1579839",
+      "createdAt": "2026-07-28T01:32:45.000Z",
+      "updatedAt": "2026-07-28T01:32:45.000Z",
+      "uid": "35240-9b45b524-760b-4a6e-b00e-b26fc1579839"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

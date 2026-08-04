@@ -1,0 +1,3489 @@
+{
+  "info": {
+    "_postman_id": "7afd7b39-974e-4fd4-a2ce-15815393aaaf",
+    "name": "Dub Analytics Commissions API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:45.000Z",
+    "updatedAt": "2026-07-28T01:32:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7afd7b39-974e-4fd4-a2ce-15815393aaaf"
+  },
+  "item": [
+    {
+      "name": "commissions",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Update a commission",
+              "id": "59ee91be-c0af-48c6-ae7f-16f8c738058c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "273d587a-4053-4392-b209-b11fc4867032",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The commission's unique ID on Dub."
+                    }
+                  ]
+                },
+                "description": "Update an existing commission amount. This is useful for handling refunds (partial or full) or fraudulent sales."
+              },
+              "response": [
+                {
+                  "id": "437f53e6-226c-4cf1-a2a6-4688a4fc4975",
+                  "name": "The updated commission.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"earnings\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"canceled\",\n  \"invoiceId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"partner\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"image\": \"<string>\",\n    \"payoutsEnabledAt\": \"<string>\",\n    \"country\": \"<string>\",\n    \"groupId\": \"<string>\"\n  },\n  \"type\": \"click\",\n  \"userId\": \"<string>\",\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"stripeCustomerId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"sales\": \"<number>\",\n    \"saleAmount\": \"<number>\",\n    \"firstSaleAt\": \"<string>\",\n    \"subscriptionCanceledAt\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-437f53e6-226c-4cf1-a2a6-4688a4fc4975"
+                },
+                {
+                  "id": "bdc051ac-14a6-4e9a-a3df-9b03dfd9ef3f",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-bdc051ac-14a6-4e9a-a3df-9b03dfd9ef3f"
+                },
+                {
+                  "id": "369863d4-197c-4691-b5d9-5f6531f60703",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-369863d4-197c-4691-b5d9-5f6531f60703"
+                },
+                {
+                  "id": "0718f7e6-6f5b-4670-abcf-2f7bc0be59a5",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-0718f7e6-6f5b-4670-abcf-2f7bc0be59a5"
+                },
+                {
+                  "id": "650cf8c8-aaed-457d-8198-1ba4665e5c98",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-650cf8c8-aaed-457d-8198-1ba4665e5c98"
+                },
+                {
+                  "id": "4d9acefd-6626-42b2-9ac4-1c6000f51504",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-4d9acefd-6626-42b2-9ac4-1c6000f51504"
+                },
+                {
+                  "id": "decb0edf-b9e4-4e6a-9987-4fdb6d57919e",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-decb0edf-b9e4-4e6a-9987-4fdb6d57919e"
+                },
+                {
+                  "id": "d3e601d4-ea71-4d46-bfbc-b7d1b612c66a",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-d3e601d4-ea71-4d46-bfbc-b7d1b612c66a"
+                },
+                {
+                  "id": "2c1c5267-79e7-4605-a9e4-4a43900b5aef",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-2c1c5267-79e7-4605-a9e4-4a43900b5aef"
+                },
+                {
+                  "id": "e3619cab-2073-45d9-97fd-6dbdce839a17",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"earnings\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"modifySaleAmount\": \"<number>\",\n  \"currency\": \"usd\",\n  \"status\": \"duplicate\",\n  \"amount\": \"<number>\",\n  \"modifyAmount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-e3619cab-2073-45d9-97fd-6dbdce839a17"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-59ee91be-c0af-48c6-ae7f-16f8c738058c"
+            }
+          ],
+          "id": "17044985-03a0-4a89-812c-ccefcf92ca05",
+          "createdAt": "2026-07-28T01:32:46.000Z",
+          "updatedAt": "2026-07-28T01:32:46.000Z",
+          "uid": "35240-17044985-03a0-4a89-812c-ccefcf92ca05"
+        },
+        {
+          "name": "bulk",
+          "item": [
+            {
+              "name": "Bulk update commissions",
+              "id": "4db58bea-ba0b-4f42-b08e-6f1a08ddbc37",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions/bulk",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions",
+                    "bulk"
+                  ]
+                },
+                "description": "Bulk update up to 100 commissions with the same status."
+              },
+              "response": [
+                {
+                  "id": "cbf7e2a8-9833-4801-98dc-67fff0a97fb0",
+                  "name": "The updated commissions.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"status\": \"canceled\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"status\": \"pending\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-cbf7e2a8-9833-4801-98dc-67fff0a97fb0"
+                },
+                {
+                  "id": "6dc3fc28-0343-4504-af54-5327a52e5902",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-6dc3fc28-0343-4504-af54-5327a52e5902"
+                },
+                {
+                  "id": "9d2b115a-0115-4eed-b21e-b25a63173219",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-9d2b115a-0115-4eed-b21e-b25a63173219"
+                },
+                {
+                  "id": "a7773500-a5f1-4f4b-ac97-bb1d32aebb10",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-a7773500-a5f1-4f4b-ac97-bb1d32aebb10"
+                },
+                {
+                  "id": "df8cf538-0633-4aee-9840-8eb294dfda32",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-df8cf538-0633-4aee-9840-8eb294dfda32"
+                },
+                {
+                  "id": "c925fe97-2b3e-4657-9655-04b72b2491fe",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-c925fe97-2b3e-4657-9655-04b72b2491fe"
+                },
+                {
+                  "id": "562952a3-18b6-4f66-9325-737e555b3eed",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-562952a3-18b6-4f66-9325-737e555b3eed"
+                },
+                {
+                  "id": "3edf89e1-ece2-4d04-95c9-54fdc06962c3",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-3edf89e1-ece2-4d04-95c9-54fdc06962c3"
+                },
+                {
+                  "id": "4370ba18-8f7d-4b12-b332-d82f83e0d9d5",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-4370ba18-8f7d-4b12-b332-d82f83e0d9d5"
+                },
+                {
+                  "id": "3631569a-b020-4108-ad1d-c8a2b0bfda85",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commissionIds\": [\n    \"<string>\"\n  ],\n  \"status\": \"refunded\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/commissions/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commissions",
+                        "bulk"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:46.000Z",
+                  "updatedAt": "2026-07-28T01:32:46.000Z",
+                  "uid": "35240-3631569a-b020-4108-ad1d-c8a2b0bfda85"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-4db58bea-ba0b-4f42-b08e-6f1a08ddbc37"
+            }
+          ],
+          "id": "b1fb0b93-a820-4841-bb83-5dc81ede2b3c",
+          "createdAt": "2026-07-28T01:32:46.000Z",
+          "updatedAt": "2026-07-28T01:32:46.000Z",
+          "uid": "35240-b1fb0b93-a820-4841-bb83-5dc81ede2b3c"
+        },
+        {
+          "name": "Create commission",
+          "id": "6f757cf5-69be-4480-95fc-67e4f4dba513",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/commissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "commissions"
+              ]
+            },
+            "description": "Create one or more commissions (custom, lead or sale) for a partner. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created."
+          },
+          "response": [
+            {
+              "id": "7150cbea-3263-4ac7-bdd3-ba18eb7d964c",
+              "name": "The request was accepted and commission creation was queued.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-7150cbea-3263-4ac7-bdd3-ba18eb7d964c"
+            },
+            {
+              "id": "789e1ee8-62ef-4763-9147-d9722902e0ae",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-789e1ee8-62ef-4763-9147-d9722902e0ae"
+            },
+            {
+              "id": "1adaefd6-3794-4bb7-b4c8-34fddf5767e5",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-1adaefd6-3794-4bb7-b4c8-34fddf5767e5"
+            },
+            {
+              "id": "b22965aa-17fe-4066-8404-12157f4e3ba3",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-b22965aa-17fe-4066-8404-12157f4e3ba3"
+            },
+            {
+              "id": "c5bffa6e-86d2-41bd-b45c-8f5ac7a69bac",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-c5bffa6e-86d2-41bd-b45c-8f5ac7a69bac"
+            },
+            {
+              "id": "69f4a633-45f7-4a32-ba92-64c335fbf4c8",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-69f4a633-45f7-4a32-ba92-64c335fbf4c8"
+            },
+            {
+              "id": "81feb944-fa47-4566-8f9d-0c96b1742aa6",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-81feb944-fa47-4566-8f9d-0c96b1742aa6"
+            },
+            {
+              "id": "bbeb0a8d-194c-4777-9db0-2b1d22cc9103",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-bbeb0a8d-194c-4777-9db0-2b1d22cc9103"
+            },
+            {
+              "id": "f30890ad-ca38-4f33-bd15-be29a459f34d",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-f30890ad-ca38-4f33-bd15-be29a459f34d"
+            },
+            {
+              "id": "627c3b7f-ce0d-42f7-8bf6-1c76bae65420",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom\",\n  \"partnerId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-627c3b7f-ce0d-42f7-8bf6-1c76bae65420"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:46.000Z",
+          "updatedAt": "2026-07-28T01:32:46.000Z",
+          "uid": "35240-6f757cf5-69be-4480-95fc-67e4f4dba513"
+        },
+        {
+          "name": "List all commissions",
+          "id": "a8dd987a-91db-4ac4-9254-f69de6ed91ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "commissions"
+              ],
+              "query": [
+                {
+                  "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                  "key": "type",
+                  "value": "custom"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated customer.",
+                  "key": "customerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated payout.",
+                  "key": "payoutId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                  "key": "partnerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                  "key": "tenantId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                  "key": "groupId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                  "key": "partnerTagId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                  "key": "invoiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the list of commissions by their corresponding status.",
+                  "key": "status",
+                  "value": "duplicate"
+                },
+                {
+                  "description": "The field to sort the list of commissions by.",
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "description": "The sort order for the list of commissions.",
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "description": "The interval to retrieve commissions for.",
+                  "key": "interval",
+                  "value": "all"
+                },
+                {
+                  "description": "The start date of the date range to filter the commissions by.",
+                  "key": "start",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The end date of the date range to filter the commissions by.",
+                  "key": "end",
+                  "value": "<string>"
+                },
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                  "key": "endingBefore",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                  "key": "startingAfter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "DEPRECATED. Use `startingAfter` instead.",
+                  "key": "page",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The number of items per page.",
+                  "key": "pageSize",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of commissions for your partner program."
+          },
+          "response": [
+            {
+              "id": "1eae63d2-2567-4df7-a48c-1d55cd430761",
+              "name": "The list of commissions.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"earnings\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"duplicate\",\n    \"invoiceId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"quantity\": \"<number>\",\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"payoutsEnabledAt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"groupId\": \"<string>\"\n    },\n    \"type\": \"sale\",\n    \"userId\": \"<string>\",\n    \"customer\": {\n      \"id\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"stripeCustomerId\": \"<string>\",\n      \"country\": \"<string>\",\n      \"sales\": \"<number>\",\n      \"saleAmount\": \"<number>\",\n      \"firstSaleAt\": \"<string>\",\n      \"subscriptionCanceledAt\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"earnings\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"fraud\",\n    \"invoiceId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"quantity\": \"<number>\",\n    \"createdAt\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"payoutsEnabledAt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"groupId\": \"<string>\"\n    },\n    \"type\": \"custom\",\n    \"userId\": \"<string>\",\n    \"customer\": {\n      \"id\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"stripeCustomerId\": \"<string>\",\n      \"country\": \"<string>\",\n      \"sales\": \"<number>\",\n      \"saleAmount\": \"<number>\",\n      \"firstSaleAt\": \"<string>\",\n      \"subscriptionCanceledAt\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-1eae63d2-2567-4df7-a48c-1d55cd430761"
+            },
+            {
+              "id": "0e1c7a41-6009-4125-878a-28b2d02dea1f",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-0e1c7a41-6009-4125-878a-28b2d02dea1f"
+            },
+            {
+              "id": "d7fc1045-c07d-46af-8f91-f06932786d90",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-d7fc1045-c07d-46af-8f91-f06932786d90"
+            },
+            {
+              "id": "efa08af3-8a99-45eb-8d59-7c288788304d",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-efa08af3-8a99-45eb-8d59-7c288788304d"
+            },
+            {
+              "id": "ac679079-617f-4ba0-95d8-30746ce39d30",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-ac679079-617f-4ba0-95d8-30746ce39d30"
+            },
+            {
+              "id": "9c338cf5-d87b-4f4f-83a7-b88bc5883b05",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-9c338cf5-d87b-4f4f-83a7-b88bc5883b05"
+            },
+            {
+              "id": "5b3d72fb-9139-4bfb-ada7-9e5fadb5e2a3",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-5b3d72fb-9139-4bfb-ada7-9e5fadb5e2a3"
+            },
+            {
+              "id": "cca439a5-b2b5-4873-84f9-44bb49d1adf0",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-cca439a5-b2b5-4873-84f9-44bb49d1adf0"
+            },
+            {
+              "id": "f15ec640-a88e-4dc9-8b5e-39c85221af89",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-f15ec640-a88e-4dc9-8b5e-39c85221af89"
+            },
+            {
+              "id": "57b79b13-ed4d-41bc-b53d-8a15e3ada8a0",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/commissions?type=custom&customerId=<string>&payoutId=<string>&partnerId=<string>&tenantId=<string>&groupId=<string>&partnerTagId=<string>&invoiceId=<string>&status=duplicate&sortBy=createdAt&sortOrder=desc&interval=all&start=<string>&end=<string>&timezone=<string>&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.",
+                      "key": "type",
+                      "value": "custom"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated customer.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated payout.",
+                      "key": "payoutId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.",
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of commissions by their corresponding status.",
+                      "key": "status",
+                      "value": "duplicate"
+                    },
+                    {
+                      "description": "The field to sort the list of commissions by.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order for the list of commissions.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The interval to retrieve commissions for.",
+                      "key": "interval",
+                      "value": "all"
+                    },
+                    {
+                      "description": "The start date of the date range to filter the commissions by.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range to filter the commissions by.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:46.000Z",
+              "updatedAt": "2026-07-28T01:32:46.000Z",
+              "uid": "35240-57b79b13-ed4d-41bc-b53d-8a15e3ada8a0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:46.000Z",
+          "updatedAt": "2026-07-28T01:32:46.000Z",
+          "uid": "35240-a8dd987a-91db-4ac4-9254-f69de6ed91ae"
+        }
+      ],
+      "id": "7a2f86da-227e-482b-88e4-ec90b1400c7a",
+      "createdAt": "2026-07-28T01:32:46.000Z",
+      "updatedAt": "2026-07-28T01:32:46.000Z",
+      "uid": "35240-7a2f86da-227e-482b-88e4-ec90b1400c7a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

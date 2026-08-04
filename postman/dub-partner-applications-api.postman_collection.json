@@ -1,0 +1,2044 @@
+{
+  "info": {
+    "_postman_id": "8b3df93f-cb85-4e72-a4e9-9846284c8e2f",
+    "name": "Dub Analytics Partner Applications API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:54.000Z",
+    "updatedAt": "2026-07-28T01:32:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8b3df93f-cb85-4e72-a4e9-9846284c8e2f"
+  },
+  "item": [
+    {
+      "name": "partners",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "Approve a partner application",
+                  "id": "bf0a2362-400b-48dc-b776-77aa957a9b5e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications/approve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications",
+                        "approve"
+                      ]
+                    },
+                    "description": "Approve a pending partner application to your program. The partner will be enrolled in the specified group and notified of the approval."
+                  },
+                  "response": [
+                    {
+                      "id": "5d8a861c-9eca-46c0-bfc3-232544a57df2",
+                      "name": "The approved partner",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"partnerId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-5d8a861c-9eca-46c0-bfc3-232544a57df2"
+                    },
+                    {
+                      "id": "dca36416-02cd-4f13-a593-670ba61a0df5",
+                      "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-dca36416-02cd-4f13-a593-670ba61a0df5"
+                    },
+                    {
+                      "id": "dacde7b8-6f71-4291-a645-38200ce91b77",
+                      "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-dacde7b8-6f71-4291-a645-38200ce91b77"
+                    },
+                    {
+                      "id": "ebe41498-a125-4805-92a5-df45b77880ee",
+                      "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-ebe41498-a125-4805-92a5-df45b77880ee"
+                    },
+                    {
+                      "id": "6fd95890-0e03-45ce-8ff5-cf80840908a2",
+                      "name": "The server cannot find the requested resource.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-6fd95890-0e03-45ce-8ff5-cf80840908a2"
+                    },
+                    {
+                      "id": "f301ad86-3465-4dea-b8c3-f2d0ddc1842a",
+                      "name": "This response is sent when a request conflicts with the current state of the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-f301ad86-3465-4dea-b8c3-f2d0ddc1842a"
+                    },
+                    {
+                      "id": "411fe5c5-6cde-4255-9c8b-a8b4f79e16d5",
+                      "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Gone",
+                      "code": 410,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-411fe5c5-6cde-4255-9c8b-a8b4f79e16d5"
+                    },
+                    {
+                      "id": "389f3108-94b9-47d7-a549-471a68006724",
+                      "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-389f3108-94b9-47d7-a549-471a68006724"
+                    },
+                    {
+                      "id": "7e5bf4b0-7d8c-411a-9861-fc4bcc9a8a45",
+                      "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-7e5bf4b0-7d8c-411a-9861-fc4bcc9a8a45"
+                    },
+                    {
+                      "id": "3844fe56-af8d-4cb6-9a62-88cbb719c8cb",
+                      "name": "The server has encountered a situation it does not know how to handle.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "approve"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-3844fe56-af8d-4cb6-9a62-88cbb719c8cb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-bf0a2362-400b-48dc-b776-77aa957a9b5e"
+                }
+              ],
+              "id": "c3649b7b-f62b-46ac-b89a-feb87a6c4034",
+              "createdAt": "2026-07-28T01:32:55.000Z",
+              "updatedAt": "2026-07-28T01:32:55.000Z",
+              "uid": "35240-c3649b7b-f62b-46ac-b89a-feb87a6c4034"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Reject a partner application",
+                  "id": "7952c951-014b-4d42-bb82-cd3afc676c9e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications/reject",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications",
+                        "reject"
+                      ]
+                    },
+                    "description": "Reject a pending partner application to your program. The partner will be notified via email that their application was not approved."
+                  },
+                  "response": [
+                    {
+                      "id": "fd99d356-ccd5-4a2d-a9ff-353b9631219f",
+                      "name": "The rejected partner",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"partnerId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-fd99d356-ccd5-4a2d-a9ff-353b9631219f"
+                    },
+                    {
+                      "id": "82a87810-441f-4860-8f34-6a268669c5be",
+                      "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-82a87810-441f-4860-8f34-6a268669c5be"
+                    },
+                    {
+                      "id": "9691b10e-726c-452a-bafa-43064979a901",
+                      "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-9691b10e-726c-452a-bafa-43064979a901"
+                    },
+                    {
+                      "id": "3603517b-9b75-4b58-9fd4-7662772965ad",
+                      "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-3603517b-9b75-4b58-9fd4-7662772965ad"
+                    },
+                    {
+                      "id": "ea3db3e5-1736-46ca-b298-d2b5e8cf6534",
+                      "name": "The server cannot find the requested resource.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-ea3db3e5-1736-46ca-b298-d2b5e8cf6534"
+                    },
+                    {
+                      "id": "8b896041-9fda-483a-904e-938b4043a534",
+                      "name": "This response is sent when a request conflicts with the current state of the server.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-8b896041-9fda-483a-904e-938b4043a534"
+                    },
+                    {
+                      "id": "56370c47-43c6-46ad-b94b-6941c330e85f",
+                      "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Gone",
+                      "code": 410,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-56370c47-43c6-46ad-b94b-6941c330e85f"
+                    },
+                    {
+                      "id": "7dd571cb-1256-4337-82e8-0aa21416a5a0",
+                      "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-7dd571cb-1256-4337-82e8-0aa21416a5a0"
+                    },
+                    {
+                      "id": "da85ba5e-50c7-49e6-b6c8-64f1f872b7b3",
+                      "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-da85ba5e-50c7-49e6-b6c8-64f1f872b7b3"
+                    },
+                    {
+                      "id": "7686a4aa-3d81-4425-9a1f-cedd2c7ec819",
+                      "name": "The server has encountered a situation it does not know how to handle.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"other\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/applications/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "applications",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-7686a4aa-3d81-4425-9a1f-cedd2c7ec819"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-7952c951-014b-4d42-bb82-cd3afc676c9e"
+                }
+              ],
+              "id": "00bca6d5-f366-4aaf-84ab-a8796fb94ab0",
+              "createdAt": "2026-07-28T01:32:55.000Z",
+              "updatedAt": "2026-07-28T01:32:55.000Z",
+              "uid": "35240-00bca6d5-f366-4aaf-84ab-a8796fb94ab0"
+            },
+            {
+              "name": "List all pending partner applications",
+              "id": "959e8b37-730d-4ede-857d-666921985056",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "query": [
+                    {
+                      "description": "A filter on the list based on the partner's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the partner's `groupId` field.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The page number for pagination.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                },
+                "description": "Retrieve a paginated list of pending applications for your partner program."
+              },
+              "response": [
+                {
+                  "id": "a1869f0d-48bb-4b00-9f27-9d4708f30525",
+                  "name": "The list of pending partner applications.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\",\n      \"status\": \"banned\",\n      \"description\": \"<string>\",\n      \"groupId\": \"<string>\",\n      \"website\": \"<string>\",\n      \"youtube\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"instagram\": \"<string>\",\n      \"tiktok\": \"<string>\"\n    },\n    \"applicationFormData\": [\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\",\n      \"country\": \"<string>\",\n      \"status\": \"archived\",\n      \"description\": \"<string>\",\n      \"groupId\": \"<string>\",\n      \"website\": \"<string>\",\n      \"youtube\": \"<string>\",\n      \"twitter\": \"<string>\",\n      \"linkedin\": \"<string>\",\n      \"instagram\": \"<string>\",\n      \"tiktok\": \"<string>\"\n    },\n    \"applicationFormData\": [\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n]",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-a1869f0d-48bb-4b00-9f27-9d4708f30525"
+                },
+                {
+                  "id": "eaa5e5ed-83ed-4e7d-9c19-0fb330408676",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-eaa5e5ed-83ed-4e7d-9c19-0fb330408676"
+                },
+                {
+                  "id": "e71be3f8-eaae-4da8-87a9-b6d2b94d86b6",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-e71be3f8-eaae-4da8-87a9-b6d2b94d86b6"
+                },
+                {
+                  "id": "69678296-ea69-43a4-a8aa-13301705ad78",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-69678296-ea69-43a4-a8aa-13301705ad78"
+                },
+                {
+                  "id": "98b2a811-4e57-4026-a1ab-8e2b0d4cf70b",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-98b2a811-4e57-4026-a1ab-8e2b0d4cf70b"
+                },
+                {
+                  "id": "3dac8fdc-237d-4339-9230-35d97116c371",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-3dac8fdc-237d-4339-9230-35d97116c371"
+                },
+                {
+                  "id": "fb020f6f-0dd5-4c0d-ba6a-d118bf4f017c",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-fb020f6f-0dd5-4c0d-ba6a-d118bf4f017c"
+                },
+                {
+                  "id": "8419e228-2e09-4fe7-87f5-60110115acd6",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-8419e228-2e09-4fe7-87f5-60110115acd6"
+                },
+                {
+                  "id": "cfb82f92-9f87-4874-9cbc-e3caf017e9d5",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-cfb82f92-9f87-4874-9cbc-e3caf017e9d5"
+                },
+                {
+                  "id": "0bf3e4e6-40f1-4ec7-9df9-ac5d6afcb788",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/applications?country=<string>&groupId=<string>&page=<number>&pageSize=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "A filter on the list based on the partner's `country` field.",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A filter on the list based on the partner's `groupId` field.",
+                          "key": "groupId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number for pagination.",
+                          "key": "page",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of items per page.",
+                          "key": "pageSize",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-0bf3e4e6-40f1-4ec7-9df9-ac5d6afcb788"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:55.000Z",
+              "updatedAt": "2026-07-28T01:32:55.000Z",
+              "uid": "35240-959e8b37-730d-4ede-857d-666921985056"
+            }
+          ],
+          "id": "32b4ec7c-44ad-4e1a-898f-dc9e693084ae",
+          "createdAt": "2026-07-28T01:32:55.000Z",
+          "updatedAt": "2026-07-28T01:32:55.000Z",
+          "uid": "35240-32b4ec7c-44ad-4e1a-898f-dc9e693084ae"
+        }
+      ],
+      "id": "f08626d4-25e6-4d60-bf6b-347ef7190e13",
+      "createdAt": "2026-07-28T01:32:55.000Z",
+      "updatedAt": "2026-07-28T01:32:55.000Z",
+      "uid": "35240-f08626d4-25e6-4d60-bf6b-347ef7190e13"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

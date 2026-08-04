@@ -1,0 +1,947 @@
+{
+  "info": {
+    "_postman_id": "1641eb7c-f0bb-455c-93a4-a4ffe61d2e95",
+    "name": "Dub Analytics QR Codes API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:13.000Z",
+    "updatedAt": "2026-07-28T01:33:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1641eb7c-f0bb-455c-93a4-a4ffe61d2e95"
+  },
+  "item": [
+    {
+      "name": "qr",
+      "item": [
+        {
+          "name": "Retrieve a QR code",
+          "id": "fe25c345-8c2a-49e1-8d65-63c6707ec859",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "qr"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The URL to generate a QR code for.",
+                  "key": "url",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                  "key": "logo",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                  "key": "size",
+                  "value": "600"
+                },
+                {
+                  "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                  "key": "level",
+                  "value": "L"
+                },
+                {
+                  "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                  "key": "fgColor",
+                  "value": "#000000"
+                },
+                {
+                  "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                  "key": "bgColor",
+                  "value": "#FFFFFF"
+                },
+                {
+                  "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                  "key": "hideLogo",
+                  "value": "false"
+                },
+                {
+                  "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                  "key": "margin",
+                  "value": "2"
+                },
+                {
+                  "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                  "key": "includeMargin",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Retrieve a QR code for a link."
+          },
+          "response": [
+            {
+              "id": "76c80be4-6dc9-47be-bb29-fd1920c4d178",
+              "name": "The QR code",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-76c80be4-6dc9-47be-bb29-fd1920c4d178"
+            },
+            {
+              "id": "28783327-c8f2-4d0d-a6b6-95dfcec145db",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-28783327-c8f2-4d0d-a6b6-95dfcec145db"
+            },
+            {
+              "id": "0ac2d4a8-8245-4494-8ebe-2cf79059e4f9",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-0ac2d4a8-8245-4494-8ebe-2cf79059e4f9"
+            },
+            {
+              "id": "108a9af7-c343-4c34-af5a-369b17083522",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-108a9af7-c343-4c34-af5a-369b17083522"
+            },
+            {
+              "id": "2b308351-9844-4e6d-ac99-260d7f10f2d9",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-2b308351-9844-4e6d-ac99-260d7f10f2d9"
+            },
+            {
+              "id": "ffc9609d-75a7-4408-94dc-8cf5d869d75d",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-ffc9609d-75a7-4408-94dc-8cf5d869d75d"
+            },
+            {
+              "id": "22110818-ace2-4b8a-9e8e-8c659a370c40",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-22110818-ace2-4b8a-9e8e-8c659a370c40"
+            },
+            {
+              "id": "ddd5565f-d497-41f8-8e81-7ca1bae8159f",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-ddd5565f-d497-41f8-8e81-7ca1bae8159f"
+            },
+            {
+              "id": "c2546516-8c43-47af-aa6f-721f35516131",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-c2546516-8c43-47af-aa6f-721f35516131"
+            },
+            {
+              "id": "63fe0576-2d9e-4bd5-9ce7-af61c3f15dca",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/qr?url=<string>&logo=<string>&size=600&level=L&fgColor=%23000000&bgColor=%23FFFFFF&hideLogo=false&margin=2&includeMargin=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "qr"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The URL to generate a QR code for.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the QR code in pixels. Defaults to `600` if not provided.",
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided.",
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.",
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.",
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.",
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "description": "The size of the margin around the QR code. Defaults to 2 if not provided.",
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.",
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:13.000Z",
+              "updatedAt": "2026-07-28T01:33:13.000Z",
+              "uid": "35240-63fe0576-2d9e-4bd5-9ce7-af61c3f15dca"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:13.000Z",
+          "updatedAt": "2026-07-28T01:33:13.000Z",
+          "uid": "35240-fe25c345-8c2a-49e1-8d65-63c6707ec859"
+        }
+      ],
+      "id": "2c07c20d-0880-472b-b6bf-26fa8cdd4218",
+      "createdAt": "2026-07-28T01:33:13.000Z",
+      "updatedAt": "2026-07-28T01:33:13.000Z",
+      "uid": "35240-2c07c20d-0880-472b-b6bf-26fa8cdd4218"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

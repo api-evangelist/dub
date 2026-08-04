@@ -1,0 +1,3189 @@
+{
+  "info": {
+    "_postman_id": "6b54f484-ceaa-47a5-98e6-2bafe4b74c72",
+    "name": "Dub Analytics Customers API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:47.000Z",
+    "updatedAt": "2026-07-28T01:32:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6b54f484-ceaa-47a5-98e6-2bafe4b74c72"
+  },
+  "item": [
+    {
+      "name": "customers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a customer",
+              "id": "e2e63a69-29e0-45d4-9fd3-5c6bd8d07028",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "79499c5b-a981-4db8-a014-49a87a5a653e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+                    }
+                  ]
+                },
+                "description": "Retrieve a customer by ID for the authenticated workspace. To retrieve a customer by external ID, prefix the ID with `ext_`."
+              },
+              "response": [
+                {
+                  "id": "4ad51438-190c-4ac2-beee-22cb0c9af96e",
+                  "name": "The customer object.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\",\n  \"sales\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"firstSaleAt\": \"<string>\",\n  \"subscriptionCanceledAt\": \"<string>\",\n  \"link\": {\n    \"id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"shortLink\": \"<uri>\",\n    \"url\": \"<uri>\",\n    \"programId\": \"<string>\"\n  },\n  \"programId\": \"<string>\",\n  \"partner\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"image\": \"<string>\"\n  },\n  \"discount\": {\n    \"id\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"type\": \"flat\",\n    \"maxDuration\": \"<number>\",\n    \"couponId\": \"<string>\",\n    \"couponTestId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"partnersCount\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-4ad51438-190c-4ac2-beee-22cb0c9af96e"
+                },
+                {
+                  "id": "ca728ec8-b881-40a9-a080-1ee7d8a84b01",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-ca728ec8-b881-40a9-a080-1ee7d8a84b01"
+                },
+                {
+                  "id": "d062a6e8-739d-4e79-b4fe-42b45aa20e79",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-d062a6e8-739d-4e79-b4fe-42b45aa20e79"
+                },
+                {
+                  "id": "226874b8-ba8c-4455-84b9-cdfe62c447d2",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-226874b8-ba8c-4455-84b9-cdfe62c447d2"
+                },
+                {
+                  "id": "fa206905-ff7e-430d-8d13-a6017abf4d83",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-fa206905-ff7e-430d-8d13-a6017abf4d83"
+                },
+                {
+                  "id": "c01ea3eb-f1ef-486d-9ec3-db06415466af",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-c01ea3eb-f1ef-486d-9ec3-db06415466af"
+                },
+                {
+                  "id": "8b40e44a-bf7b-47a9-a6b0-e0e9be969f1f",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-8b40e44a-bf7b-47a9-a6b0-e0e9be969f1f"
+                },
+                {
+                  "id": "cbfd4d51-3028-47ec-b97b-0831ffaf3446",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-cbfd4d51-3028-47ec-b97b-0831ffaf3446"
+                },
+                {
+                  "id": "173865e0-ae4e-45f7-9ab5-d9adc94b1d37",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-173865e0-ae4e-45f7-9ab5-d9adc94b1d37"
+                },
+                {
+                  "id": "dc16d119-bc23-487f-bbaa-a968f0a88790",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-dc16d119-bc23-487f-bbaa-a968f0a88790"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-e2e63a69-29e0-45d4-9fd3-5c6bd8d07028"
+            },
+            {
+              "name": "Update a customer",
+              "id": "41ca5f81-fa9c-437c-bfbe-42a40fff18b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "7d1c32c4-42b9-40d3-a41b-702bcb3ef8c4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+                    }
+                  ]
+                },
+                "description": "Update a customer for the authenticated workspace."
+              },
+              "response": [
+                {
+                  "id": "36e509a6-2b3c-4573-b730-32c61ae873df",
+                  "name": "The customer was updated.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\",\n  \"sales\": \"<number>\",\n  \"saleAmount\": \"<number>\",\n  \"firstSaleAt\": \"<string>\",\n  \"subscriptionCanceledAt\": \"<string>\",\n  \"link\": {\n    \"id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"shortLink\": \"<uri>\",\n    \"url\": \"<uri>\",\n    \"programId\": \"<string>\"\n  },\n  \"programId\": \"<string>\",\n  \"partner\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"image\": \"<string>\"\n  },\n  \"discount\": {\n    \"id\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"type\": \"flat\",\n    \"maxDuration\": \"<number>\",\n    \"couponId\": \"<string>\",\n    \"couponTestId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"partnersCount\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-36e509a6-2b3c-4573-b730-32c61ae873df"
+                },
+                {
+                  "id": "d39d7ebc-87a1-4e1d-bd37-ac90389c7774",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-d39d7ebc-87a1-4e1d-bd37-ac90389c7774"
+                },
+                {
+                  "id": "f9d9ffc0-918a-47bf-a841-6bd42d203733",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-f9d9ffc0-918a-47bf-a841-6bd42d203733"
+                },
+                {
+                  "id": "d7264a97-1295-4456-80a4-2f75574b05c3",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-d7264a97-1295-4456-80a4-2f75574b05c3"
+                },
+                {
+                  "id": "27b880f4-842e-4da4-9d22-fbd21a2deace",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-27b880f4-842e-4da4-9d22-fbd21a2deace"
+                },
+                {
+                  "id": "4a05dd55-2eac-4ae4-a3a6-e4e7af6bf201",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-4a05dd55-2eac-4ae4-a3a6-e4e7af6bf201"
+                },
+                {
+                  "id": "047dcb2b-0738-462d-8939-a907348c485f",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-047dcb2b-0738-462d-8939-a907348c485f"
+                },
+                {
+                  "id": "ebfd9d2f-13cf-4766-89e4-fb82c87cce56",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-ebfd9d2f-13cf-4766-89e4-fb82c87cce56"
+                },
+                {
+                  "id": "99f61283-cee1-4d36-8b72-c5b1e29f0557",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-99f61283-cee1-4d36-8b72-c5b1e29f0557"
+                },
+                {
+                  "id": "4d4057a3-43d2-466d-8a33-470c9d0e9e9a",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"DX.O@BbGDO1.INWqveg.L00DAXuq.kxoQ7gJPN.Fatz.E8FTXjsPfX9.P2z8tPX.egNYeE\",\n  \"name\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"externalId\": \"<string>\",\n  \"stripeCustomerId\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id?includeExpandedFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                          "key": "includeExpandedFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-4d4057a3-43d2-466d-8a33-470c9d0e9e9a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-41ca5f81-fa9c-437c-bfbe-42a40fff18b9"
+            },
+            {
+              "name": "Delete a customer",
+              "id": "f5178059-f509-4f0e-be67-3ab92bcf0cc2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e100a7db-5534-441b-8d34-e31ee6cbf1b2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+                    }
+                  ]
+                },
+                "description": "Delete a customer from a workspace."
+              },
+              "response": [
+                {
+                  "id": "462e6f91-c092-49cc-bcd9-d0766d39936d",
+                  "name": "The customer was deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-462e6f91-c092-49cc-bcd9-d0766d39936d"
+                },
+                {
+                  "id": "66c3b159-355c-4739-9694-a5dc367e67e8",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-66c3b159-355c-4739-9694-a5dc367e67e8"
+                },
+                {
+                  "id": "b1058399-54f4-4b62-9fb3-5700047a1136",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-b1058399-54f4-4b62-9fb3-5700047a1136"
+                },
+                {
+                  "id": "3828cb58-893d-4ca7-8d22-61ef885fc754",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-3828cb58-893d-4ca7-8d22-61ef885fc754"
+                },
+                {
+                  "id": "0ae39e6a-cc14-4c0d-97ab-f49103f80135",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-0ae39e6a-cc14-4c0d-97ab-f49103f80135"
+                },
+                {
+                  "id": "49f530b2-caac-4a3a-b030-3bffa9fa581a",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-49f530b2-caac-4a3a-b030-3bffa9fa581a"
+                },
+                {
+                  "id": "379f188d-78c9-4f7b-a119-4c79b4586356",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-379f188d-78c9-4f7b-a119-4c79b4586356"
+                },
+                {
+                  "id": "6e9af426-3fa7-4cba-bba6-f7ee46f27e49",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-6e9af426-3fa7-4cba-bba6-f7ee46f27e49"
+                },
+                {
+                  "id": "a9c5664c-10fb-441e-9759-9664eb79fb37",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-a9c5664c-10fb-441e-9759-9664eb79fb37"
+                },
+                {
+                  "id": "f11c67eb-95ec-4b1a-8723-b3737febc5ac",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-f11c67eb-95ec-4b1a-8723-b3737febc5ac"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-f5178059-f509-4f0e-be67-3ab92bcf0cc2"
+            }
+          ],
+          "id": "fe9bfc11-1bc3-4c7d-9f63-da933d2bcd6c",
+          "createdAt": "2026-07-28T01:32:47.000Z",
+          "updatedAt": "2026-07-28T01:32:47.000Z",
+          "uid": "35240-fe9bfc11-1bc3-4c7d-9f63-da933d2bcd6c"
+        },
+        {
+          "name": "List all customers",
+          "id": "a5534d3b-a360-4045-a0c8-365ffe32e174",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers"
+              ],
+              "query": [
+                {
+                  "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                  "key": "externalId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A filter on the list based on the customer's `country` field.",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                  "key": "linkId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Program ID to filter by.",
+                  "key": "programId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Partner ID to filter by.",
+                  "key": "partnerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                  "key": "includeExpandedFields",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The field to sort the customers by. The default is `createdAt`.",
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "description": "The sort order. The default is `desc`.",
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                  "key": "endingBefore",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                  "key": "startingAfter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "DEPRECATED. Use `startingAfter` instead.",
+                  "key": "page",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The number of items per page.",
+                  "key": "pageSize",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of customers for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "7e59ae55-bbc7-45f3-ad86-92d22be2d8d2",
+              "name": "The list of customers.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"stripeCustomerId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"sales\": \"<number>\",\n    \"saleAmount\": \"<number>\",\n    \"firstSaleAt\": \"<string>\",\n    \"subscriptionCanceledAt\": \"<string>\",\n    \"link\": {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"shortLink\": \"<uri>\",\n      \"url\": \"<uri>\",\n      \"programId\": \"<string>\"\n    },\n    \"programId\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"discount\": {\n      \"id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"type\": \"percentage\",\n      \"maxDuration\": \"<number>\",\n      \"couponId\": \"<string>\",\n      \"couponTestId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"partnersCount\": \"<number>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"createdAt\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"stripeCustomerId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"sales\": \"<number>\",\n    \"saleAmount\": \"<number>\",\n    \"firstSaleAt\": \"<string>\",\n    \"subscriptionCanceledAt\": \"<string>\",\n    \"link\": {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"shortLink\": \"<uri>\",\n      \"url\": \"<uri>\",\n      \"programId\": \"<string>\"\n    },\n    \"programId\": \"<string>\",\n    \"partner\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    \"discount\": {\n      \"id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"type\": \"flat\",\n      \"maxDuration\": \"<number>\",\n      \"couponId\": \"<string>\",\n      \"couponTestId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"partnersCount\": \"<number>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-7e59ae55-bbc7-45f3-ad86-92d22be2d8d2"
+            },
+            {
+              "id": "7119f209-a101-4583-88b1-c81f79b19bba",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-7119f209-a101-4583-88b1-c81f79b19bba"
+            },
+            {
+              "id": "29ab736c-fd9a-49d1-83ee-76b8591e2656",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-29ab736c-fd9a-49d1-83ee-76b8591e2656"
+            },
+            {
+              "id": "50a0bf94-0344-405b-bf5c-f5676ffe50f0",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-50a0bf94-0344-405b-bf5c-f5676ffe50f0"
+            },
+            {
+              "id": "262479d9-738e-48ac-8c1c-841423a14b7f",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-262479d9-738e-48ac-8c1c-841423a14b7f"
+            },
+            {
+              "id": "325bab49-312c-48f7-a3bc-76e5baf317ca",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-325bab49-312c-48f7-a3bc-76e5baf317ca"
+            },
+            {
+              "id": "d4e7b58b-2ea5-4145-b9fa-55dd4ad42d7d",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-d4e7b58b-2ea5-4145-b9fa-55dd4ad42d7d"
+            },
+            {
+              "id": "8855ece1-0e3a-4c1e-8bf7-d0d6e328b22b",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-8855ece1-0e3a-4c1e-8bf7-d0d6e328b22b"
+            },
+            {
+              "id": "427c2556-350a-473a-a0ff-a2690e5ff6ed",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-427c2556-350a-473a-a0ff-a2690e5ff6ed"
+            },
+            {
+              "id": "a2f3af47-f696-4d6e-9301-6b737da71dda",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?email=<string>&externalId=<string>&search=<string>&country=<string>&linkId=<string>&programId=<string>&partnerId=<string>&includeExpandedFields=<boolean>&sortBy=createdAt&sortOrder=desc&endingBefore=<string>&startingAfter=<string>&page=<number>&pageSize=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `country` field.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A filter on the list based on the customer's `linkId` field (the referral link ID).",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Program ID to filter by.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Partner ID to filter by.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`).",
+                      "key": "includeExpandedFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The field to sort the customers by. The default is `createdAt`.",
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.",
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.",
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `startingAfter` instead.",
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The number of items per page.",
+                      "key": "pageSize",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-a2f3af47-f696-4d6e-9301-6b737da71dda"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:47.000Z",
+          "updatedAt": "2026-07-28T01:32:47.000Z",
+          "uid": "35240-a5534d3b-a360-4045-a0c8-365ffe32e174"
+        }
+      ],
+      "id": "623be8ee-8fdf-4c35-8efc-143df4973b9f",
+      "createdAt": "2026-07-28T01:32:47.000Z",
+      "updatedAt": "2026-07-28T01:32:47.000Z",
+      "uid": "35240-623be8ee-8fdf-4c35-8efc-143df4973b9f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

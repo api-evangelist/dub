@@ -1,0 +1,2855 @@
+{
+  "info": {
+    "_postman_id": "818c1c97-a579-4efe-85a2-090b05b1d4bc",
+    "name": "Dub Analytics Events API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:50.000Z",
+    "updatedAt": "2026-07-28T01:32:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-818c1c97-a579-4efe-85a2-090b05b1d4bc"
+  },
+  "item": [
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "List all events",
+          "id": "6f3fcda0-f63b-4521-9cc3-d4806d02c41b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ],
+              "query": [
+                {
+                  "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                  "key": "event",
+                  "value": "clicks"
+                },
+                {
+                  "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                  "key": "domain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                  "key": "linkId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                  "key": "externalId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                  "key": "tenantId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                  "key": "tagId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                  "key": "folderId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                  "key": "partnerTagId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                  "key": "groupId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                  "key": "partnerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the customer to retrieve analytics for.",
+                  "key": "customerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                  "key": "interval",
+                  "value": "30d"
+                },
+                {
+                  "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                  "key": "start",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                  "key": "end",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                  "key": "timezone",
+                  "value": "UTC"
+                },
+                {
+                  "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                  "key": "city",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                  "key": "region",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                  "key": "continent",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                  "key": "device",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                  "key": "browser",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                  "key": "os",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                  "key": "trigger",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                  "key": "referer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                  "key": "refererUrl",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                  "key": "url",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                  "key": "utm_source",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                  "key": "utm_medium",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                  "key": "utm_campaign",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                  "key": "utm_term",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                  "key": "utm_content",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                  "key": "root",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                  "key": "saleType",
+                  "value": "new"
+                },
+                {
+                  "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                  "key": "programId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                  "key": "tagIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                  "key": "qr",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "The sort order. The default is `desc`.",
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "description": "The field to sort the events by. The default is `timestamp`.",
+                  "key": "sortBy",
+                  "value": "timestamp"
+                },
+                {
+                  "description": "DEPRECATED. Use `sortOrder` instead.",
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of events for the authenticated workspace."
+          },
+          "response": [
+            {
+              "id": "36f5bf76-8ccb-40f8-bb0d-999333e89c60",
+              "name": "A list of events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"event\": \"click\",\n    \"timestamp\": \"<string>\",\n    \"click\": {\n      \"id\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"url\": \"<string>\",\n      \"country\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"continent\": \"<string>\",\n      \"device\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"os\": \"<string>\",\n      \"referer\": \"<string>\",\n      \"refererUrl\": \"<string>\",\n      \"qr\": \"<boolean>\",\n      \"ip\": \"<string>\",\n      \"trigger\": \"<string>\"\n    },\n    \"link\": {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"url\": \"<string>\",\n      \"trackConversion\": \"<boolean>\",\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"programId\": \"<string>\",\n      \"partnerId\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"disabledAt\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"doIndex\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"geo\": {\n        \"non_68e\": \"<uri>\",\n        \"voluptatec\": \"<uri>\"\n      },\n      \"publicStats\": \"<boolean>\",\n      \"tags\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"color\": \"purple\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"color\": \"blue\"\n        }\n      ],\n      \"folderId\": \"<string>\",\n      \"webhookIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"comments\": \"<string>\",\n      \"shortLink\": \"<uri>\",\n      \"qrCode\": \"<uri>\",\n      \"utm_source\": \"<string>\",\n      \"utm_medium\": \"<string>\",\n      \"utm_campaign\": \"<string>\",\n      \"utm_term\": \"<string>\",\n      \"utm_content\": \"<string>\",\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"clicks\": 0,\n      \"leads\": 0,\n      \"conversions\": 0,\n      \"sales\": 0,\n      \"saleAmount\": 0,\n      \"lastClicked\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"tagId\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ]\n    },\n    \"click_id\": \"<string>\",\n    \"link_id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"url\": \"<string>\",\n    \"continent\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"device\": \"<string>\",\n    \"browser\": \"<string>\",\n    \"os\": \"<string>\",\n    \"qr\": \"<number>\",\n    \"ip\": \"<string>\"\n  },\n  {\n    \"event\": \"click\",\n    \"timestamp\": \"<string>\",\n    \"click\": {\n      \"id\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"url\": \"<string>\",\n      \"country\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"continent\": \"<string>\",\n      \"device\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"os\": \"<string>\",\n      \"referer\": \"<string>\",\n      \"refererUrl\": \"<string>\",\n      \"qr\": \"<boolean>\",\n      \"ip\": \"<string>\",\n      \"trigger\": \"<string>\"\n    },\n    \"link\": {\n      \"id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"key\": \"<string>\",\n      \"url\": \"<string>\",\n      \"trackConversion\": \"<boolean>\",\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"programId\": \"<string>\",\n      \"partnerId\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"disabledAt\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"doIndex\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"geo\": {\n        \"laboris_94\": \"<uri>\",\n        \"sint_8e3\": \"<uri>\"\n      },\n      \"publicStats\": \"<boolean>\",\n      \"tags\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"color\": \"pink\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"color\": \"pink\"\n        }\n      ],\n      \"folderId\": \"<string>\",\n      \"webhookIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"comments\": \"<string>\",\n      \"shortLink\": \"<uri>\",\n      \"qrCode\": \"<uri>\",\n      \"utm_source\": \"<string>\",\n      \"utm_medium\": \"<string>\",\n      \"utm_campaign\": \"<string>\",\n      \"utm_term\": \"<string>\",\n      \"utm_content\": \"<string>\",\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"clicks\": 0,\n      \"leads\": 0,\n      \"conversions\": 0,\n      \"sales\": 0,\n      \"saleAmount\": 0,\n      \"lastClicked\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"tagId\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ]\n    },\n    \"click_id\": \"<string>\",\n    \"link_id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"url\": \"<string>\",\n    \"continent\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"device\": \"<string>\",\n    \"browser\": \"<string>\",\n    \"os\": \"<string>\",\n    \"qr\": \"<number>\",\n    \"ip\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-36f5bf76-8ccb-40f8-bb0d-999333e89c60"
+            },
+            {
+              "id": "48464bcf-ac72-46e4-879e-6a82b19e2eb1",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-48464bcf-ac72-46e4-879e-6a82b19e2eb1"
+            },
+            {
+              "id": "06ac2bc7-697c-4986-a81b-0ebd7770775c",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-06ac2bc7-697c-4986-a81b-0ebd7770775c"
+            },
+            {
+              "id": "f4787a98-b145-4aab-9746-662438a9bb38",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-f4787a98-b145-4aab-9746-662438a9bb38"
+            },
+            {
+              "id": "fa7ba549-ff01-4534-9df1-c50bca1a9f65",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-fa7ba549-ff01-4534-9df1-c50bca1a9f65"
+            },
+            {
+              "id": "0c40bf07-d7e7-4668-adfa-61b78091b1db",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-0c40bf07-d7e7-4668-adfa-61b78091b1db"
+            },
+            {
+              "id": "c0e405ea-438c-4258-bf06-fe6a1a849f47",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-c0e405ea-438c-4258-bf06-fe6a1a849f47"
+            },
+            {
+              "id": "9a267578-41ea-4eb1-930b-9993d235a6dd",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-9a267578-41ea-4eb1-930b-9993d235a6dd"
+            },
+            {
+              "id": "847478c5-7a68-4eb4-95ce-92a34138257b",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-847478c5-7a68-4eb4-95ce-92a34138257b"
+            },
+            {
+              "id": "c47f6d6e-1dda-484c-a12b-bcdbefec2132",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?event=clicks&domain=<string>&key=<string>&linkId=<string>&externalId=<string>&tenantId=<string>&tagId=<string>&folderId=<string>&partnerTagId=<string>&groupId=<string>&partnerId=<string>&customerId=<string>&interval=30d&start=<string>&end=<string>&timezone=UTC&country=<string>&city=<string>&region=<string>&continent=<string>&device=<string>&browser=<string>&os=<string>&trigger=<string>&referer=<string>&refererUrl=<string>&url=<string>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&root=<boolean>&saleType=new&query=<string>&programId=<string>&tagIds=<string>&qr=<boolean>&page=1&limit=100&sortOrder=desc&sortBy=timestamp&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of event to retrieve analytics for. Defaults to 'clicks'.",
+                      "key": "event",
+                      "value": "clicks"
+                    },
+                    {
+                      "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.",
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.",
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.",
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.",
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.",
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.",
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.",
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.",
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.",
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the customer to retrieve analytics for.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The interval to retrieve analytics for. If undefined, defaults to 24h.",
+                      "key": "interval",
+                      "value": "30d"
+                    },
+                    {
+                      "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.",
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.",
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.",
+                      "key": "timezone",
+                      "value": "UTC"
+                    },
+                    {
+                      "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.",
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.",
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.",
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.",
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.",
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.",
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.",
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.",
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.",
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.",
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.",
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.",
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).",
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.",
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.",
+                      "key": "saleType",
+                      "value": "new"
+                    },
+                    {
+                      "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.",
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.",
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.",
+                      "key": "qr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "The sort order. The default is `desc`.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "The field to sort the events by. The default is `timestamp`.",
+                      "key": "sortBy",
+                      "value": "timestamp"
+                    },
+                    {
+                      "description": "DEPRECATED. Use `sortOrder` instead.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:51.000Z",
+              "updatedAt": "2026-07-28T01:32:51.000Z",
+              "uid": "35240-c47f6d6e-1dda-484c-a12b-bcdbefec2132"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:51.000Z",
+          "updatedAt": "2026-07-28T01:32:51.000Z",
+          "uid": "35240-6f3fcda0-f63b-4521-9cc3-d4806d02c41b"
+        }
+      ],
+      "id": "304b69f8-a003-465d-bb88-73184dbfcbc5",
+      "createdAt": "2026-07-28T01:32:51.000Z",
+      "updatedAt": "2026-07-28T01:32:51.000Z",
+      "uid": "35240-304b69f8-a003-465d-bb88-73184dbfcbc5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "provider": "dub",
+  "sources": [
+    "dub-analytics-api-openapi.yml",
+    "dub-bounties-api-openapi.yml",
+    "dub-commissions-api-openapi.yml",
+    "dub-customers-api-openapi.yml",
+    "dub-domains-api-openapi.yml",
+    "dub-embed-tokens-api-openapi.yml",
+    "dub-events-api-openapi.yml",
+    "dub-folders-api-openapi.yml",
+    "dub-links-api-openapi.yml",
+    "dub-partner-applications-api-openapi.yml",
+    "dub-partners-api-openapi.yml",
+    "dub-payouts-api-openapi.yml",
+    "dub-qr-codes-api-openapi.yml",
+    "dub-tags-api-openapi.yml",
+    "dub-track-api-openapi.yml"
+  ],
+  "outputs": [
+    "dub-analytics-api-openapi.yml",
+    "dub-bounties-api-openapi.yml",
+    "dub-commissions-api-openapi.yml",
+    "dub-customers-api-openapi.yml",
+    "dub-domains-api-openapi.yml",
+    "dub-embed-tokens-api-openapi.yml",
+    "dub-events-api-openapi.yml",
+    "dub-folders-api-openapi.yml",
+    "dub-links-api-openapi.yml",
+    "dub-partner-applications-api-openapi.yml",
+    "dub-partners-api-openapi.yml",
+    "dub-payouts-api-openapi.yml",
+    "dub-qr-codes-api-openapi.yml",
+    "dub-tags-api-openapi.yml",
+    "dub-track-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

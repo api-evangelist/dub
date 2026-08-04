@@ -1,0 +1,1874 @@
+{
+  "info": {
+    "_postman_id": "662e9275-38e4-460e-8811-72e72640f85c",
+    "name": "Dub Analytics Track API",
+    "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:15.000Z",
+    "updatedAt": "2026-07-28T01:33:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-662e9275-38e4-460e-8811-72e72640f85c"
+  },
+  "item": [
+    {
+      "name": "track",
+      "item": [
+        {
+          "name": "lead",
+          "item": [
+            {
+              "name": "Track a lead",
+              "id": "32b4da29-98dc-4f6b-9927-0cf924a7cdb2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/track/lead",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "track",
+                    "lead"
+                  ]
+                },
+                "description": "Track a lead for a short link."
+              },
+              "response": [
+                {
+                  "id": "ce2a2fbc-4271-47ca-9fa0-47d0c5ee9dfb",
+                  "name": "A lead was tracked.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"click\": {\n    \"id\": \"<string>\"\n  },\n  \"link\": {\n    \"id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"shortLink\": \"<uri>\",\n    \"url\": \"<uri>\",\n    \"partnerId\": \"<string>\",\n    \"programId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"customer\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"externalId\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-ce2a2fbc-4271-47ca-9fa0-47d0c5ee9dfb"
+                },
+                {
+                  "id": "070919b4-14ae-4e21-98cc-8d8dd803bad0",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-070919b4-14ae-4e21-98cc-8d8dd803bad0"
+                },
+                {
+                  "id": "099f4db0-2f35-4f45-b78d-c3001b9339ac",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-099f4db0-2f35-4f45-b78d-c3001b9339ac"
+                },
+                {
+                  "id": "0301d155-9f99-413c-b0af-fa4e958f616e",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-0301d155-9f99-413c-b0af-fa4e958f616e"
+                },
+                {
+                  "id": "5e9b7735-25d3-48d9-a26d-f34e92d5a1ae",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-5e9b7735-25d3-48d9-a26d-f34e92d5a1ae"
+                },
+                {
+                  "id": "3a327416-7a3e-4371-b2fa-358e4091f369",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-3a327416-7a3e-4371-b2fa-358e4091f369"
+                },
+                {
+                  "id": "d594d6c6-3d96-4f70-916b-72976dc33159",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-d594d6c6-3d96-4f70-916b-72976dc33159"
+                },
+                {
+                  "id": "eb84a8e8-157e-4a3c-ac6e-1c0b780ce87c",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-eb84a8e8-157e-4a3c-ac6e-1c0b780ce87c"
+                },
+                {
+                  "id": "861f1bc5-61cc-4424-89cf-e50f2fd86684",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-861f1bc5-61cc-4424-89cf-e50f2fd86684"
+                },
+                {
+                  "id": "d225c201-7951-4831-ae43-266d6d6194ad",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/lead",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "lead"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-d225c201-7951-4831-ae43-266d6d6194ad"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:16.000Z",
+              "updatedAt": "2026-07-28T01:33:16.000Z",
+              "uid": "35240-32b4da29-98dc-4f6b-9927-0cf924a7cdb2"
+            }
+          ],
+          "id": "48880935-c0f2-4ae0-9877-9ef05292e57b",
+          "createdAt": "2026-07-28T01:33:16.000Z",
+          "updatedAt": "2026-07-28T01:33:16.000Z",
+          "uid": "35240-48880935-c0f2-4ae0-9877-9ef05292e57b"
+        },
+        {
+          "name": "sale",
+          "item": [
+            {
+              "name": "Track a sale",
+              "id": "85d31628-506d-43a8-8d0a-3900b1058e92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/track/sale",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "track",
+                    "sale"
+                  ]
+                },
+                "description": "Track a sale for a short link."
+              },
+              "response": [
+                {
+                  "id": "3a3ec514-bc7a-401e-b713-dcf6e994e9bd",
+                  "name": "A sale was tracked.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"eventName\": \"<string>\",\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"sale\": {\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"paymentProcessor\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"metadata\": {\n      \"dolore72\": {},\n      \"ea_2d\": {}\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-3a3ec514-bc7a-401e-b713-dcf6e994e9bd"
+                },
+                {
+                  "id": "03d89f5d-7332-4b94-804f-dd72cd477de6",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-03d89f5d-7332-4b94-804f-dd72cd477de6"
+                },
+                {
+                  "id": "4e4a431f-cdaf-416e-a8cb-58f51760445f",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-4e4a431f-cdaf-416e-a8cb-58f51760445f"
+                },
+                {
+                  "id": "4bda8ef5-3581-4930-9ac3-b3027bd8985d",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-4bda8ef5-3581-4930-9ac3-b3027bd8985d"
+                },
+                {
+                  "id": "21473377-921e-45b8-87d1-870f880428c2",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-21473377-921e-45b8-87d1-870f880428c2"
+                },
+                {
+                  "id": "9be127c1-cde0-48ef-bc55-b98ddc00b294",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-9be127c1-cde0-48ef-bc55-b98ddc00b294"
+                },
+                {
+                  "id": "7ecfc277-5219-44e6-b788-0e9da170b38d",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-7ecfc277-5219-44e6-b788-0e9da170b38d"
+                },
+                {
+                  "id": "fcf721e3-6378-4f99-9869-1e19ea1f3ed3",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-fcf721e3-6378-4f99-9869-1e19ea1f3ed3"
+                },
+                {
+                  "id": "d7dbc094-5bc8-4e0b-8c76-0b9e8ee13d31",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-d7dbc094-5bc8-4e0b-8c76-0b9e8ee13d31"
+                },
+                {
+                  "id": "d782c3ad-d5d6-4a7f-ac44-8a09d76db695",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/sale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "sale"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-d782c3ad-d5d6-4a7f-ac44-8a09d76db695"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:16.000Z",
+              "updatedAt": "2026-07-28T01:33:16.000Z",
+              "uid": "35240-85d31628-506d-43a8-8d0a-3900b1058e92"
+            }
+          ],
+          "id": "fe1457ad-aba1-4084-b140-82f0d08ec267",
+          "createdAt": "2026-07-28T01:33:16.000Z",
+          "updatedAt": "2026-07-28T01:33:16.000Z",
+          "uid": "35240-fe1457ad-aba1-4084-b140-82f0d08ec267"
+        },
+        {
+          "name": "open",
+          "item": [
+            {
+              "name": "Track a deep link open event",
+              "id": "a120a354-ddc7-4c91-ad88-6b37b4a0eacd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/track/open",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "track",
+                    "open"
+                  ]
+                },
+                "description": "This endpoint is used to track when a user opens your app via a Dub-powered deep link (for both iOS and Android)."
+              },
+              "response": [
+                {
+                  "id": "76fe06c3-5460-47b6-8f13-51acbafe83b3",
+                  "name": "The response from the tracked open event.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"clickId\": \"<string>\",\n  \"link\": {\n    \"id\": \"<string>\",\n    \"domain\": \"<string>\",\n    \"key\": \"<string>\",\n    \"url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-76fe06c3-5460-47b6-8f13-51acbafe83b3"
+                },
+                {
+                  "id": "b56ebcc2-c74d-4a98-9994-f4671b7465ac",
+                  "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-b56ebcc2-c74d-4a98-9994-f4671b7465ac"
+                },
+                {
+                  "id": "4628b314-9c6c-4fbe-b7cf-29727e4999db",
+                  "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-4628b314-9c6c-4fbe-b7cf-29727e4999db"
+                },
+                {
+                  "id": "beee9948-703f-45db-bbba-6fdc1bdaa11d",
+                  "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-beee9948-703f-45db-bbba-6fdc1bdaa11d"
+                },
+                {
+                  "id": "41529fa6-b3fc-47bb-a838-2e87909e2c69",
+                  "name": "The server cannot find the requested resource.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-41529fa6-b3fc-47bb-a838-2e87909e2c69"
+                },
+                {
+                  "id": "4c5cddcd-95f3-4b95-a844-d548acfa54bc",
+                  "name": "This response is sent when a request conflicts with the current state of the server.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-4c5cddcd-95f3-4b95-a844-d548acfa54bc"
+                },
+                {
+                  "id": "1df74d46-90dd-439a-9578-3b9034b86fa3",
+                  "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Gone",
+                  "code": 410,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-1df74d46-90dd-439a-9578-3b9034b86fa3"
+                },
+                {
+                  "id": "f67f3e39-d811-42e3-ac06-8efa0c17d262",
+                  "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-f67f3e39-d811-42e3-ac06-8efa0c17d262"
+                },
+                {
+                  "id": "61a527f5-97cb-45d4-835c-4c82de4d3cd6",
+                  "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-61a527f5-97cb-45d4-835c-4c82de4d3cd6"
+                },
+                {
+                  "id": "894a8b66-6c9b-4364-b04a-7548c5e2beaf",
+                  "name": "The server has encountered a situation it does not know how to handle.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/track/open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "track",
+                        "open"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"<string>\",\n    \"doc_url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:16.000Z",
+                  "updatedAt": "2026-07-28T01:33:16.000Z",
+                  "uid": "35240-894a8b66-6c9b-4364-b04a-7548c5e2beaf"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:16.000Z",
+              "updatedAt": "2026-07-28T01:33:16.000Z",
+              "uid": "35240-a120a354-ddc7-4c91-ad88-6b37b4a0eacd"
+            }
+          ],
+          "id": "822a74ba-12a7-4a1e-9b69-7c184c3055d8",
+          "createdAt": "2026-07-28T01:33:16.000Z",
+          "updatedAt": "2026-07-28T01:33:16.000Z",
+          "uid": "35240-822a74ba-12a7-4a1e-9b69-7c184c3055d8"
+        }
+      ],
+      "id": "e95c6d72-d345-4f68-9aef-311c9a37e3bf",
+      "createdAt": "2026-07-28T01:33:16.000Z",
+      "updatedAt": "2026-07-28T01:33:16.000Z",
+      "uid": "35240-e95c6d72-d345-4f68-9aef-311c9a37e3bf"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dub.co"
+    }
+  ]
+}
