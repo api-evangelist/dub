@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Partners API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Partners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/partners",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the partner's `groupId` field."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the partner's `status` field."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the partner's `country` field."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the partners by. The default is `totalSaleAmount`."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sort order. The default is `desc`."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter the partner list based on the partner's `email`. The value must be a string. Takes precedence over `search`."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the partner list based on the partner's `tenantId`. The value must be a string. Takes precedence over `email` and `search`."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search query to filter partners by ID, name, email, or link."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all partners for a partner program."
+        },
+        {
+          "info": {
+            "name": "Create or update a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates or updates a partner record (upsert behavior). If a partner with the same email already exists, their program enrollment will be updated with the provided tenantId. If no existing partner is found, a new partner will be created using the supplied information."
+        },
+        {
+          "info": {
+            "name": "Retrieve a partner's links.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/partners/links",
+            "params": [
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner to create a link for. Will take precedence over `tenantId` if provided."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a partner's links by their partner ID or tenant ID."
+        },
+        {
+          "info": {
+            "name": "Create a link for a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners/links",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a link for a partner that is enrolled in your program."
+        },
+        {
+          "info": {
+            "name": "Upsert a link for a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.dub.co/partners/links/upsert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Upsert a link for a partner that is enrolled in your program. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created."
+        },
+        {
+          "info": {
+            "name": "Retrieve analytics for a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/partners/analytics",
+            "params": [
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner to create a link for. Will take precedence over `tenantId` if provided."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The interval to retrieve analytics for. If undefined, defaults to 24h."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`"
+              },
+              {
+                "name": "groupBy",
+                "value": "",
+                "type": "query",
+                "description": "The parameter to group the analytics data points by. Defaults to `count` if undefined."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter."
+        },
+        {
+          "info": {
+            "name": "Ban a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners/ban",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Ban a partner from your program. This will disable all links and mark all commissions as canceled."
+        },
+        {
+          "info": {
+            "name": "Deactivate a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners/deactivate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This will deactivate the partner from your program and disable all their active links. Their commissions and payouts will remain intact. You can reactivate them later if needed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

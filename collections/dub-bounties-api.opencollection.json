@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Bounties API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bounties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bounty submissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/bounties/:bountyId/submissions",
+            "params": [
+              {
+                "name": "bountyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the submissions to list."
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the group to list submissions for."
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner to list submissions for."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the submissions by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The order to sort the submissions by."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all submissions for a specific bounty in your partner program."
+        },
+        {
+          "info": {
+            "name": "Approve a bounty submission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/bounties/:bountyId/submissions/:submissionId/approve",
+            "params": [
+              {
+                "name": "bountyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bounty"
+              },
+              {
+                "name": "submissionId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bounty submission"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Approve a bounty submission. Optionally specify a custom reward amount."
+        },
+        {
+          "info": {
+            "name": "Reject a bounty submission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/bounties/:bountyId/submissions/:submissionId/reject",
+            "params": [
+              {
+                "name": "bountyId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bounty"
+              },
+              {
+                "name": "submissionId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bounty submission"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reject a bounty submission with a specified reason and optional note."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

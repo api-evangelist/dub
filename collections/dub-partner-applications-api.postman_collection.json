@@ -1,0 +1,1887 @@
+{
+  "item": [
+    {
+      "id": "a88a91fc-b03b-4360-ac99-56483ac65be5",
+      "name": "Partner Applications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de5264cf-0760-479e-8e7c-9589bd203735",
+          "name": "List all pending partner applications",
+          "request": {
+            "name": "List all pending partner applications",
+            "description": {
+              "content": "Retrieve a paginated list of pending applications for your partner program.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partners",
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "A filter on the list based on the partner's `country` field."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupId",
+                  "value": "<string>",
+                  "description": "A filter on the list based on the partner's `groupId` field."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "The number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e44bb2e2-4817-47b6-aa28-2c2ed8f86c97",
+              "name": "The list of pending partner applications.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"createdAt\": \"string\",\n    \"partner\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"companyName\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\",\n      \"country\": \"string\",\n      \"status\": \"banned\",\n      \"description\": \"string\",\n      \"groupId\": \"string\",\n      \"website\": \"string\",\n      \"youtube\": \"string\",\n      \"twitter\": \"string\",\n      \"linkedin\": \"string\",\n      \"instagram\": \"string\",\n      \"tiktok\": \"string\"\n    },\n    \"applicationFormData\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"createdAt\": \"string\",\n    \"partner\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"companyName\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\",\n      \"country\": \"string\",\n      \"status\": \"invited\",\n      \"description\": \"string\",\n      \"groupId\": \"string\",\n      \"website\": \"string\",\n      \"youtube\": \"string\",\n      \"twitter\": \"string\",\n      \"linkedin\": \"string\",\n      \"instagram\": \"string\",\n      \"tiktok\": \"string\"\n    },\n    \"applicationFormData\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f51683c2-5191-496b-bbef-f0ae4f2480bd",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84f7ed68-7772-4a81-a24f-eb0698e5bd64",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f6df842-cd1a-495a-8986-41c4cf322c86",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cf9a276-63b9-4e56-8ae2-6f7141a3cb56",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f5f61f1-b555-487d-bf97-0dfa544c585a",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fad0313a-2e31-4ee6-9253-cdf5380cf26f",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65756fc0-964c-49bc-bb47-8d3cac7971da",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b8d70e5-d5f7-4489-8cc5-ed107622476d",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e5a8971-2633-4a31-a3ee-16eec6d02781",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "US"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "grp_123"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "945ee203-1449-4266-a98f-94bad4677b4a",
+          "name": "Approve a partner application",
+          "request": {
+            "name": "Approve a partner application",
+            "description": {
+              "content": "Approve a pending partner application to your program. The partner will be enrolled in the specified group and notified of the approval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partners",
+                "applications",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a6de90e-a153-43c3-9655-ccb20542e3d5",
+              "name": "The approved partner",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"partnerId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "985f647d-d027-4589-8e06-09448dedb86e",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "deebab44-434a-40cc-84a2-6dd6cb15897b",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fad2d9cf-692f-4130-ab39-974058571142",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ac0e333-80a4-4274-b654-010969aab8dc",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93b25186-f517-4cba-8db9-9c673410fb6a",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66c7444e-8cc0-4550-9c93-788b5f192280",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fa89575-ddc1-4de2-bbd4-568da387f437",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c212a8bd-b2d4-41ac-b9cd-3f0069ddd18d",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23e05650-4885-431b-bb00-3140c31dec5a",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"groupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1704fe7a-1c2a-4e2e-adfd-2af897ba0afa",
+          "name": "Reject a partner application",
+          "request": {
+            "name": "Reject a partner application",
+            "description": {
+              "content": "Reject a pending partner application to your program. The partner will be notified via email that their application was not approved.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partners",
+                "applications",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "471e47e2-5850-4050-9b51-e32a971761d2",
+              "name": "The rejected partner",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"partnerId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c02d6cc-8d55-4a5b-9778-04009d51bcff",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8beb70a2-522c-46c0-bbd7-fc0c803271c5",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f24570e-9c4c-4c46-ba8f-f028d67bdcf3",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2f9df03-58da-413d-a866-b0e651814706",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8175e1fb-4580-44ff-86ff-fda8d7715e14",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edd64910-8298-4a6d-8359-a3d237a080fe",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84f78ed9-b527-4bfe-a67d-eb1ed52a673a",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50b13182-bcdd-48d6-a745-daea4c49d9a2",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb1bf888-2b54-49ba-ad84-4cbe43afab26",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "applications",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\",\n  \"reapplicationTimeframe\": \"standard\",\n  \"flagForFraud\": \"<boolean>\",\n  \"flagForFraudReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "51bebea4-8878-42c0-b6e3-86b1a507d8e5",
+    "name": "Dub Analytics Partner Applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

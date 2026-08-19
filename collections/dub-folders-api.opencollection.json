@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Folders API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Folders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/folders",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term to filter the folders by."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of folders for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Create a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/folders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a folder for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Update a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/folders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the folder to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a folder in the workspace."
+        },
+        {
+          "info": {
+            "name": "Delete a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/folders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the folder to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a folder from the workspace. All existing links will still work, but they will no longer be associated with this folder."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

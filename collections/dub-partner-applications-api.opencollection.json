@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Partner Applications API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Partner Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all pending partner applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/partners/applications",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the partner's `country` field."
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the partner's `groupId` field."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of pending applications for your partner program."
+        },
+        {
+          "info": {
+            "name": "Approve a partner application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners/applications/approve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Approve a pending partner application to your program. The partner will be enrolled in the specified group and notified of the approval."
+        },
+        {
+          "info": {
+            "name": "Reject a partner application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/partners/applications/reject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reject a pending partner application to your program. The partner will be notified via email that their application was not approved."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Customers API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/customers",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`."
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query",
+                "description": "A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the customer's `country` field."
+              },
+              {
+                "name": "linkId",
+                "value": "",
+                "type": "query",
+                "description": "A filter on the list based on the customer's `linkId` field (the referral link ID)."
+              },
+              {
+                "name": "programId",
+                "value": "",
+                "type": "query",
+                "description": "Program ID to filter by."
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "Partner ID to filter by."
+              },
+              {
+                "name": "includeExpandedFields",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`)."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the customers by. The default is `createdAt`."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sort order. The default is `desc`."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Use `startingAfter` instead."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of customers for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Retrieve a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+              },
+              {
+                "name": "includeExpandedFields",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a customer by ID for the authenticated workspace. To retrieve a customer by external ID, prefix the ID with `ext_`."
+        },
+        {
+          "info": {
+            "name": "Update a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+              },
+              {
+                "name": "includeExpandedFields",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include expanded fields on the customer (`link`, `partner`, `discount`)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a customer for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Delete a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a customer from a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

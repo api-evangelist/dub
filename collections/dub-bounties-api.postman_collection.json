@@ -1,0 +1,2498 @@
+{
+  "item": [
+    {
+      "id": "15279900-ded1-4854-bd7e-a92e7cd14013",
+      "name": "Bounties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba8b2611-9281-46f3-aa23-e6182efdf63f",
+          "name": "List bounty submissions",
+          "request": {
+            "name": "List bounty submissions",
+            "description": {
+              "content": "List all submissions for a specific bounty in your partner program.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bounties",
+                ":bountyId",
+                "submissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The status of the submissions to list."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupId",
+                  "value": "<string>",
+                  "description": "The ID of the group to list submissions for."
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<string>",
+                  "description": "The ID of the partner to list submissions for."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "completedAt",
+                  "description": "The field to sort the submissions by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "asc",
+                  "description": "The order to sort the submissions by."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "The number of items per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bountyId",
+                  "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3612882-d3e1-42c7-89d8-e35110efb61b",
+              "name": "The list of bounty submissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"bountyId\": \"string\",\n    \"partnerId\": \"string\",\n    \"description\": \"string\",\n    \"urls\": [\n      \"string\",\n      \"string\"\n    ],\n    \"files\": [\n      {\n        \"url\": \"http://HTH.qsbCL1C9rSIBwziRItDmihunsbP2YaEJPIiQCIla1W6RB9u.TlwA9\",\n        \"fileName\": \"string\",\n        \"size\": 3819.627300912557\n      },\n      {\n        \"url\": \"http://eqQuqQofwAvdDgUVsfuBGICKZLIRQnx.lmaOzwDqQ84HEsmets\",\n        \"fileName\": \"string\",\n        \"size\": 9780.605117562149\n      }\n    ],\n    \"status\": \"draft\",\n    \"performanceCount\": 6142.290684479704,\n    \"socialMetricCount\": -5239630985075744,\n    \"createdAt\": \"string\",\n    \"completedAt\": \"string\",\n    \"reviewedAt\": \"string\",\n    \"rejectionReason\": \"string\",\n    \"rejectionNote\": \"string\",\n    \"periodNumber\": 8497054815008955,\n    \"socialMetricsLastSyncedAt\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"bountyId\": \"string\",\n    \"partnerId\": \"string\",\n    \"description\": \"string\",\n    \"urls\": [\n      \"string\",\n      \"string\"\n    ],\n    \"files\": [\n      {\n        \"url\": \"https://lzyudWhlgfzjRpW.cqldCOBqA3LFxiz\",\n        \"fileName\": \"string\",\n        \"size\": 8033.530797014059\n      },\n      {\n        \"url\": \"https://OWobNvelgyscUnSg.hubo8ggt4y3cLtRv1vCt4C8pA-YZz9Pc\",\n        \"fileName\": \"string\",\n        \"size\": 6614.360197170808\n      }\n    ],\n    \"status\": \"draft\",\n    \"performanceCount\": 2531.4430247016694,\n    \"socialMetricCount\": 2578349012500113,\n    \"createdAt\": \"string\",\n    \"completedAt\": \"string\",\n    \"reviewedAt\": \"string\",\n    \"rejectionReason\": \"string\",\n    \"rejectionNote\": \"string\",\n    \"periodNumber\": 8325718341577760,\n    \"socialMetricsLastSyncedAt\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e43752c-7aa2-490e-8828-b4e349dab924",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c50423a-a690-48af-b60c-3bb429556716",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6c1039a-0ac7-4c61-a2d9-2d5a333f87ef",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53f8cf29-7568-4ec6-a141-6a7af87036c2",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5db020f7-5527-4b96-bba5-476a2744ad8f",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30126006-6372-46a0-8da4-396c1b21e8f2",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63db3958-765a-42c6-8ec3-ca99b6df7601",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aed3a130-acdc-4636-8ca1-f8c18e74baee",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51168f4b-25f4-4b84-8f42-faa7b9022da3",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "completedAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The unique ID of the bounty on Dub. Can be found in the URL of the bounty page, prefixed with `bnty_`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f020d3f-50a0-4554-9be0-973cfcc03767",
+          "name": "Approve a bounty submission",
+          "request": {
+            "name": "Approve a bounty submission",
+            "description": {
+              "content": "Approve a bounty submission. Optionally specify a custom reward amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bounties",
+                ":bountyId",
+                "submissions",
+                ":submissionId",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bountyId",
+                  "description": "(Required) The ID of the bounty"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "submissionId",
+                  "description": "(Required) The ID of the bounty submission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8585c9e-d277-4e13-bfda-31c7d9262e7c",
+              "name": "The approved bounty submission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"bountyId\": \"string\",\n  \"partnerId\": \"string\",\n  \"description\": \"string\",\n  \"urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"files\": [\n    {\n      \"url\": \"https://IFNEjZflexicFZvfsPmNdCTTUe.eaxaxVccH.BQoQUG3tj-EefJOyOP5FO2n-pNy4yju5fpqSm8DxEjFPd0ZhtX3ItK\",\n      \"fileName\": \"string\",\n      \"size\": 6819.903523167216\n    },\n    {\n      \"url\": \"https://v.vdfqZ5g3kh--YD\",\n      \"fileName\": \"string\",\n      \"size\": 3347.5931112389612\n    }\n  ],\n  \"status\": \"draft\",\n  \"performanceCount\": 8703.193911420662,\n  \"socialMetricCount\": -7071806661910537,\n  \"createdAt\": \"string\",\n  \"completedAt\": \"string\",\n  \"reviewedAt\": \"string\",\n  \"rejectionReason\": \"string\",\n  \"rejectionNote\": \"string\",\n  \"periodNumber\": 4356083677580301,\n  \"socialMetricsLastSyncedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "839cc8e3-2f32-4f2b-9345-b0e9dddf5823",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f759828-fcef-45b9-866b-24c4074f2458",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33552cbd-6429-4e7e-aa2c-ff40be3b5a38",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7da68fd0-3baf-4752-b73c-38afff5fc17f",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cd78d5d-f5b6-43d2-a484-de1044666206",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53d4d225-7e74-417c-9109-958031e27943",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6415bcd-e6c2-46dd-9c3c-8d2e6db18133",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efc396af-dbeb-4ef3-93d2-c739e14737f1",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04dbdc11-0d5d-4411-af4e-748d16688b72",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rewardAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a93cc40b-ef3b-4471-bf9e-6f16cc54efe0",
+          "name": "Reject a bounty submission",
+          "request": {
+            "name": "Reject a bounty submission",
+            "description": {
+              "content": "Reject a bounty submission with a specified reason and optional note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bounties",
+                ":bountyId",
+                "submissions",
+                ":submissionId",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bountyId",
+                  "description": "(Required) The ID of the bounty"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "submissionId",
+                  "description": "(Required) The ID of the bounty submission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4c3406a-3ae9-4ea4-b162-3784b7c5cb5c",
+              "name": "The rejected bounty submission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"bountyId\": \"string\",\n  \"partnerId\": \"string\",\n  \"description\": \"string\",\n  \"urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"files\": [\n    {\n      \"url\": \"https://IFNEjZflexicFZvfsPmNdCTTUe.eaxaxVccH.BQoQUG3tj-EefJOyOP5FO2n-pNy4yju5fpqSm8DxEjFPd0ZhtX3ItK\",\n      \"fileName\": \"string\",\n      \"size\": 6819.903523167216\n    },\n    {\n      \"url\": \"https://v.vdfqZ5g3kh--YD\",\n      \"fileName\": \"string\",\n      \"size\": 3347.5931112389612\n    }\n  ],\n  \"status\": \"draft\",\n  \"performanceCount\": 8703.193911420662,\n  \"socialMetricCount\": -7071806661910537,\n  \"createdAt\": \"string\",\n  \"completedAt\": \"string\",\n  \"reviewedAt\": \"string\",\n  \"rejectionReason\": \"string\",\n  \"rejectionNote\": \"string\",\n  \"periodNumber\": 4356083677580301,\n  \"socialMetricsLastSyncedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f001ff66-806f-40bf-aeec-0052c040b8a7",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6375536-2981-448f-a231-c3e438e719ac",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd9a4000-8ed2-4d76-a9be-572e2af7ccc1",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd9ce2be-1ad9-426d-9d34-810b7468212e",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7500d264-5ac3-4a04-aca9-7adc4e18fd55",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c95b1f4c-8f13-4255-8310-95a0dec09e61",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a6b6760-10df-4a11-816d-f61ff2b8de5c",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c05cd7e6-8728-441e-b862-fbec1a652764",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e00f9b4-8383-443f-8e80-f9183e3ae762",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ":bountyId",
+                    "submissions",
+                    ":submissionId",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bountyId",
+                      "description": "(Required) The ID of the bounty"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The ID of the bounty submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rejectionReason\": \"<string>\",\n  \"rejectionNote\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f9fcd1fc-2d5e-4bcd-8275-9e5ac4288eec",
+    "name": "Dub Analytics Bounties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

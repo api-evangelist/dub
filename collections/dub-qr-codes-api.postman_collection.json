@@ -1,0 +1,842 @@
+{
+  "item": [
+    {
+      "id": "8d6637b2-a2fd-4de0-95f8-2a331eb6fbe1",
+      "name": "QR Codes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "201c15d5-8040-4a03-9707-61d03cdf4aab",
+          "name": "Retrieve a QR code",
+          "request": {
+            "name": "Retrieve a QR code",
+            "description": {
+              "content": "Retrieve a QR code for a link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "qr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "(Required) The URL to generate a QR code for."
+                },
+                {
+                  "disabled": false,
+                  "key": "logo",
+                  "value": "<string>",
+                  "description": "The logo to include in the QR code. Can only be used with a paid plan on Dub."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "600",
+                  "description": "The size of the QR code in pixels. Defaults to `600` if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "L",
+                  "description": "The level of error correction to use for the QR code. Defaults to `L` if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "fgColor",
+                  "value": "#000000",
+                  "description": "The foreground color of the QR code in hex format. Defaults to `#000000` if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "bgColor",
+                  "value": "#FFFFFF",
+                  "description": "The background color of the QR code in hex format. Defaults to `#ffffff` if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "hideLogo",
+                  "value": "false",
+                  "description": "Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub."
+                },
+                {
+                  "disabled": false,
+                  "key": "margin",
+                  "value": "2",
+                  "description": "The size of the margin around the QR code. Defaults to 2 if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMargin",
+                  "value": "true",
+                  "description": "DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20446b31-8a59-4dab-bf92-763aee80ad35",
+              "name": "The QR code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d6b34de-9267-4e24-af84-925dae341d02",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f878b2cc-547a-448f-8c25-fe8c2f8af4d9",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3cdee02-1122-4c39-9cf2-1a533a7a3009",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca5088a7-ce7c-49bc-ba41-9e4d22d212a5",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4fef5f6-3ad3-48a9-8a8c-366804990612",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ab807e5-9182-485a-aa6c-a6b53706fe81",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6ce3d11-26ba-4ff2-8777-049a238711a2",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87456713-f3a4-4f74-88df-a58a76ae17b3",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dde6393f-0b09-4c0c-925c-d59a8fd2bafa",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "600"
+                    },
+                    {
+                      "key": "level",
+                      "value": "L"
+                    },
+                    {
+                      "key": "fgColor",
+                      "value": "#000000"
+                    },
+                    {
+                      "key": "bgColor",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "key": "hideLogo",
+                      "value": "false"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "includeMargin",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "766b1957-d788-463c-bcdc-fdb5b41e6b96",
+    "name": "Dub Analytics QR Codes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

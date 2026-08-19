@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Events API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/events",
+            "params": [
+              {
+                "name": "event",
+                "value": "",
+                "type": "query",
+                "description": "The type of event to retrieve analytics for. Defaults to 'clicks'."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link."
+              },
+              {
+                "name": "linkId",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`."
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`."
+              },
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "query",
+                "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`."
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "query",
+                "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links."
+              },
+              {
+                "name": "partnerTagId",
+                "value": "",
+                "type": "query",
+                "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`."
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query",
+                "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`."
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`."
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the customer to retrieve analytics for."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The interval to retrieve analytics for. If undefined, defaults to 24h."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`."
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`."
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`."
+              },
+              {
+                "name": "continent",
+                "value": "",
+                "type": "query",
+                "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`."
+              },
+              {
+                "name": "device",
+                "value": "",
+                "type": "query",
+                "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`."
+              },
+              {
+                "name": "browser",
+                "value": "",
+                "type": "query",
+                "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`."
+              },
+              {
+                "name": "os",
+                "value": "",
+                "type": "query",
+                "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`."
+              },
+              {
+                "name": "trigger",
+                "value": "",
+                "type": "query",
+                "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types."
+              },
+              {
+                "name": "referer",
+                "value": "",
+                "type": "query",
+                "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`."
+              },
+              {
+                "name": "refererUrl",
+                "value": "",
+                "type": "query",
+                "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`."
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`."
+              },
+              {
+                "name": "utm_source",
+                "value": "",
+                "type": "query",
+                "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`."
+              },
+              {
+                "name": "utm_medium",
+                "value": "",
+                "type": "query",
+                "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`."
+              },
+              {
+                "name": "utm_campaign",
+                "value": "",
+                "type": "query",
+                "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`."
+              },
+              {
+                "name": "utm_term",
+                "value": "",
+                "type": "query",
+                "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`)."
+              },
+              {
+                "name": "utm_content",
+                "value": "",
+                "type": "query",
+                "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`)."
+              },
+              {
+                "name": "root",
+                "value": "",
+                "type": "query",
+                "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both."
+              },
+              {
+                "name": "saleType",
+                "value": "",
+                "type": "query",
+                "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`"
+              },
+              {
+                "name": "programId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for."
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for."
+              },
+              {
+                "name": "qr",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sort order. The default is `desc`."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the events by. The default is `timestamp`."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Use `sortOrder` instead."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of events for the authenticated workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Commissions API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Commissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all commissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/commissions",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`."
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated customer."
+              },
+              {
+                "name": "payoutId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated payout."
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database)."
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`."
+              },
+              {
+                "name": "partnerTagId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`."
+              },
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of commissions by their corresponding status."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the list of commissions by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sort order for the list of commissions."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The interval to retrieve commissions for."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the date range to filter the commissions by."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the date range to filter the commissions by."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Use `startingAfter` instead."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of commissions for your partner program."
+        },
+        {
+          "info": {
+            "name": "Create commission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/commissions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create one or more commissions (custom, lead or sale) for a partner. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created."
+        },
+        {
+          "info": {
+            "name": "Update a commission",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/commissions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The commission's unique ID on Dub."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an existing commission amount. This is useful for handling refunds (partial or full) or fraudulent sales."
+        },
+        {
+          "info": {
+            "name": "Bulk update commissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/commissions/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Bulk update up to 100 commissions with the same status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

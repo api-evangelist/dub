@@ -1,0 +1,1675 @@
+{
+  "item": [
+    {
+      "id": "eb899a44-66c8-4cd5-839a-d76b823246ad",
+      "name": "Track",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4198a29d-86fe-4bd5-bcc7-4a4597554cfa",
+          "name": "Track a lead",
+          "request": {
+            "name": "Track a lead",
+            "description": {
+              "content": "Track a lead for a short link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "track",
+                "lead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"<string>\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ae74896-f1cf-47bc-b092-aec6d1ef2e91",
+              "name": "A lead was tracked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"click\": {\n    \"id\": \"string\"\n  },\n  \"link\": {\n    \"id\": \"string\",\n    \"domain\": \"string\",\n    \"key\": \"string\",\n    \"shortLink\": \"https://F.solqUxeFzRnz+DqyEolmbnp0951XgHmDQsf4vnX8d6iMkvLya1eelbegdbLZvBojhq43d+\",\n    \"url\": \"http://qceQERBziiLcbXzDQ.yleeYW1NaWKgQjQTOOyF7MfPbH0TGwbmfFmLtgLI.YPH9gHJFMHKMRsQKaNc\",\n    \"partnerId\": \"string\",\n    \"programId\": \"string\",\n    \"tenantId\": \"string\",\n    \"externalId\": \"string\"\n  },\n  \"customer\": {\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar\": \"string\",\n    \"externalId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7587671c-87c6-4b03-9461-36f400e8e8a5",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2545c50a-d948-4342-9d05-5053dbb4d843",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd61b899-5c71-4db7-9758-9379bd7addcd",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80b5a746-29b8-47a2-8924-85c7bb539c38",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3234b7ac-83fc-4067-a848-fcc119fb2ab1",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8c79a7c-72a9-4ace-8b14-b611c5812fa1",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6d69a16-4926-4e7f-81fa-b6f50540534f",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb3d339-3c4b-41e9-af2d-05d4bad4ea29",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d555b387-d0b5-4c11-86b5-e45de4f96b90",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clickId\": \"<string>\",\n  \"eventName\": \"Sign up\",\n  \"customerExternalId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null,\n  \"mode\": \"async\",\n  \"eventQuantity\": \"<number>\",\n  \"metadata\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39c50d58-8c2c-45bc-9b0c-0941b303737b",
+          "name": "Track a sale",
+          "request": {
+            "name": "Track a sale",
+            "description": {
+              "content": "Track a sale for a short link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "track",
+                "sale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Purchase\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": null,\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1366ef3-6478-4f5e-9a5e-ea4038244ab2",
+              "name": "A sale was tracked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventName\": \"string\",\n  \"customer\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar\": \"string\",\n    \"externalId\": \"string\"\n  },\n  \"sale\": {\n    \"amount\": 3590.2623866116824,\n    \"currency\": \"string\",\n    \"paymentProcessor\": \"string\",\n    \"invoiceId\": \"string\",\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1243ce76-cf3a-426d-8598-d89c5b89e882",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbe9b113-02e3-4f61-9f2b-88d9a07e44c5",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3df57445-bf42-4ecc-939e-547bef4e2c21",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52823dd7-1384-4a36-aa63-d8bbbd793b1b",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33266bd9-bb3e-46ad-9b31-31c598b294ef",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20200edb-200c-489f-ba1e-18d31995158a",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8011969b-4f79-47f1-ad5c-d6a8ed687a2c",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a0f3ba4-fed6-4553-aac0-64987d456bf3",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "751b6670-41e1-4415-848a-1a26adf85966",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "sale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerExternalId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"usd\",\n  \"eventName\": \"Invoice paid\",\n  \"paymentProcessor\": \"custom\",\n  \"invoiceId\": null,\n  \"metadata\": null,\n  \"leadEventName\": \"Cloned template 1481267\",\n  \"clickId\": \"<string>\",\n  \"customerName\": null,\n  \"customerEmail\": null,\n  \"customerAvatar\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d5cbd8c-19d0-462f-9d42-0d13770dd6e9",
+          "name": "Track a deep link open event",
+          "request": {
+            "name": "Track a deep link open event",
+            "description": {
+              "content": "This endpoint is used to track when a user opens your app via a Dub-powered deep link (for both iOS and Android).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "track",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1b06278-7329-45dd-89c9-f65ed107f336",
+              "name": "The response from the tracked open event.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clickId\": \"string\",\n  \"link\": {\n    \"id\": \"link_xxx\",\n    \"domain\": \"acme.link\",\n    \"key\": \"fb-promo\",\n    \"url\": \"https://acme.com/product/123\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63e3cdb3-4548-4870-8665-a93f5fa82c0e",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05b7c20a-4a9e-4152-a122-6b2dc82009f4",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c35806a7-4eae-4e6e-9aa9-0c89e0cd28f2",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50b0c3f1-4917-4739-8b36-e139b20fab40",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbc407ba-5af7-42b6-9c14-165bb2271133",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ed4bff7-e5c2-4f0a-bd65-a69e15774f51",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18e5a45e-0639-4d31-9bf2-5829c7650261",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc29c6c0-9800-41e7-825f-3c006ca904e1",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8298af62-ee40-4dcb-b23b-67bf49a88663",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deepLink\": \"<string>\",\n  \"dubDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d581740-a817-405a-8374-aa735b34009c",
+    "name": "Dub Analytics Track API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

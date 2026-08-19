@@ -1,0 +1,884 @@
+{
+  "item": [
+    {
+      "id": "f95303c0-64d1-4721-aefb-41cc6f4faa7e",
+      "name": "Payouts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0e710ce6-4687-4be3-8814-44d995e45b80",
+          "name": "List all payouts",
+          "request": {
+            "name": "List all payouts",
+            "description": {
+              "content": "Retrieve a paginated list of payouts for your partner program.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter the list of payouts by their corresponding status."
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<string>",
+                  "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenantId",
+                  "value": "<string>",
+                  "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database)."
+                },
+                {
+                  "disabled": false,
+                  "key": "invoiceId",
+                  "value": "<string>",
+                  "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "amount",
+                  "description": "The field to sort the list of payouts by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "description": "The sort order for the list of payouts."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "The number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "00b0eba0-e377-41ae-94e6-bc279fc75d22",
+              "name": "The list of payouts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"invoiceId\": \"string\",\n    \"amount\": 7918.080801068526,\n    \"currency\": \"string\",\n    \"status\": \"pending\",\n    \"periodStart\": \"string\",\n    \"periodEnd\": \"string\",\n    \"createdAt\": \"string\",\n    \"initiatedAt\": \"string\",\n    \"paidAt\": \"string\",\n    \"mode\": \"internal\",\n    \"method\": \"connect\",\n    \"partner\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\",\n      \"defaultPayoutMethod\": \"connect\",\n      \"payoutsEnabledAt\": \"string\",\n      \"country\": \"string\",\n      \"tenantId\": \"string\",\n      \"groupId\": \"string\"\n    },\n    \"description\": \"string\",\n    \"updatedAt\": \"string\",\n    \"failureReason\": \"string\",\n    \"traceId\": \"string\",\n    \"user\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"invoiceId\": \"string\",\n    \"amount\": 514.5224165554607,\n    \"currency\": \"string\",\n    \"status\": \"processed\",\n    \"periodStart\": \"string\",\n    \"periodEnd\": \"string\",\n    \"createdAt\": \"string\",\n    \"initiatedAt\": \"string\",\n    \"paidAt\": \"string\",\n    \"mode\": \"external\",\n    \"method\": \"connect\",\n    \"partner\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\",\n      \"defaultPayoutMethod\": \"stablecoin\",\n      \"payoutsEnabledAt\": \"string\",\n      \"country\": \"string\",\n      \"tenantId\": \"string\",\n      \"groupId\": \"string\"\n    },\n    \"description\": \"string\",\n    \"updatedAt\": \"string\",\n    \"failureReason\": \"string\",\n    \"traceId\": \"string\",\n    \"user\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"image\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edab62a6-57c2-4d56-bf25-4c2bbfe02fd3",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75b0ebf9-27f0-4549-ae8a-25bcc04abb7c",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f089248-fa76-49ff-aa69-b2007f1969de",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d10cb4e-8f85-47b2-ba0b-12b0f4d112a9",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b3d1e84-b3a3-4b84-aa22-ce3c3283ac40",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a34db08-b92b-48b5-8cea-a8de387561fe",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a19f0ec7-4a8f-4084-9bb4-9519fc7d2707",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f06b581-3eb9-4c7a-b6cd-412e2f3a19e7",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0a4bd84-3dbc-4a96-8fd7-bd621d3f1495",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "amount"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ed4099a-752f-4948-83ef-3fd3d54f6b2e",
+    "name": "Dub Analytics Payouts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

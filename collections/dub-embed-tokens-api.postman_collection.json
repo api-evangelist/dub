@@ -1,0 +1,620 @@
+{
+  "item": [
+    {
+      "id": "c6191e66-01fb-4ee1-8b18-eaf815329965",
+      "name": "Embed Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30ddb115-c295-4269-be80-ba09d87882ba",
+          "name": "Create a referrals embed token",
+          "request": {
+            "name": "Create a referrals embed token",
+            "description": {
+              "content": "Create a referrals embed token for the given partner/tenant. The endpoint first attempts to locate an existing enrollment using the provided tenantId. If no enrollment is found, it resolves the partner by email and creates a new enrollment as needed. This results in an upsert-style flow that guarantees a valid enrollment and returns a usable embed token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tokens",
+                "embed",
+                "referrals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"<string>\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"percentage\": \"<number>\"\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33f2e426-e308-4f0a-b4c5-d8db81c56c0f",
+              "name": "The created public embed token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"publicToken\": \"string\",\n  \"expires\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98e89814-5828-4091-a852-968b96bf04ba",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb418ff7-cf11-4009-9ba7-a65d63797f54",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9be0f59-19e8-40a3-92b4-c2743533a986",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89869030-43b6-48f8-a879-104a41430da0",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc8ea800-0d17-4403-8b28-6552fef5a012",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "550f0832-ea04-4f2d-9b3a-ca3eb9e18831",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb65b1e6-ea2e-4683-ab40-079afd27e1af",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45fb5dd6-573c-4ee2-bb4d-84b04d8822d6",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5c90fcc-563e-4159-89f0-96839f9e996b",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "embed",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"partner\": {\n    \"email\": \"<email>\",\n    \"name\": \"<string>\",\n    \"username\": \"<string>\",\n    \"image\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"groupId\": \"<string>\",\n    \"country\": \"<string>\",\n    \"description\": \"<string>\",\n    \"linkProps\": {\n      \"externalId\": \"123456\",\n      \"tenantId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"tagIds\": \"<string>\",\n      \"tagNames\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"expiresAt\": \"<string>\",\n      \"expiredUrl\": \"<string>\",\n      \"password\": \"<string>\",\n      \"proxy\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"image\": \"<string>\",\n      \"video\": \"<string>\",\n      \"rewrite\": \"<boolean>\",\n      \"ios\": \"<string>\",\n      \"android\": \"<string>\",\n      \"doIndex\": \"<boolean>\",\n      \"testVariants\": [\n        {\n          \"url\": \"https://example.com/variant-1\",\n          \"percentage\": 50\n        },\n        {\n          \"url\": \"https://example.com/variant-2\",\n          \"percentage\": 50\n        }\n      ],\n      \"testStartedAt\": \"<string>\",\n      \"testCompletedAt\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87695b51-3406-4df6-a826-b0121b55e1cb",
+    "name": "Dub Analytics Embed Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

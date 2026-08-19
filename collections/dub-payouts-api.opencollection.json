@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Payouts API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all payouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/payouts",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of payouts by their corresponding status."
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of payouts by the associated partner. When specified, takes precedence over `tenantId`."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of payouts by the associated partner's `tenantId` (their unique ID within your database)."
+              },
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the list of payouts by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sort order for the list of payouts."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of payouts for your partner program."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

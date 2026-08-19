@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Tags API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/tags",
+            "params": [
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the tags by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The order to sort the tags by."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term to filter the tags by."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "IDs of tags to filter by."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of tags for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Create a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a tag for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Update a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a tag in the workspace."
+        },
+        {
+          "info": {
+            "name": "Delete a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

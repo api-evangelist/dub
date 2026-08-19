@@ -1,0 +1,390 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Links API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/links",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned."
+              },
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `tagIds` instead. The tag ID to filter the links by."
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query",
+                "description": "The tag IDs to filter the links by."
+              },
+              {
+                "name": "tagNames",
+                "value": "",
+                "type": "query",
+                "description": "The unique name of the tags assigned to the short link (case insensitive)."
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "query",
+                "description": "The folder ID to filter the links by."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term to filter the links by. The search term will be matched against the short link slug and the destination url."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "The user ID to filter the links by."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant."
+              },
+              {
+                "name": "showArchived",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include archived links in the response. Defaults to `false` if not provided."
+              },
+              {
+                "name": "withTags",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Filter for links that have at least one tag assigned to them."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Use `startingAfter` instead."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of links for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Create a link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/links",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a link for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Retrieve links count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/links/count",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned."
+              },
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `tagIds` instead. The tag ID to filter the links by."
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query",
+                "description": "The tag IDs to filter the links by."
+              },
+              {
+                "name": "tagNames",
+                "value": "",
+                "type": "query",
+                "description": "The unique name of the tags assigned to the short link (case insensitive)."
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "query",
+                "description": "The folder ID to filter the links by."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term to filter the links by. The search term will be matched against the short link slug and the destination url."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "The user ID to filter the links by."
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant."
+              },
+              {
+                "name": "showArchived",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include archived links in the response. Defaults to `false` if not provided."
+              },
+              {
+                "name": "withTags",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED. Filter for links that have at least one tag assigned to them."
+              },
+              {
+                "name": "groupBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to group the links by."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the number of links for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Retrieve a link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/links/info",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "linkId",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the short link."
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query",
+                "description": "This is the ID of the link in the your database."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the info for a link."
+        },
+        {
+          "info": {
+            "name": "Update a link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/links/:linkId",
+            "params": [
+              {
+                "name": "linkId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a link for the authenticated workspace. If there's no change, returns it as it is."
+        },
+        {
+          "info": {
+            "name": "Delete a link",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/links/:linkId",
+            "params": [
+              {
+                "name": "linkId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a link for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Bulk create links",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/links/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Bulk create up to 100 links for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Bulk update links",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/links/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Bulk update up to 100 links with the same data for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Bulk delete links",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/links/bulk",
+            "params": [
+              {
+                "name": "linkIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of link IDs to delete. Maximum of 100 IDs. Non-existing IDs will be ignored."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Bulk delete up to 100 links for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Upsert a link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.dub.co/links/upsert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Upsert a link for the authenticated workspace by its URL. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

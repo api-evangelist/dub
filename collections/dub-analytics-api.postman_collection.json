@@ -1,0 +1,2310 @@
+{
+  "item": [
+    {
+      "id": "7fbbc94c-6c82-4fe1-8c55-764a7a3b0b67",
+      "name": "Analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f06b32b8-9872-4c79-ab5d-c2ce83c6001b",
+          "name": "Retrieve analytics for a link, a domain, or the authenticated workspace.",
+          "request": {
+            "name": "Retrieve analytics for a link, a domain, or the authenticated workspace.",
+            "description": {
+              "content": "Retrieve analytics for a link, a domain, or the authenticated workspace. The response type depends on the `event` and `type` query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "clicks",
+                  "description": "The type of event to retrieve analytics for. Defaults to `clicks`."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupBy",
+                  "value": "count",
+                  "description": "The parameter to group the analytics data points by. Defaults to `count` if undefined."
+                },
+                {
+                  "disabled": false,
+                  "key": "domain",
+                  "value": "<string>",
+                  "description": "The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link."
+                },
+                {
+                  "disabled": false,
+                  "key": "linkId",
+                  "value": "<string>",
+                  "description": "The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>",
+                  "description": "The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenantId",
+                  "value": "<string>",
+                  "description": "The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "tagId",
+                  "value": "<string>",
+                  "description": "The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "folderId",
+                  "value": "<string>",
+                  "description": "The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links."
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerTagId",
+                  "value": "<string>",
+                  "description": "The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupId",
+                  "value": "<string>",
+                  "description": "The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<string>",
+                  "description": "The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`."
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<string>",
+                  "description": "The ID of the customer to retrieve analytics for."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "The interval to retrieve analytics for. If undefined, defaults to 24h."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<string>",
+                  "description": "The start date and time when to retrieve analytics from. If set, takes precedence over `interval`."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<string>",
+                  "description": "The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`."
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "UTC",
+                  "description": "The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`."
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`."
+                },
+                {
+                  "disabled": false,
+                  "key": "continent",
+                  "value": "<string>",
+                  "description": "The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`."
+                },
+                {
+                  "disabled": false,
+                  "key": "device",
+                  "value": "<string>",
+                  "description": "The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`."
+                },
+                {
+                  "disabled": false,
+                  "key": "browser",
+                  "value": "<string>",
+                  "description": "The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`."
+                },
+                {
+                  "disabled": false,
+                  "key": "os",
+                  "value": "<string>",
+                  "description": "The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`."
+                },
+                {
+                  "disabled": false,
+                  "key": "trigger",
+                  "value": "<string>",
+                  "description": "The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types."
+                },
+                {
+                  "disabled": false,
+                  "key": "referer",
+                  "value": "<string>",
+                  "description": "The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`."
+                },
+                {
+                  "disabled": false,
+                  "key": "refererUrl",
+                  "value": "<string>",
+                  "description": "The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`."
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_source",
+                  "value": "<string>",
+                  "description": "The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_medium",
+                  "value": "<string>",
+                  "description": "The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_campaign",
+                  "value": "<string>",
+                  "description": "The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_term",
+                  "value": "<string>",
+                  "description": "The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_content",
+                  "value": "<string>",
+                  "description": "The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "root",
+                  "value": "<boolean>",
+                  "description": "Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both."
+                },
+                {
+                  "disabled": false,
+                  "key": "saleType",
+                  "value": "<string>",
+                  "description": "Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`"
+                },
+                {
+                  "disabled": false,
+                  "key": "programId",
+                  "value": "<string>",
+                  "description": "Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for."
+                },
+                {
+                  "disabled": false,
+                  "key": "tagIds",
+                  "value": "<string>",
+                  "description": "Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for."
+                },
+                {
+                  "disabled": false,
+                  "key": "qr",
+                  "value": "<boolean>",
+                  "description": "Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b7fda60c-7dbf-43e0-a841-434e76d5ed58",
+              "name": "Analytics data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clicks\": 0,\n  \"leads\": 0,\n  \"sales\": 0,\n  \"saleAmount\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63db3228-45f1-4028-a0d9-196868462d7f",
+              "name": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"bad_request\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#bad-request\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9997f63-81e9-4026-83fa-f2d2824f5389",
+              "name": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b1c58f-4ee6-4624-baa9-53e475baafbe",
+              "name": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"forbidden\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18389e1d-23cb-4ca2-bb0a-04c08dbb1264",
+              "name": "The server cannot find the requested resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#not-found\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "632f548e-4792-4330-a05e-3105742d6ab5",
+              "name": "This response is sent when a request conflicts with the current state of the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#conflict\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "159960e2-ec93-4932-8974-27246deb339f",
+              "name": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"invite_expired\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#invite-expired\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5520bf76-d4a6-4ede-8846-77f85f5374e2",
+              "name": "The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unprocessable_entity\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#unprocessable-entity\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2b0c8f9-bf50-4fe0-b7f3-cf2891d6316a",
+              "name": "The user has sent too many requests in a given amount of time (\"rate limiting\")",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"rate_limit_exceeded\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#rate-limit_exceeded\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76809b71-e258-4d69-a78a-8731a3939d92",
+              "name": "The server has encountered a situation it does not know how to handle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "leads"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "count"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "dub.co"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerTagId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "os",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trigger",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "refererUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_content",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "root",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "saleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qr",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"The requested resource was not found.\",\n    \"doc_url\": \"https://dub.co/docs/api-reference/errors#internal-server_error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dub.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ac8ca76d-5d17-4cab-9c80-f424c81b9d09",
+    "name": "Dub Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.\n\nContact Support:\n Name: Dub Support\n Email: support@dub.co",
+      "type": "text/plain"
+    }
+  }
+}

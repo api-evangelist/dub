@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dub Analytics Domains API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Domains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/domains",
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include archived domains in the response. Defaults to `false` if not provided."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term to filter the domains by."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of domains for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Create a domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a domain for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Update a domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.dub.co/domains/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The domain name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a domain for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Delete a domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.dub.co/domains/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The domain name."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain."
+        },
+        {
+          "info": {
+            "name": "Register a domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dub.co/domains/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Register a domain for the authenticated workspace. Only available for Enterprise Plans."
+        },
+        {
+          "info": {
+            "name": "Check the availability of one or more domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dub.co/domains/status",
+            "params": [
+              {
+                "name": "domains",
+                "value": "",
+                "type": "query",
+                "description": "The domains to search. We only support .link domains for now."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Check if a domain name is available for purchase. You can check multiple domains at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
