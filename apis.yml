@@ -31,6 +31,13 @@ tags:
   - Analytics
   - Conversion Tracking
   - Affiliate Programs
+  - Open-Source
+tags_raw:
+  - Link Management
+  - URL Shortener
+  - Analytics
+  - Conversion Tracking
+  - Affiliate Programs
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/apis.yml
 created: '2026-06-12'
@@ -45,6 +52,10 @@ apis:
   humanURL: https://dub.co/docs/api-reference/introduction
   baseURL: https://api.dub.co
   tags:
+  - Analytics
+  - Event
+  - Conversion Tracking
+  tags_raw:
   - Analytics
   - Events
   - Conversion Tracking
@@ -202,6 +213,8 @@ apis:
   humanURL: https://dub.co/docs/api-reference/introduction
   baseURL: https://api.dub.co
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
