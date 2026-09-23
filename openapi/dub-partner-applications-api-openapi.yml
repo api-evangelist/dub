@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Dub Analytics Partner Applications API
+  title: Dub Partner Applications API
   description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
   version: 0.0.1
   contact:
@@ -48,8 +48,7 @@ paths:
           example: 1
           deprecated: false
           type: number
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
         description: The page number for pagination.
       - in: query
         name: pageSize
@@ -58,9 +57,8 @@ paths:
           description: The number of items per page.
           example: 50
           type: number
-          minimum: 0
-          exclusiveMinimum: true
           maximum: 100
+          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -87,32 +85,38 @@ paths:
                           maxLength: 190
                           description: The partner's full legal name.
                         companyName:
-                          nullable: true
                           description: If the partner profile type is a company, this is the partner's legal company name.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 190
                         email:
-                          nullable: true
                           description: The partner's email address. Should be a unique value across Dub.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 190
                         image:
-                          nullable: true
                           description: The partner's avatar image.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         description:
                           description: A brief description of the partner and their background.
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 5000
                         country:
-                          nullable: true
                           description: The partner's country (required for tax purposes).
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         groupId:
                           description: The partner's group ID on Dub.
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         status:
                           type: string
                           enum:
@@ -127,28 +131,34 @@ paths:
                           description: The status of the partner's enrollment in the program.
                         website:
                           description: The partner's website URL (including the https protocol).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         youtube:
                           description: The partner's YouTube channel username (e.g. `johndoe`).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         twitter:
                           description: The partner's Twitter username (e.g. `johndoe`).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         linkedin:
                           description: The partner's LinkedIn username (e.g. `johndoe`).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         instagram:
                           description: The partner's Instagram username (e.g. `johndoe`).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         tiktok:
                           description: The partner's TikTok username (e.g. `johndoe`).
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                       required:
                       - id
                       - name
@@ -159,16 +169,18 @@ paths:
                       - status
                       additionalProperties: false
                     applicationFormData:
-                      nullable: true
-                      type: array
+                      type:
+                      - array
+                      - 'null'
                       items:
                         type: object
                         properties:
                           label:
                             type: string
                           value:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - label
                         - value
@@ -219,8 +231,9 @@ paths:
                   description: The ID of the partner to approve.
                 groupId:
                   description: The ID of the group to assign the partner to. If not provided, the partner will be assigned to the group they applied to, or the program's default group if no application group is set.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
               required:
               - partnerId
       responses:
@@ -338,12 +351,12 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
+    '404':
+      description: The server cannot find the requested resource.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InternalServerError
+            x-speakeasy-name-override: NotFound
             type: object
             properties:
               error:
@@ -352,9 +365,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - internal_server_error
+                    - not_found
                     description: A short code indicating the error code returned.
-                    example: internal_server_error
+                    example: not_found
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -363,69 +376,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
-                required:
-                - code
-                - message
-            required:
-            - error
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message
@@ -462,12 +413,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: UnprocessableEntity
             type: object
             properties:
               error:
@@ -476,9 +427,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - unprocessable_entity
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: unprocessable_entity
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -487,69 +438,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '401':
-      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Unauthorized
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unauthorized
-                    description: A short code indicating the error code returned.
-                    example: unauthorized
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unauthorized
-                required:
-                - code
-                - message
-            required:
-            - error
-    '400':
-      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: BadRequest
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - bad_request
-                    description: A short code indicating the error code returned.
-                    example: bad_request
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#bad-request
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
                 required:
                 - code
                 - message
@@ -586,6 +475,99 @@ components:
                 - message
             required:
             - error
+    '400':
+      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: BadRequest
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - bad_request
+                    description: A short code indicating the error code returned.
+                    example: bad_request
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#bad-request
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
     '410':
       description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
       content:
@@ -612,6 +594,37 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message

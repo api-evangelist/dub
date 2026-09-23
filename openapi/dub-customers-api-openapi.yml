@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Dub Analytics Customers API
+  title: Dub Customers API
   description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
   version: 0.0.1
   contact:
@@ -126,8 +126,7 @@ paths:
           example: 1
           deprecated: true
           type: number
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
         description: DEPRECATED. Use `startingAfter` instead.
       - in: query
         name: pageSize
@@ -136,9 +135,8 @@ paths:
           description: The number of items per page.
           example: 50
           type: number
-          minimum: 0
-          exclusiveMinimum: true
           maximum: 100
+          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -155,49 +153,59 @@ paths:
                       description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
                     name:
                       description: Name of the customer.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     email:
                       description: Email of the customer.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     avatar:
                       description: Avatar URL of the customer.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     externalId:
                       type: string
                       description: Unique identifier for the customer in the client's app.
                     stripeCustomerId:
                       description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     country:
                       description: Country of the customer.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     sales:
                       description: Total number of sales for the customer.
-                      nullable: true
-                      type: number
+                      type:
+                      - number
+                      - 'null'
                     saleAmount:
                       description: Total amount of sales for the customer.
-                      nullable: true
-                      type: number
+                      type:
+                      - number
+                      - 'null'
                     createdAt:
                       description: The date the customer was created (usually the signup date or trial start date).
                       type: string
                     firstSaleAt:
                       description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     subscriptionCanceledAt:
                       description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     link:
-                      nullable: true
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       properties:
                         id:
                           type: string
@@ -217,9 +225,10 @@ paths:
                           format: uri
                           description: The destination URL of the short link.
                         programId:
-                          nullable: true
                           description: The ID of the program the short link is associated with.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                       required:
                       - id
                       - domain
@@ -229,11 +238,13 @@ paths:
                       - programId
                       additionalProperties: false
                     programId:
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     partner:
-                      nullable: true
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       properties:
                         id:
                           type: string
@@ -243,14 +254,16 @@ paths:
                           maxLength: 190
                           description: The partner's full legal name.
                         email:
-                          nullable: true
                           description: The partner's email address. Should be a unique value across Dub.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 190
                         image:
-                          nullable: true
                           description: The partner's avatar image.
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                       required:
                       - id
                       - name
@@ -258,8 +271,9 @@ paths:
                       - image
                       additionalProperties: false
                     discount:
-                      nullable: true
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       properties:
                         id:
                           type: string
@@ -271,20 +285,25 @@ paths:
                           - percentage
                           - flat
                         maxDuration:
-                          nullable: true
-                          type: number
+                          type:
+                          - number
+                          - 'null'
                         couponId:
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         couponTestId:
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         description:
-                          nullable: true
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                         partnersCount:
-                          nullable: true
-                          type: number
+                          type:
+                          - number
+                          - 'null'
                       required:
                       - id
                       - amount
@@ -353,49 +372,59 @@ paths:
                     description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
                   name:
                     description: Name of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   email:
                     description: Email of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   avatar:
                     description: Avatar URL of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   externalId:
                     type: string
                     description: Unique identifier for the customer in the client's app.
                   stripeCustomerId:
                     description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   country:
                     description: Country of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   sales:
                     description: Total number of sales for the customer.
-                    nullable: true
-                    type: number
+                    type:
+                    - number
+                    - 'null'
                   saleAmount:
                     description: Total amount of sales for the customer.
-                    nullable: true
-                    type: number
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     description: The date the customer was created (usually the signup date or trial start date).
                     type: string
                   firstSaleAt:
                     description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   subscriptionCanceledAt:
                     description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   link:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -415,9 +444,10 @@ paths:
                         format: uri
                         description: The destination URL of the short link.
                       programId:
-                        nullable: true
                         description: The ID of the program the short link is associated with.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - domain
@@ -427,11 +457,13 @@ paths:
                     - programId
                     additionalProperties: false
                   programId:
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   partner:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -441,14 +473,16 @@ paths:
                         maxLength: 190
                         description: The partner's full legal name.
                       email:
-                        nullable: true
                         description: The partner's email address. Should be a unique value across Dub.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 190
                       image:
-                        nullable: true
                         description: The partner's avatar image.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - name
@@ -456,8 +490,9 @@ paths:
                     - image
                     additionalProperties: false
                   discount:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -469,20 +504,25 @@ paths:
                         - percentage
                         - flat
                       maxDuration:
-                        nullable: true
-                        type: number
+                        type:
+                        - number
+                        - 'null'
                       couponId:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       couponTestId:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       description:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       partnersCount:
-                        nullable: true
-                        type: number
+                        type:
+                        - number
+                        - 'null'
                     required:
                     - id
                     - amount
@@ -546,26 +586,30 @@ paths:
               properties:
                 email:
                   description: The customer's email address.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   format: email
                   pattern: ^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$
                 name:
                   description: The customer's name. If not provided, the email address will be used, and if email is not provided, a random name will be generated.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 avatar:
                   description: The customer's avatar URL. If not provided, a random avatar will be generated.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   format: uri
                 externalId:
                   type: string
                   description: The customer's unique identifier your database. This is useful for associating subsequent conversion events from Dub's API to your internal systems.
                 stripeCustomerId:
                   description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 country:
                   type: string
                   description: The customer's country in ISO 3166-1 alpha-2 format. Updating this field will only affect the customer's country in Dub's system (and has no effect on existing conversion events).
@@ -582,49 +626,59 @@ paths:
                     description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
                   name:
                     description: Name of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   email:
                     description: Email of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   avatar:
                     description: Avatar URL of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   externalId:
                     type: string
                     description: Unique identifier for the customer in the client's app.
                   stripeCustomerId:
                     description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   country:
                     description: Country of the customer.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   sales:
                     description: Total number of sales for the customer.
-                    nullable: true
-                    type: number
+                    type:
+                    - number
+                    - 'null'
                   saleAmount:
                     description: Total amount of sales for the customer.
-                    nullable: true
-                    type: number
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     description: The date the customer was created (usually the signup date or trial start date).
                     type: string
                   firstSaleAt:
                     description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   subscriptionCanceledAt:
                     description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   link:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -644,9 +698,10 @@ paths:
                         format: uri
                         description: The destination URL of the short link.
                       programId:
-                        nullable: true
                         description: The ID of the program the short link is associated with.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - domain
@@ -656,11 +711,13 @@ paths:
                     - programId
                     additionalProperties: false
                   programId:
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   partner:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -670,14 +727,16 @@ paths:
                         maxLength: 190
                         description: The partner's full legal name.
                       email:
-                        nullable: true
                         description: The partner's email address. Should be a unique value across Dub.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 190
                       image:
-                        nullable: true
                         description: The partner's avatar image.
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - name
@@ -685,8 +744,9 @@ paths:
                     - image
                     additionalProperties: false
                   discount:
-                    nullable: true
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     properties:
                       id:
                         type: string
@@ -698,20 +758,25 @@ paths:
                         - percentage
                         - flat
                       maxDuration:
-                        nullable: true
-                        type: number
+                        type:
+                        - number
+                        - 'null'
                       couponId:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       couponTestId:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       description:
-                        nullable: true
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       partnersCount:
-                        nullable: true
-                        type: number
+                        type:
+                        - number
+                        - 'null'
                     required:
                     - id
                     - amount
@@ -795,12 +860,12 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
+    '404':
+      description: The server cannot find the requested resource.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InternalServerError
+            x-speakeasy-name-override: NotFound
             type: object
             properties:
               error:
@@ -809,9 +874,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - internal_server_error
+                    - not_found
                     description: A short code indicating the error code returned.
-                    example: internal_server_error
+                    example: not_found
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -820,69 +885,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
-                required:
-                - code
-                - message
-            required:
-            - error
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message
@@ -919,12 +922,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: UnprocessableEntity
             type: object
             properties:
               error:
@@ -933,9 +936,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - unprocessable_entity
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: unprocessable_entity
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -944,69 +947,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '401':
-      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Unauthorized
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unauthorized
-                    description: A short code indicating the error code returned.
-                    example: unauthorized
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unauthorized
-                required:
-                - code
-                - message
-            required:
-            - error
-    '400':
-      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: BadRequest
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - bad_request
-                    description: A short code indicating the error code returned.
-                    example: bad_request
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#bad-request
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
                 required:
                 - code
                 - message
@@ -1043,6 +984,99 @@ components:
                 - message
             required:
             - error
+    '400':
+      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: BadRequest
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - bad_request
+                    description: A short code indicating the error code returned.
+                    example: bad_request
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#bad-request
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
     '410':
       description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
       content:
@@ -1069,6 +1103,37 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message

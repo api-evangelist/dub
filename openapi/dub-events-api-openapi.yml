@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Dub Analytics Events API
+  title: Dub Events API
   description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
   version: 0.0.1
   contact:
@@ -362,8 +362,9 @@ paths:
                           os:
                             type: string
                           trigger:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           referer:
                             type: string
                           refererUrl:
@@ -405,92 +406,108 @@ paths:
                           trackConversion:
                             type: boolean
                           externalId:
-                            nullable: true
                             description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           tenantId:
-                            nullable: true
                             description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           programId:
-                            nullable: true
                             description: The ID of the program the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           partnerId:
-                            nullable: true
                             description: The ID of the partner the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           archived:
                             type: boolean
                           expiresAt:
                             type: string
                           expiredUrl:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           disabledAt:
                             type: string
                           password:
-                            nullable: true
                             description: The password required to access the destination URL of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           proxy:
                             type: boolean
                           title:
-                            nullable: true
                             description: The title of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           description:
-                            nullable: true
                             description: The description of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           image:
-                            nullable: true
                             description: The image of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           video:
-                            nullable: true
                             description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           rewrite:
                             type: boolean
                           doIndex:
                             type: boolean
                           ios:
-                            nullable: true
                             description: The iOS destination URL for the short link for iOS device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           android:
-                            nullable: true
                             description: The Android destination URL for the short link for Android device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           geo:
-                            nullable: true
                             description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-                            type: object
+                            type:
+                            - object
+                            - 'null'
                             additionalProperties:
                               type: string
                               format: uri
                           publicStats:
                             type: boolean
                           tags:
-                            nullable: true
                             description: The tags assigned to the short link.
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               $ref: '#/components/schemas/LinkTagSchemaOutput'
                           folderId:
-                            nullable: true
                             description: The unique ID of the folder assigned to the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           webhookIds:
                             type: array
                             items:
                               type: string
                             description: The IDs of the webhooks that the short link is associated with.
                           comments:
-                            nullable: true
                             description: The comments for the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           shortLink:
                             type: string
                             format: uri
@@ -500,30 +517,36 @@ paths:
                             format: uri
                             description: The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`).
                           utm_source:
-                            nullable: true
                             description: The UTM source of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_medium:
-                            nullable: true
                             description: The UTM medium of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_campaign:
-                            nullable: true
                             description: The UTM campaign of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_term:
-                            nullable: true
                             description: The UTM term of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_content:
-                            nullable: true
                             description: The UTM content of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testVariants:
-                            nullable: true
                             minItems: 2
                             maxItems: 4
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               type: object
                               properties:
@@ -548,8 +571,9 @@ paths:
                           testCompletedAt:
                             type: string
                           userId:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           workspaceId:
                             type: string
                             description: The workspace ID of the short link.
@@ -580,10 +604,11 @@ paths:
                           updatedAt:
                             type: string
                           tagId:
-                            nullable: true
                             description: 'Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.'
                             deprecated: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
@@ -724,8 +749,7 @@ paths:
                         type: string
                       eventName:
                         type: string
-                      metadata:
-                        nullable: true
+                      metadata: {}
                       click:
                         type: object
                         properties:
@@ -750,8 +774,9 @@ paths:
                           os:
                             type: string
                           trigger:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           referer:
                             type: string
                           refererUrl:
@@ -793,92 +818,108 @@ paths:
                           trackConversion:
                             type: boolean
                           externalId:
-                            nullable: true
                             description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           tenantId:
-                            nullable: true
                             description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           programId:
-                            nullable: true
                             description: The ID of the program the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           partnerId:
-                            nullable: true
                             description: The ID of the partner the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           archived:
                             type: boolean
                           expiresAt:
                             type: string
                           expiredUrl:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           disabledAt:
                             type: string
                           password:
-                            nullable: true
                             description: The password required to access the destination URL of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           proxy:
                             type: boolean
                           title:
-                            nullable: true
                             description: The title of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           description:
-                            nullable: true
                             description: The description of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           image:
-                            nullable: true
                             description: The image of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           video:
-                            nullable: true
                             description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           rewrite:
                             type: boolean
                           doIndex:
                             type: boolean
                           ios:
-                            nullable: true
                             description: The iOS destination URL for the short link for iOS device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           android:
-                            nullable: true
                             description: The Android destination URL for the short link for Android device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           geo:
-                            nullable: true
                             description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-                            type: object
+                            type:
+                            - object
+                            - 'null'
                             additionalProperties:
                               type: string
                               format: uri
                           publicStats:
                             type: boolean
                           tags:
-                            nullable: true
                             description: The tags assigned to the short link.
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               $ref: '#/components/schemas/LinkTagSchemaOutput'
                           folderId:
-                            nullable: true
                             description: The unique ID of the folder assigned to the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           webhookIds:
                             type: array
                             items:
                               type: string
                             description: The IDs of the webhooks that the short link is associated with.
                           comments:
-                            nullable: true
                             description: The comments for the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           shortLink:
                             type: string
                             format: uri
@@ -888,30 +929,36 @@ paths:
                             format: uri
                             description: The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`).
                           utm_source:
-                            nullable: true
                             description: The UTM source of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_medium:
-                            nullable: true
                             description: The UTM medium of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_campaign:
-                            nullable: true
                             description: The UTM campaign of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_term:
-                            nullable: true
                             description: The UTM term of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_content:
-                            nullable: true
                             description: The UTM content of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testVariants:
-                            nullable: true
                             minItems: 2
                             maxItems: 4
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               type: object
                               properties:
@@ -936,8 +983,9 @@ paths:
                           testCompletedAt:
                             type: string
                           userId:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           workspaceId:
                             type: string
                             description: The workspace ID of the short link.
@@ -968,10 +1016,11 @@ paths:
                           updatedAt:
                             type: string
                           tagId:
-                            nullable: true
                             description: 'Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.'
                             deprecated: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
@@ -1036,46 +1085,55 @@ paths:
                             description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
                           name:
                             description: Name of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           email:
                             description: Email of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           avatar:
                             description: Avatar URL of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           externalId:
                             type: string
                             description: Unique identifier for the customer in the client's app.
                           stripeCustomerId:
                             description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           country:
                             description: Country of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           sales:
                             description: Total number of sales for the customer.
-                            nullable: true
-                            type: number
+                            type:
+                            - number
+                            - 'null'
                           saleAmount:
                             description: Total amount of sales for the customer.
-                            nullable: true
-                            type: number
+                            type:
+                            - number
+                            - 'null'
                           createdAt:
                             description: The date the customer was created (usually the signup date or trial start date).
                             type: string
                           firstSaleAt:
                             description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           subscriptionCanceledAt:
                             description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - id
                         - externalId
@@ -1179,8 +1237,9 @@ paths:
                           invoiceId:
                             default: null
                             description: The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           paymentProcessor:
                             default: custom
                             description: The payment processor via which the sale was made.
@@ -1202,8 +1261,7 @@ paths:
                         - paymentProcessor
                         - currency
                         additionalProperties: false
-                      metadata:
-                        nullable: true
+                      metadata: {}
                       link:
                         type: object
                         properties:
@@ -1221,92 +1279,108 @@ paths:
                           trackConversion:
                             type: boolean
                           externalId:
-                            nullable: true
                             description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           tenantId:
-                            nullable: true
                             description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           programId:
-                            nullable: true
                             description: The ID of the program the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           partnerId:
-                            nullable: true
                             description: The ID of the partner the short link is associated with.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           archived:
                             type: boolean
                           expiresAt:
                             type: string
                           expiredUrl:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           disabledAt:
                             type: string
                           password:
-                            nullable: true
                             description: The password required to access the destination URL of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           proxy:
                             type: boolean
                           title:
-                            nullable: true
                             description: The title of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           description:
-                            nullable: true
                             description: The description of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           image:
-                            nullable: true
                             description: The image of the short link. Will be used for Custom Link Previews if `proxy` is true.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           video:
-                            nullable: true
                             description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           rewrite:
                             type: boolean
                           doIndex:
                             type: boolean
                           ios:
-                            nullable: true
                             description: The iOS destination URL for the short link for iOS device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           android:
-                            nullable: true
                             description: The Android destination URL for the short link for Android device targeting.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           geo:
-                            nullable: true
                             description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-                            type: object
+                            type:
+                            - object
+                            - 'null'
                             additionalProperties:
                               type: string
                               format: uri
                           publicStats:
                             type: boolean
                           tags:
-                            nullable: true
                             description: The tags assigned to the short link.
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               $ref: '#/components/schemas/LinkTagSchemaOutput'
                           folderId:
-                            nullable: true
                             description: The unique ID of the folder assigned to the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           webhookIds:
                             type: array
                             items:
                               type: string
                             description: The IDs of the webhooks that the short link is associated with.
                           comments:
-                            nullable: true
                             description: The comments for the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           shortLink:
                             type: string
                             format: uri
@@ -1316,30 +1390,36 @@ paths:
                             format: uri
                             description: The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`).
                           utm_source:
-                            nullable: true
                             description: The UTM source of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_medium:
-                            nullable: true
                             description: The UTM medium of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_campaign:
-                            nullable: true
                             description: The UTM campaign of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_term:
-                            nullable: true
                             description: The UTM term of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           utm_content:
-                            nullable: true
                             description: The UTM content of the short link.
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testVariants:
-                            nullable: true
                             minItems: 2
                             maxItems: 4
-                            type: array
+                            type:
+                            - array
+                            - 'null'
                             items:
                               type: object
                               properties:
@@ -1364,8 +1444,9 @@ paths:
                           testCompletedAt:
                             type: string
                           userId:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           workspaceId:
                             type: string
                             description: The workspace ID of the short link.
@@ -1396,10 +1477,11 @@ paths:
                           updatedAt:
                             type: string
                           tagId:
-                            nullable: true
                             description: 'Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.'
                             deprecated: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
@@ -1480,8 +1562,9 @@ paths:
                           os:
                             type: string
                           trigger:
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           referer:
                             type: string
                           refererUrl:
@@ -1514,46 +1597,55 @@ paths:
                             description: The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
                           name:
                             description: Name of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           email:
                             description: Email of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           avatar:
                             description: Avatar URL of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           externalId:
                             type: string
                             description: Unique identifier for the customer in the client's app.
                           stripeCustomerId:
                             description: The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           country:
                             description: Country of the customer.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           sales:
                             description: Total number of sales for the customer.
-                            nullable: true
-                            type: number
+                            type:
+                            - number
+                            - 'null'
                           saleAmount:
                             description: Total amount of sales for the customer.
-                            nullable: true
-                            type: number
+                            type:
+                            - number
+                            - 'null'
                           createdAt:
                             description: The date the customer was created (usually the signup date or trial start date).
                             type: string
                           firstSaleAt:
                             description: The date the customer made their first sale. Useful for calculating the time to first sale and LTV.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           subscriptionCanceledAt:
                             description: The date the customer canceled their subscription. Useful for calculating LTV and churn rate.
-                            nullable: true
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - id
                         - externalId
@@ -1671,12 +1763,12 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
+    '404':
+      description: The server cannot find the requested resource.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InternalServerError
+            x-speakeasy-name-override: NotFound
             type: object
             properties:
               error:
@@ -1685,9 +1777,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - internal_server_error
+                    - not_found
                     description: A short code indicating the error code returned.
-                    example: internal_server_error
+                    example: not_found
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1696,69 +1788,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
-                required:
-                - code
-                - message
-            required:
-            - error
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message
@@ -1795,12 +1825,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: UnprocessableEntity
             type: object
             properties:
               error:
@@ -1809,9 +1839,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - unprocessable_entity
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: unprocessable_entity
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1820,7 +1850,38 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '409':
+      description: This response is sent when a request conflicts with the current state of the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Conflict
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - conflict
+                    description: A short code indicating the error code returned.
+                    example: conflict
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#conflict
                 required:
                 - code
                 - message
@@ -1888,12 +1949,12 @@ components:
                 - message
             required:
             - error
-    '409':
-      description: This response is sent when a request conflicts with the current state of the server.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: Conflict
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -1902,9 +1963,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - conflict
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: conflict
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1913,7 +1974,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#conflict
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -1945,6 +2006,37 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message

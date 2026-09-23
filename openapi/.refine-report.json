@@ -1,21 +1,7 @@
 {
   "provider": "dub",
   "sources": [
-    "dub-analytics-api-openapi.yml",
-    "dub-bounties-api-openapi.yml",
-    "dub-commissions-api-openapi.yml",
-    "dub-customers-api-openapi.yml",
-    "dub-domains-api-openapi.yml",
-    "dub-embed-tokens-api-openapi.yml",
-    "dub-events-api-openapi.yml",
-    "dub-folders-api-openapi.yml",
-    "dub-links-api-openapi.yml",
-    "dub-partner-applications-api-openapi.yml",
-    "dub-partners-api-openapi.yml",
-    "dub-payouts-api-openapi.yml",
-    "dub-qr-codes-api-openapi.yml",
-    "dub-tags-api-openapi.yml",
-    "dub-track-api-openapi.yml"
+    "_original/dub-openapi.yml"
   ],
   "outputs": [
     "dub-analytics-api-openapi.yml",
@@ -37,6 +23,41 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dub-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "dub-openapi.yml: declared missing tag: Analytics",
+    "dub-openapi.yml: declared missing tag: Bounties",
+    "dub-openapi.yml: declared missing tag: Commissions",
+    "dub-openapi.yml: declared missing tag: Customers",
+    "dub-openapi.yml: declared missing tag: Domains",
+    "dub-openapi.yml: declared missing tag: Embed Tokens",
+    "dub-openapi.yml: declared missing tag: Events",
+    "dub-openapi.yml: declared missing tag: Folders",
+    "dub-openapi.yml: declared missing tag: Links",
+    "dub-openapi.yml: declared missing tag: Partner Applications",
+    "dub-openapi.yml: declared missing tag: Partners",
+    "dub-openapi.yml: declared missing tag: Payouts",
+    "dub-openapi.yml: declared missing tag: QR Codes",
+    "dub-openapi.yml: declared missing tag: Tags",
+    "dub-openapi.yml: declared missing tag: Track",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "dub-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-bounties-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-commissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-embed-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-folders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-links-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-partner-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-partners-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-payouts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-qr-codes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dub-track-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Dub Analytics Links API
+  title: Dub Links API
   description: Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.
   version: 0.0.1
   contact:
@@ -54,23 +54,27 @@ paths:
                 externalId:
                   description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
                   example: '123456'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   minLength: 1
                   maxLength: 255
                 tenantId:
                   description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 255
                 programId:
                   description: The ID of the program the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 partnerId:
                   description: The ID of the partner the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 prefix:
                   description: The prefix of the short link slug for randomly-generated keys (e.g. if prefix is `/c/`, generated keys will be in the `/c/:key` format). Will be ignored if `key` is provided.
                   type: string
@@ -98,56 +102,67 @@ paths:
                       type: string
                 folderId:
                   description: The unique ID existing folder to assign the short link to.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 comments:
                   description: The comments for the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiresAt:
                   description: The date and time when the short link will expire at.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiredUrl:
                   description: The URL to redirect to when the short link has expired.
                   maxLength: 32000
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 password:
                   description: The password required to access the destination URL of the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 proxy:
                   description: Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
                   type: boolean
                 title:
                   description: 'The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 description:
                   description: 'The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 image:
                   description: 'The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 video:
                   description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 rewrite:
                   description: Whether the short link uses link cloaking. Defaults to `false` if not provided.
                   type: boolean
                 ios:
                   description: The iOS destination URL for the short link for iOS device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 android:
                   description: The Android destination URL for the short link for Android device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 geo:
                   $ref: '#/components/schemas/linkGeoTargeting'
@@ -156,39 +171,47 @@ paths:
                   type: boolean
                 utm_source:
                   description: The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 webhookIds:
                   description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  nullable: true
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                 testVariants:
-                  nullable: true
                   minItems: 2
                   maxItems: 4
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: object
                     properties:
@@ -209,12 +232,14 @@ paths:
                     percentage: 50
                 testStartedAt:
                   description: The date and time when the tests started.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 testCompletedAt:
                   description: The date and time when the tests were or will be completed.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 publicStats:
                   description: 'Deprecated: Use `dashboard` instead. Whether the short link''s stats are publicly accessible. Defaults to `false` if not provided.'
                   deprecated: true
@@ -222,8 +247,9 @@ paths:
                 tagId:
                   description: 'Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.'
                   deprecated: true
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
               required:
               - url
       responses:
@@ -369,8 +395,7 @@ paths:
           example: 1
           deprecated: true
           type: number
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
         description: DEPRECATED. Use `startingAfter` instead.
       - in: query
         name: pageSize
@@ -379,9 +404,8 @@ paths:
           description: The number of items per page.
           example: 50
           type: number
-          minimum: 0
-          exclusiveMinimum: true
           maximum: 100
+          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -644,23 +668,27 @@ paths:
                 externalId:
                   description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
                   example: '123456'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   minLength: 1
                   maxLength: 255
                 tenantId:
                   description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 255
                 programId:
                   description: The ID of the program the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 partnerId:
                   description: The ID of the partner the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 trackConversion:
                   description: Whether to track conversions for the short link. Defaults to `false` if not provided.
                   type: boolean
@@ -685,38 +713,44 @@ paths:
                       type: string
                 folderId:
                   description: The unique ID existing folder to assign the short link to.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 comments:
                   description: The comments for the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiresAt:
                   description: The date and time when the short link will expire at.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiredUrl:
                   description: The URL to redirect to when the short link has expired.
                   maxLength: 32000
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 password:
                   description: The password required to access the destination URL of the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 proxy:
                   description: Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
                   type: boolean
                 title:
                   description: 'The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 description:
                   description: 'The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 image:
-                  nullable: true
                   anyOf:
                   - type: string
                     pattern: ^data:image\/(png|jpeg|jpg|gif|webp);base64,
@@ -724,20 +758,23 @@ paths:
                     format: uri
                 video:
                   description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 rewrite:
                   description: Whether the short link uses link cloaking. Defaults to `false` if not provided.
                   type: boolean
                 ios:
                   description: The iOS destination URL for the short link for iOS device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 android:
                   description: The Android destination URL for the short link for Android device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 geo:
                   allOf:
@@ -747,39 +784,47 @@ paths:
                   type: boolean
                 utm_source:
                   description: The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 webhookIds:
                   description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  nullable: true
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                 testVariants:
-                  nullable: true
                   minItems: 2
                   maxItems: 4
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: object
                     properties:
@@ -800,12 +845,14 @@ paths:
                     percentage: 50
                 testStartedAt:
                   description: The date and time when the tests started.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 testCompletedAt:
                   description: The date and time when the tests were or will be completed.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 publicStats:
                   description: 'Deprecated: Use `dashboard` instead. Whether the short link''s stats are publicly accessible. Defaults to `false` if not provided.'
                   deprecated: true
@@ -813,8 +860,9 @@ paths:
                 tagId:
                   description: 'Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.'
                   deprecated: true
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
       responses:
         '200':
           description: The updated link
@@ -929,23 +977,27 @@ paths:
                   externalId:
                     description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
                     example: '123456'
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     minLength: 1
                     maxLength: 255
                   tenantId:
                     description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 255
                   programId:
                     description: The ID of the program the short link is associated with.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   partnerId:
                     description: The ID of the partner the short link is associated with.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   prefix:
                     description: The prefix of the short link slug for randomly-generated keys (e.g. if prefix is `/c/`, generated keys will be in the `/c/:key` format). Will be ignored if `key` is provided.
                     type: string
@@ -973,56 +1025,67 @@ paths:
                         type: string
                   folderId:
                     description: The unique ID existing folder to assign the short link to.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   comments:
                     description: The comments for the short link.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   expiresAt:
                     description: The date and time when the short link will expire at.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   expiredUrl:
                     description: The URL to redirect to when the short link has expired.
                     maxLength: 32000
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   password:
                     description: The password required to access the destination URL of the short link.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   proxy:
                     description: Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
                     type: boolean
                   title:
                     description: 'The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   description:
                     description: 'The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   image:
                     description: 'The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   video:
                     description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   rewrite:
                     description: Whether the short link uses link cloaking. Defaults to `false` if not provided.
                     type: boolean
                   ios:
                     description: The iOS destination URL for the short link for iOS device targeting.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 32000
                   android:
                     description: The Android destination URL for the short link for Android device targeting.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 32000
                   geo:
                     $ref: '#/components/schemas/linkGeoTargeting'
@@ -1031,39 +1094,47 @@ paths:
                     type: boolean
                   utm_source:
                     description: The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   utm_medium:
                     description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   utm_campaign:
                     description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   utm_term:
                     description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   utm_content:
                     description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   ref:
                     description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   webhookIds:
                     description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                    nullable: true
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: string
                   testVariants:
-                    nullable: true
                     minItems: 2
                     maxItems: 4
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: object
                       properties:
@@ -1084,12 +1155,14 @@ paths:
                       percentage: 50
                   testStartedAt:
                     description: The date and time when the tests started.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   testCompletedAt:
                     description: The date and time when the tests were or will be completed.
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                   publicStats:
                     description: 'Deprecated: Use `dashboard` instead. Whether the short link''s stats are publicly accessible. Defaults to `false` if not provided.'
                     deprecated: true
@@ -1097,8 +1170,9 @@ paths:
                   tagId:
                     description: 'Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.'
                     deprecated: true
-                    nullable: true
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                 required:
                 - url
       responses:
@@ -1169,17 +1243,20 @@ paths:
                       maxLength: 32000
                     tenantId:
                       description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 255
                     programId:
                       description: The ID of the program the short link is associated with.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     partnerId:
                       description: The ID of the partner the short link is associated with.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     trackConversion:
                       description: Whether to track conversions for the short link. Defaults to `false` if not provided.
                       type: boolean
@@ -1204,56 +1281,67 @@ paths:
                           type: string
                     folderId:
                       description: The unique ID existing folder to assign the short link to.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     comments:
                       description: The comments for the short link.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     expiresAt:
                       description: The date and time when the short link will expire at.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     expiredUrl:
                       description: The URL to redirect to when the short link has expired.
                       maxLength: 32000
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     password:
                       description: The password required to access the destination URL of the short link.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     proxy:
                       description: Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
                       type: boolean
                     title:
                       description: 'The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     description:
                       description: 'The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     image:
                       description: 'The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     video:
                       description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     rewrite:
                       description: Whether the short link uses link cloaking. Defaults to `false` if not provided.
                       type: boolean
                     ios:
                       description: The iOS destination URL for the short link for iOS device targeting.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 32000
                     android:
                       description: The Android destination URL for the short link for Android device targeting.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 32000
                     geo:
                       $ref: '#/components/schemas/linkGeoTargeting'
@@ -1262,39 +1350,47 @@ paths:
                       type: boolean
                     utm_source:
                       description: The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     utm_medium:
                       description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     utm_campaign:
                       description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     utm_term:
                       description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     utm_content:
                       description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     ref:
                       description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     webhookIds:
                       description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                      nullable: true
-                      type: array
+                      type:
+                      - array
+                      - 'null'
                       items:
                         type: string
                     testVariants:
-                      nullable: true
                       minItems: 2
                       maxItems: 4
-                      type: array
+                      type:
+                      - array
+                      - 'null'
                       items:
                         type: object
                         properties:
@@ -1315,12 +1411,14 @@ paths:
                         percentage: 50
                     testStartedAt:
                       description: The date and time when the tests started.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     testCompletedAt:
                       description: The date and time when the tests were or will be completed.
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                     publicStats:
                       description: 'Deprecated: Use `dashboard` instead. Whether the short link''s stats are publicly accessible. Defaults to `false` if not provided.'
                       deprecated: true
@@ -1328,8 +1426,9 @@ paths:
                     tagId:
                       description: 'Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.'
                       deprecated: true
-                      nullable: true
-                      type: string
+                      type:
+                      - string
+                      - 'null'
               required:
               - data
       responses:
@@ -1453,23 +1552,27 @@ paths:
                 externalId:
                   description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
                   example: '123456'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   minLength: 1
                   maxLength: 255
                 tenantId:
                   description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 255
                 programId:
                   description: The ID of the program the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 partnerId:
                   description: The ID of the partner the short link is associated with.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 prefix:
                   description: The prefix of the short link slug for randomly-generated keys (e.g. if prefix is `/c/`, generated keys will be in the `/c/:key` format). Will be ignored if `key` is provided.
                   type: string
@@ -1497,56 +1600,67 @@ paths:
                       type: string
                 folderId:
                   description: The unique ID existing folder to assign the short link to.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 comments:
                   description: The comments for the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiresAt:
                   description: The date and time when the short link will expire at.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 expiredUrl:
                   description: The URL to redirect to when the short link has expired.
                   maxLength: 32000
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 password:
                   description: The password required to access the destination URL of the short link.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 proxy:
                   description: Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
                   type: boolean
                 title:
                   description: 'The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 description:
                   description: 'The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 image:
                   description: 'The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 video:
                   description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 rewrite:
                   description: Whether the short link uses link cloaking. Defaults to `false` if not provided.
                   type: boolean
                 ios:
                   description: The iOS destination URL for the short link for iOS device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 android:
                   description: The Android destination URL for the short link for Android device targeting.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 32000
                 geo:
                   $ref: '#/components/schemas/linkGeoTargeting'
@@ -1555,39 +1669,47 @@ paths:
                   type: boolean
                 utm_source:
                   description: The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 webhookIds:
                   description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  nullable: true
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                 testVariants:
-                  nullable: true
                   minItems: 2
                   maxItems: 4
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: object
                     properties:
@@ -1608,12 +1730,14 @@ paths:
                     percentage: 50
                 testStartedAt:
                   description: The date and time when the tests started.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 testCompletedAt:
                   description: The date and time when the tests were or will be completed.
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 publicStats:
                   description: 'Deprecated: Use `dashboard` instead. Whether the short link''s stats are publicly accessible. Defaults to `false` if not provided.'
                   deprecated: true
@@ -1621,8 +1745,9 @@ paths:
                 tagId:
                   description: 'Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.'
                   deprecated: true
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
               required:
               - url
       responses:
@@ -1652,99 +1777,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
-                required:
-                - code
-                - message
-            required:
-            - error
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
-                required:
-                - code
-                - message
-            required:
-            - error
     '404':
       description: The server cannot find the requested resource.
       content:
@@ -1802,6 +1834,68 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: UnprocessableEntity
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unprocessable_entity
+                    description: A short code indicating the error code returned.
+                    example: unprocessable_entity
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '409':
+      description: This response is sent when a request conflicts with the current state of the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Conflict
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - conflict
+                    description: A short code indicating the error code returned.
+                    example: conflict
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#conflict
                 required:
                 - code
                 - message
@@ -1869,12 +1963,12 @@ components:
                 - message
             required:
             - error
-    '409':
-      description: This response is sent when a request conflicts with the current state of the server.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: Conflict
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -1883,9 +1977,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - conflict
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: conflict
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1894,7 +1988,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#conflict
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -1931,7 +2025,102 @@ components:
                 - message
             required:
             - error
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                required:
+                - code
+                - message
+            required:
+            - error
   schemas:
+    linkGeoTargeting:
+      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
+      type:
+      - object
+      - 'null'
+      additionalProperties:
+        type: string
+        maxLength: 32000
+    LinkTagSchemaOutput:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID of the tag.
+        name:
+          type: string
+          description: The name of the tag.
+        color:
+          type: string
+          enum:
+          - red
+          - yellow
+          - green
+          - blue
+          - purple
+          - brown
+          - gray
+          - pink
+          description: The color of the tag.
+      required:
+      - id
+      - name
+      - color
+      additionalProperties: false
+      title: LinkTag
+    LinkErrorSchema:
+      type: object
+      properties:
+        link:
+          description: The link that caused the error.
+        error:
+          type: string
+          description: The error message.
+        code:
+          type: string
+          enum:
+          - bad_request
+          - unauthorized
+          - forbidden
+          - exceeded_limit
+          - not_found
+          - conflict
+          - invite_pending
+          - invite_expired
+          - unprocessable_entity
+          - rate_limit_exceeded
+          - internal_server_error
+          description: The error code.
+      required:
+      - link
+      - error
+      - code
+      additionalProperties: false
+      title: LinkError
     LinkSchema:
       type: object
       properties:
@@ -1953,62 +2142,74 @@ components:
           description: Whether to track conversions for the short link.
           type: boolean
         externalId:
-          nullable: true
           description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
-          type: string
+          type:
+          - string
+          - 'null'
         tenantId:
-          nullable: true
           description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-          type: string
+          type:
+          - string
+          - 'null'
         programId:
-          nullable: true
           description: The ID of the program the short link is associated with.
-          type: string
+          type:
+          - string
+          - 'null'
         partnerId:
-          nullable: true
           description: The ID of the partner the short link is associated with.
-          type: string
+          type:
+          - string
+          - 'null'
         archived:
           default: false
           description: Whether the short link is archived.
           type: boolean
         expiresAt:
-          nullable: true
           description: The date and time when the short link will expire in ISO-8601 format.
-          type: string
+          type:
+          - string
+          - 'null'
         expiredUrl:
-          nullable: true
           description: The URL to redirect to when the short link has expired.
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
         disabledAt:
-          nullable: true
           description: The date and time when the short link was disabled. When a short link is disabled, it will redirect to its domain's not found URL, and its stats will be excluded from your overall stats.
-          type: string
+          type:
+          - string
+          - 'null'
         password:
-          nullable: true
           description: The password required to access the destination URL of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         proxy:
           default: false
           description: Whether the short link uses Custom Link Previews feature.
           type: boolean
         title:
-          nullable: true
           description: The title of the short link. Will be used for Custom Link Previews if `proxy` is true.
-          type: string
+          type:
+          - string
+          - 'null'
         description:
-          nullable: true
           description: The description of the short link. Will be used for Custom Link Previews if `proxy` is true.
-          type: string
+          type:
+          - string
+          - 'null'
         image:
-          nullable: true
           description: The image of the short link. Will be used for Custom Link Previews if `proxy` is true.
-          type: string
+          type:
+          - string
+          - 'null'
         video:
-          nullable: true
           description: 'The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og'
-          type: string
+          type:
+          - string
+          - 'null'
         rewrite:
           default: false
           description: Whether the short link uses link cloaking.
@@ -2018,17 +2219,20 @@ components:
           description: Whether to allow search engines to index the short link.
           type: boolean
         ios:
-          nullable: true
           description: The iOS destination URL for the short link for iOS device targeting.
-          type: string
+          type:
+          - string
+          - 'null'
         android:
-          nullable: true
           description: The Android destination URL for the short link for Android device targeting.
-          type: string
+          type:
+          - string
+          - 'null'
         geo:
-          nullable: true
           description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: string
             format: uri
@@ -2037,24 +2241,27 @@ components:
           description: Whether the short link's stats are publicly accessible.
           type: boolean
         tags:
-          nullable: true
           description: The tags assigned to the short link.
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/LinkTagSchemaOutput'
         folderId:
-          nullable: true
           description: The unique ID of the folder assigned to the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         webhookIds:
           type: array
           items:
             type: string
           description: The IDs of the webhooks that the short link is associated with.
         comments:
-          nullable: true
           description: The comments for the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         shortLink:
           type: string
           format: uri
@@ -2064,30 +2271,36 @@ components:
           format: uri
           description: The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`).
         utm_source:
-          nullable: true
           description: The UTM source of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         utm_medium:
-          nullable: true
           description: The UTM medium of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         utm_campaign:
-          nullable: true
           description: The UTM campaign of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         utm_term:
-          nullable: true
           description: The UTM term of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         utm_content:
-          nullable: true
           description: The UTM content of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         testVariants:
-          nullable: true
           minItems: 2
           maxItems: 4
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: object
             properties:
@@ -2109,16 +2322,19 @@ components:
             percentage: 50
         testStartedAt:
           description: The date and time when the tests started.
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
         testCompletedAt:
           description: The date and time when the tests were or will be completed.
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
         userId:
-          nullable: true
           description: The user ID of the creator of the short link.
-          type: string
+          type:
+          - string
+          - 'null'
         workspaceId:
           type: string
           description: The workspace ID of the short link.
@@ -2143,9 +2359,10 @@ components:
           default: 0
           type: number
         lastClicked:
-          nullable: true
           description: The date and time when the short link was last clicked.
-          type: string
+          type:
+          - string
+          - 'null'
         createdAt:
           type: string
           description: The date and time when the short link was created.
@@ -2153,10 +2370,11 @@ components:
           type: string
           description: The date and time when the short link was last updated.
         tagId:
-          nullable: true
           description: 'Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.'
           deprecated: true
-          type: string
+          type:
+          - string
+          - 'null'
         projectId:
           type: string
           description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
@@ -2212,69 +2430,6 @@ components:
       - projectId
       additionalProperties: false
       title: Link
-    LinkErrorSchema:
-      type: object
-      properties:
-        link:
-          description: The link that caused the error.
-        error:
-          type: string
-          description: The error message.
-        code:
-          type: string
-          enum:
-          - bad_request
-          - unauthorized
-          - forbidden
-          - exceeded_limit
-          - not_found
-          - conflict
-          - invite_pending
-          - invite_expired
-          - unprocessable_entity
-          - rate_limit_exceeded
-          - internal_server_error
-          description: The error code.
-      required:
-      - link
-      - error
-      - code
-      additionalProperties: false
-      title: LinkError
-    LinkTagSchemaOutput:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID of the tag.
-        name:
-          type: string
-          description: The name of the tag.
-        color:
-          type: string
-          enum:
-          - red
-          - yellow
-          - green
-          - blue
-          - purple
-          - brown
-          - gray
-          - pink
-          description: The color of the tag.
-      required:
-      - id
-      - name
-      - color
-      additionalProperties: false
-      title: LinkTag
-    linkGeoTargeting:
-      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-      nullable: true
-      type: object
-      additionalProperties:
-        type: string
-        maxLength: 32000
   securitySchemes:
     token:
       type: http
