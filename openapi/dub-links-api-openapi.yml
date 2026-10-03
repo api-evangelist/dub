@@ -1777,6 +1777,70 @@ paths:
           $ref: '#/components/responses/500'
 components:
   schemas:
+    LinkErrorSchema:
+      type: object
+      properties:
+        link:
+          description: The link that caused the error.
+        error:
+          type: string
+          description: The error message.
+        code:
+          type: string
+          enum:
+          - bad_request
+          - unauthorized
+          - forbidden
+          - exceeded_limit
+          - not_found
+          - conflict
+          - invite_pending
+          - invite_expired
+          - unprocessable_entity
+          - rate_limit_exceeded
+          - internal_server_error
+          description: The error code.
+      required:
+      - link
+      - error
+      - code
+      additionalProperties: false
+      title: LinkError
+    linkGeoTargeting:
+      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
+      type:
+      - object
+      - 'null'
+      additionalProperties:
+        type: string
+        maxLength: 32000
+    LinkTagSchemaOutput:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID of the tag.
+        name:
+          type: string
+          description: The name of the tag.
+        color:
+          type: string
+          enum:
+          - red
+          - yellow
+          - green
+          - blue
+          - purple
+          - brown
+          - gray
+          - pink
+          description: The color of the tag.
+      required:
+      - id
+      - name
+      - color
+      additionalProperties: false
+      title: LinkTag
     LinkSchema:
       type: object
       properties:
@@ -2086,102 +2150,7 @@ components:
       - projectId
       additionalProperties: false
       title: Link
-    linkGeoTargeting:
-      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-      type:
-      - object
-      - 'null'
-      additionalProperties:
-        type: string
-        maxLength: 32000
-    LinkTagSchemaOutput:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID of the tag.
-        name:
-          type: string
-          description: The name of the tag.
-        color:
-          type: string
-          enum:
-          - red
-          - yellow
-          - green
-          - blue
-          - purple
-          - brown
-          - gray
-          - pink
-          description: The color of the tag.
-      required:
-      - id
-      - name
-      - color
-      additionalProperties: false
-      title: LinkTag
-    LinkErrorSchema:
-      type: object
-      properties:
-        link:
-          description: The link that caused the error.
-        error:
-          type: string
-          description: The error message.
-        code:
-          type: string
-          enum:
-          - bad_request
-          - unauthorized
-          - forbidden
-          - exceeded_limit
-          - not_found
-          - conflict
-          - invite_pending
-          - invite_expired
-          - unprocessable_entity
-          - rate_limit_exceeded
-          - internal_server_error
-          description: The error code.
-      required:
-      - link
-      - error
-      - code
-      additionalProperties: false
-      title: LinkError
   responses:
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InviteExpired
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - invite_expired
-                    description: A short code indicating the error code returned.
-                    example: invite_expired
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
-                required:
-                - code
-                - message
-            required:
-            - error
     '404':
       description: The server cannot find the requested resource.
       content:
@@ -2208,130 +2177,6 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '400':
-      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: BadRequest
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - bad_request
-                    description: A short code indicating the error code returned.
-                    example: bad_request
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#bad-request
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
-    '401':
-      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Unauthorized
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unauthorized
-                    description: A short code indicating the error code returned.
-                    example: unauthorized
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unauthorized
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
                 required:
                 - code
                 - message
@@ -2368,6 +2213,161 @@ components:
                 - message
             required:
             - error
+    '409':
+      description: This response is sent when a request conflicts with the current state of the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Conflict
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - conflict
+                    description: A short code indicating the error code returned.
+                    example: conflict
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '400':
+      description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: BadRequest
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - bad_request
+                    description: A short code indicating the error code returned.
+                    example: bad_request
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#bad-request
+                required:
+                - code
+                - message
+            required:
+            - error
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: UnprocessableEntity
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unprocessable_entity
+                    description: A short code indicating the error code returned.
+                    example: unprocessable_entity
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
     '429':
       description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
@@ -2399,12 +2399,12 @@ components:
                 - message
             required:
             - error
-    '409':
-      description: This response is sent when a request conflicts with the current state of the server.
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: Conflict
+            x-speakeasy-name-override: InviteExpired
             type: object
             properties:
               error:
@@ -2413,9 +2413,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - conflict
+                    - invite_expired
                     description: A short code indicating the error code returned.
-                    example: conflict
+                    example: invite_expired
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -2424,7 +2424,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#conflict
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
                 required:
                 - code
                 - message

@@ -384,37 +384,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InviteExpired
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - invite_expired
-                    description: A short code indicating the error code returned.
-                    example: invite_expired
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
-                required:
-                - code
-                - message
-            required:
-            - error
     '404':
       description: The server cannot find the requested resource.
       content:
@@ -446,12 +415,12 @@ components:
                 - message
             required:
             - error
-    '401':
-      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: Unauthorized
+            x-speakeasy-name-override: Forbidden
             type: object
             properties:
               error:
@@ -460,9 +429,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - unauthorized
+                    - forbidden
                     description: A short code indicating the error code returned.
-                    example: unauthorized
+                    example: forbidden
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -471,100 +440,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unauthorized
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
-                required:
-                - code
-                - message
-            required:
-            - error
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
-                required:
-                - code
-                - message
-            required:
-            - error
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                    example: https://dub.co/docs/api-reference/errors#forbidden
                 required:
                 - code
                 - message
@@ -601,12 +477,12 @@ components:
                 - message
             required:
             - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: Forbidden
+            x-speakeasy-name-override: UnprocessableEntity
             type: object
             properties:
               error:
@@ -615,9 +491,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - forbidden
+                    - unprocessable_entity
                     description: A short code indicating the error code returned.
-                    example: forbidden
+                    example: unprocessable_entity
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -626,7 +502,131 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InternalServerError
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - internal_server_error
+                    description: A short code indicating the error code returned.
+                    example: internal_server_error
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message
@@ -664,145 +664,30 @@ components:
             required:
             - error
   schemas:
-    AnalyticsTopLinks:
+    AnalyticsBrowsers:
       type: object
       properties:
-        link:
+        browser:
           type: string
-          description: The unique ID of the short link
-          deprecated: true
-        id:
-          type: string
-          description: The unique ID of the short link
-        domain:
-          type: string
-          description: The domain of the short link
-        key:
-          type: string
-          description: The key of the short link
-        shortLink:
-          type: string
-          description: The short link URL
-        url:
-          type: string
-          description: The destination URL of the short link
-        title:
-          description: The custom link preview title (og:title)
-          type:
-          - string
-          - 'null'
-        comments:
-          description: The comments of the short link
-          type:
-          - string
-          - 'null'
-        folderId:
-          description: The ID of the folder that the link belongs to (if applicable)
-          type:
-          - string
-          - 'null'
-        partnerId:
-          description: The ID of the partner that the link belongs to (if applicable)
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          description: The creation timestamp of the short link
+          description: The name of the browser
         clicks:
           default: 0
           type: number
-          description: The number of clicks from this link
+          description: The number of clicks from this browser
         leads:
           default: 0
           type: number
-          description: The number of leads from this link
+          description: The number of leads from this browser
         sales:
           default: 0
           type: number
-          description: The number of sales from this link
+          description: The number of sales from this browser
         saleAmount:
-          description: The total amount of sales from this link, in cents
+          description: The total amount of sales from this browser, in cents
           default: 0
           type: number
       required:
-      - link
-      - id
-      - domain
-      - key
-      - shortLink
-      - url
-      - createdAt
-      - clicks
-      - leads
-      - sales
-      - saleAmount
-      additionalProperties: false
-    AnalyticsRefererUrls:
-      type: object
-      properties:
-        refererUrl:
-          type: string
-          description: The full URL of the referer. If unknown, this will be `(direct)`
-        clicks:
-          default: 0
-          type: number
-          description: The number of clicks from this referer to this URL
-        leads:
-          default: 0
-          type: number
-          description: The number of leads from this referer to this URL
-        sales:
-          default: 0
-          type: number
-          description: The number of sales from this referer to this URL
-        saleAmount:
-          description: The total amount of sales from this referer to this URL, in cents
-          default: 0
-          type: number
-      required:
-      - refererUrl
-      - clicks
-      - leads
-      - sales
-      - saleAmount
-      additionalProperties: false
-    AnalyticsCountries:
-      type: object
-      properties:
-        country:
-          type: string
-          description: 'The 2-letter ISO 3166-1 country code of the country. Learn more: https://d.to/geo'
-        region:
-          default: '*'
-          type: string
-          enum:
-          - '*'
-        city:
-          default: '*'
-          type: string
-          enum:
-          - '*'
-        clicks:
-          default: 0
-          type: number
-          description: The number of clicks from this country
-        leads:
-          default: 0
-          type: number
-          description: The number of leads from this country
-        sales:
-          default: 0
-          type: number
-          description: The number of sales from this country
-        saleAmount:
-          description: The total amount of sales from this country, in cents
-          default: 0
-          type: number
-      required:
-      - country
-      - region
-      - city
+      - browser
       - clicks
       - leads
       - sales
@@ -828,106 +713,6 @@ components:
           default: 0
           type: number
       required:
-      - clicks
-      - leads
-      - sales
-      - saleAmount
-      additionalProperties: false
-    AnalyticsTriggers:
-      type: object
-      properties:
-        trigger:
-          type: string
-          enum:
-          - qr
-          - link
-          - pageview
-          - deeplink
-          description: 'The type of trigger method: link click or QR scan'
-        clicks:
-          default: 0
-          type: number
-          description: The number of clicks from this trigger method
-        leads:
-          default: 0
-          type: number
-          description: The number of leads from this trigger method
-        sales:
-          default: 0
-          type: number
-          description: The number of sales from this trigger method
-        saleAmount:
-          description: The total amount of sales from this trigger method, in cents
-          default: 0
-          type: number
-      required:
-      - trigger
-      - clicks
-      - leads
-      - sales
-      - saleAmount
-      additionalProperties: false
-    AnalyticsContinents:
-      type: object
-      properties:
-        continent:
-          type: string
-          enum:
-          - AF
-          - AN
-          - AS
-          - EU
-          - NA
-          - OC
-          - SA
-          description: The 2-letter ISO 3166-1 code representing the continent associated with the location of the user.
-        clicks:
-          default: 0
-          type: number
-          description: The number of clicks from this continent
-        leads:
-          default: 0
-          type: number
-          description: The number of leads from this continent
-        sales:
-          default: 0
-          type: number
-          description: The number of sales from this continent
-        saleAmount:
-          description: The total amount of sales from this continent, in cents
-          default: 0
-          type: number
-      required:
-      - continent
-      - clicks
-      - leads
-      - sales
-      - saleAmount
-      additionalProperties: false
-    AnalyticsBrowsers:
-      type: object
-      properties:
-        browser:
-          type: string
-          description: The name of the browser
-        clicks:
-          default: 0
-          type: number
-          description: The number of clicks from this browser
-        leads:
-          default: 0
-          type: number
-          description: The number of leads from this browser
-        sales:
-          default: 0
-          type: number
-          description: The number of sales from this browser
-        saleAmount:
-          description: The total amount of sales from this browser, in cents
-          default: 0
-          type: number
-      required:
-      - browser
       - clicks
       - leads
       - sales
@@ -1020,6 +805,105 @@ components:
       - sales
       - saleAmount
       additionalProperties: false
+    AnalyticsRefererUrls:
+      type: object
+      properties:
+        refererUrl:
+          type: string
+          description: The full URL of the referer. If unknown, this will be `(direct)`
+        clicks:
+          default: 0
+          type: number
+          description: The number of clicks from this referer to this URL
+        leads:
+          default: 0
+          type: number
+          description: The number of leads from this referer to this URL
+        sales:
+          default: 0
+          type: number
+          description: The number of sales from this referer to this URL
+        saleAmount:
+          description: The total amount of sales from this referer to this URL, in cents
+          default: 0
+          type: number
+      required:
+      - refererUrl
+      - clicks
+      - leads
+      - sales
+      - saleAmount
+      additionalProperties: false
+    AnalyticsDevices:
+      type: object
+      properties:
+        device:
+          type: string
+          description: The name of the device
+        clicks:
+          default: 0
+          type: number
+          description: The number of clicks from this device
+        leads:
+          default: 0
+          type: number
+          description: The number of leads from this device
+        sales:
+          default: 0
+          type: number
+          description: The number of sales from this device
+        saleAmount:
+          description: The total amount of sales from this device, in cents
+          default: 0
+          type: number
+      required:
+      - device
+      - clicks
+      - leads
+      - sales
+      - saleAmount
+      additionalProperties: false
+    AnalyticsCountries:
+      type: object
+      properties:
+        country:
+          type: string
+          description: 'The 2-letter ISO 3166-1 country code of the country. Learn more: https://d.to/geo'
+        region:
+          default: '*'
+          type: string
+          enum:
+          - '*'
+        city:
+          default: '*'
+          type: string
+          enum:
+          - '*'
+        clicks:
+          default: 0
+          type: number
+          description: The number of clicks from this country
+        leads:
+          default: 0
+          type: number
+          description: The number of leads from this country
+        sales:
+          default: 0
+          type: number
+          description: The number of sales from this country
+        saleAmount:
+          description: The total amount of sales from this country, in cents
+          default: 0
+          type: number
+      required:
+      - country
+      - region
+      - city
+      - clicks
+      - leads
+      - sales
+      - saleAmount
+      additionalProperties: false
     AnalyticsRegions:
       type: object
       properties:
@@ -1054,6 +938,114 @@ components:
       - country
       - region
       - city
+      - clicks
+      - leads
+      - sales
+      - saleAmount
+      additionalProperties: false
+    AnalyticsTriggers:
+      type: object
+      properties:
+        trigger:
+          type: string
+          enum:
+          - qr
+          - link
+          - pageview
+          - deeplink
+          description: 'The type of trigger method: link click or QR scan'
+        clicks:
+          default: 0
+          type: number
+          description: The number of clicks from this trigger method
+        leads:
+          default: 0
+          type: number
+          description: The number of leads from this trigger method
+        sales:
+          default: 0
+          type: number
+          description: The number of sales from this trigger method
+        saleAmount:
+          description: The total amount of sales from this trigger method, in cents
+          default: 0
+          type: number
+      required:
+      - trigger
+      - clicks
+      - leads
+      - sales
+      - saleAmount
+      additionalProperties: false
+    AnalyticsTopLinks:
+      type: object
+      properties:
+        link:
+          type: string
+          description: The unique ID of the short link
+          deprecated: true
+        id:
+          type: string
+          description: The unique ID of the short link
+        domain:
+          type: string
+          description: The domain of the short link
+        key:
+          type: string
+          description: The key of the short link
+        shortLink:
+          type: string
+          description: The short link URL
+        url:
+          type: string
+          description: The destination URL of the short link
+        title:
+          description: The custom link preview title (og:title)
+          type:
+          - string
+          - 'null'
+        comments:
+          description: The comments of the short link
+          type:
+          - string
+          - 'null'
+        folderId:
+          description: The ID of the folder that the link belongs to (if applicable)
+          type:
+          - string
+          - 'null'
+        partnerId:
+          description: The ID of the partner that the link belongs to (if applicable)
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          description: The creation timestamp of the short link
+        clicks:
+          default: 0
+          type: number
+          description: The number of clicks from this link
+        leads:
+          default: 0
+          type: number
+          description: The number of leads from this link
+        sales:
+          default: 0
+          type: number
+          description: The number of sales from this link
+        saleAmount:
+          description: The total amount of sales from this link, in cents
+          default: 0
+          type: number
+      required:
+      - link
+      - id
+      - domain
+      - key
+      - shortLink
+      - url
+      - createdAt
       - clicks
       - leads
       - sales
@@ -1125,30 +1117,38 @@ components:
       - sales
       - saleAmount
       additionalProperties: false
-    AnalyticsDevices:
+    AnalyticsContinents:
       type: object
       properties:
-        device:
+        continent:
           type: string
-          description: The name of the device
+          enum:
+          - AF
+          - AN
+          - AS
+          - EU
+          - NA
+          - OC
+          - SA
+          description: The 2-letter ISO 3166-1 code representing the continent associated with the location of the user.
         clicks:
           default: 0
           type: number
-          description: The number of clicks from this device
+          description: The number of clicks from this continent
         leads:
           default: 0
           type: number
-          description: The number of leads from this device
+          description: The number of leads from this continent
         sales:
           default: 0
           type: number
-          description: The number of sales from this device
+          description: The number of sales from this continent
         saleAmount:
-          description: The total amount of sales from this device, in cents
+          description: The total amount of sales from this continent, in cents
           default: 0
           type: number
       required:
-      - device
+      - continent
       - clicks
       - leads
       - sales
