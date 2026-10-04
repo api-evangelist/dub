@@ -385,6 +385,9 @@ apis:
   - type: Examples
     url: examples/dub-link-response-example.json
 common:
+  - type: CapabilityMap
+    url: capabilities/dub-capability-edges.yml
+    name: Dub Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/dub/overview
   - type: AgenticAccess

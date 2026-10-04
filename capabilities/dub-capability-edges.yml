@@ -1,0 +1,54 @@
+slug: dub
+provider: Dub
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Analytics
+  spec_file: dub-analytics-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: Retrieve analytics for a link, a domain, or the authenticated workspace; AnalyticsReferers,
+    AnalyticsCountries, AnalyticsTopLinks
+  reason: Click/referrer/geo analytics for short links on a 'link attribution platform for short links,
+    conversion tracking' — this is digital marketing measurement and attribution, not generic BI.
+- tag: Partners
+  spec_file: dub-partners-api-openapi.yml
+  capability_id: BC-410.60
+  capability_id_l1: BC-410
+  capability_name: Channel Sales Management
+  confidence: 0.75
+  evidence: POST /partners  createPartner  Create or update a partner; POST /partners/ban  banPartner;
+    GET /partners/analytics  retrievePartnerAnalytics
+  reason: Full lifecycle of affiliate partners — create, list, issue partner links, review partner analytics,
+    ban/deactivate — is management of an indirect/affiliate sales channel.
+- tag: Links
+  spec_file: dub-links-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: POST /links  createLink  Create a link; schemas linkGeoTargeting, LinkTagSchemaOutput
+  reason: Creating, tagging and geo-targeting trackable short links is the core of campaign link management
+    and web/paid-media attribution, i.e. Digital Marketing Management.
+- tag: Partner Applications
+  spec_file: dub-partner-applications-api-openapi.yml
+  capability_id: BC-410.60
+  capability_id_l1: BC-410
+  capability_name: Channel Sales Management
+  confidence: 0.7
+  evidence: GET /partners/applications  listPartnerApplications  List all pending partner applications
+    / approvePartnerApplication
+  reason: Reviewing, approving and rejecting applications to join the affiliate programme is onboarding
+    and governance of indirect sales partners — Channel Sales Management.
