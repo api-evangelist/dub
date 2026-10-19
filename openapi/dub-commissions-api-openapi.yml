@@ -21,7 +21,7 @@ paths:
       operationId: createCommission
       x-speakeasy-name-override: create
       summary: Create commission
-      description: Create one or more commissions (custom, lead or sale) for a partner. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created.
+      description: Create one or more commissions (custom, lead or sale) for a partner. Custom commissions accept a negative `amount` to create a clawback. Commission creation is processed asynchronously – use the GET /commissions endpoint or webhooks to be notified when the commission is created.
       tags:
       - Commissions
       security:
@@ -41,7 +41,7 @@ paths:
                     type: string
                     description: The ID of the partner to create the commission for.
                   amount:
-                    description: The commission amount in cents.
+                    description: The commission earnings amount in cents. Use a negative amount to create a clawback.
                     type: number
                   date:
                     description: If not provided, the current date will be used.
@@ -49,7 +49,7 @@ paths:
                     - string
                     - 'null'
                   description:
-                    description: The description of the commission.
+                    description: The description of the commission. Required for clawbacks (negative `amount`). May be a known clawback reason (`order_canceled`, `fraud`, `terms_violation`, `tracking_error`, `payment_failed`, `ineligible_partner`, `duplicate_commission`) or an arbitrary string (max 190 characters).
                     type:
                     - string
                     - 'null'
@@ -115,14 +115,42 @@ paths:
                     type:
                     - string
                     - 'null'
-                  leadEventDate:
+                  date:
                     description: The date and time of the lead event. If not provided, defaults to the current date and time.
+                    type:
+                    - string
+                    - 'null'
+                  lead:
+                    description: The lead event object to associate the commission with.
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      eventName:
+                        description: The name of the lead event to track. If not provided, defaults to 'Sign up'.
+                        type:
+                        - string
+                        - 'null'
+                        minLength: 1
+                        maxLength: 255
+                        example: Sign up
+                      metadata:
+                        description: Additional metadata to be stored with the lead event. Max 10,000 characters.
+                        default: null
+                        type:
+                        - object
+                        - 'null'
+                        additionalProperties: {}
+                  leadEventDate:
+                    description: 'Deprecated: Use `date` instead. The date and time of the lead event. If not provided, defaults to the current date and time.'
+                    deprecated: true
                     type:
                     - string
                     - 'null'
                   leadEventName:
                     default: Sign up
-                    description: The name of the lead event. If not provided, defaults to 'Sign up'.
+                    description: 'Deprecated: Use `lead.eventName` instead. The name of the lead event. If not provided, defaults to ''Sign up''.'
+                    deprecated: true
                     type:
                     - string
                     - 'null'
@@ -182,33 +210,108 @@ paths:
                     - externalId
                     - country
                   linkId:
-                    description: The partner link ID to associate the commission with. If not provided, default to the link with the most revenue.
+                    description: The partner link ID to associate the commission with. If neither `linkId` nor `discountCode` is provided, default to the link with the most revenue.
                     type:
                     - string
                     - 'null'
+                  discountCode:
+                    description: The partner discount code to resolve the associated link. Use this when the link ID is unknown. Cannot be provided together with `linkId`.
+                    type:
+                    - string
+                    - 'null'
+                    minLength: 1
+                  stripeInvoicesToImport:
+                    description: Import paid Stripe invoices for the customer and create a commission for each. Pass `all` to import every unimported, paid invoice, or an array of Stripe invoice IDs to import only those invoices. Refunded invoices are not imported. When not provided, create a single manual sale event using `sale.amount`
+                    anyOf:
+                    - type: string
+                      enum:
+                      - all
+                    - minItems: 1
+                      maxItems: 100
+                      type: array
+                      items:
+                        type: string
+                        minLength: 1
+                  date:
+                    description: Only used when `stripeInvoicesToImport` is not provided. The date of the manual sale event. Defaults to the current date and time if not provided.
+                    type:
+                    - string
+                    - 'null'
+                  sale:
+                    description: The sale event object to associate the commission with.
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      amount:
+                        description: 'The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1580` JPY). Learn more: https://d.to/currency'
+                        type:
+                        - number
+                        - 'null'
+                      currency:
+                        description: 'The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency'
+                        default: usd
+                        type: string
+                      eventName:
+                        default: Purchase
+                        description: 'The name of the sale event. Recommended format: `Invoice paid` or `Subscription created`.'
+                        example: Invoice paid
+                        type: string
+                        maxLength: 255
+                      paymentProcessor:
+                        default: custom
+                        description: The payment processor via which the sale was made.
+                        type: string
+                        enum:
+                        - stripe
+                        - shopify
+                        - polar
+                        - paddle
+                        - apple
+                        - revenuecat
+                        - lemonsqueezy
+                        - dub
+                        - custom
+                      invoiceId:
+                        default: null
+                        description: The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
+                        type:
+                        - string
+                        - 'null'
+                      metadata:
+                        description: Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
+                        default: null
+                        type:
+                        - object
+                        - 'null'
+                        additionalProperties: {}
                   importStripeInvoices:
-                    default: false
-                    description: When `true`, import all unimported paid Stripe invoices for the customer and create a commission for each. When `false`, create a single manual sale event using `saleAmount`.
+                    description: 'Deprecated: Use `stripeInvoicesToImport: all` instead.'
+                    deprecated: true
                     type:
                     - boolean
                     - 'null'
-                  saleAmount:
-                    description: Required when `importStripeInvoices` is `false`. The sale amount in cents for the manual sale event. Ignored when importing from Stripe.
-                    type:
-                    - number
-                    - 'null'
                   saleEventDate:
-                    description: Only used when `importStripeInvoices` is `false`. The date of the manual sale event. Defaults to the current date and time if not provided.
+                    description: 'Deprecated: Use `date` instead.'
+                    deprecated: true
                     type:
                     - string
                     - 'null'
+                  saleAmount:
+                    description: 'Deprecated: Use `sale.amount` instead.'
+                    deprecated: true
+                    type:
+                    - number
+                    - 'null'
                   invoiceId:
-                    description: Only used when `importStripeInvoices` is `false`. An optional invoice ID to attach to the generated sale event and commission entry for deduplication.
+                    description: 'Deprecated: Use `sale.invoiceId` instead.'
+                    deprecated: true
                     type:
                     - string
                     - 'null'
                   productId:
-                    description: Only used when `importStripeInvoices` is `false`. An optional product ID stored on the sale event metadata – will also impact commission earnings calculation (if a `Sale` `Product ID` modifier is set).
+                    description: 'Deprecated: Use `sale.metadata.productId` instead.'
+                    deprecated: true
                     type:
                     - string
                     - 'null'
@@ -271,7 +374,15 @@ paths:
       - in: query
         name: type
         schema:
-          description: 'Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.'
+          description: 'Filter the list of commissions by type.
+
+            Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+
+            - "sale"
+
+            - "sale,lead"
+
+            - "-click"'
           type: string
           enum:
           - click
@@ -279,7 +390,15 @@ paths:
           - sale
           - referral
           - custom
-        description: 'Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.'
+        description: 'Filter the list of commissions by type.
+
+          Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+
+          - "sale"
+
+          - "sale,lead"
+
+          - "-click"'
       - in: query
         name: customerId
         schema:
@@ -293,11 +412,37 @@ paths:
           type: string
         description: Filter the list of commissions by the associated payout.
       - in: query
+        name: bountySubmissionId
+        schema:
+          description: Filter the list of commissions by the associated bounty submission.
+          type: string
+        description: Filter the list of commissions by the associated bounty submission.
+      - in: query
         name: partnerId
         schema:
-          description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.'
+          description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`.
+
+            Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+
+            Examples:
+
+            - "partner_abc"
+
+            - "partner_abc,partner_xyz"
+
+            - "-partner_abc"'
           type: string
-        description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.'
+        description: 'Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`.
+
+          Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+
+          Examples:
+
+          - "partner_abc"
+
+          - "partner_abc,partner_xyz"
+
+          - "-partner_abc"'
       - in: query
         name: tenantId
         schema:
@@ -307,15 +452,51 @@ paths:
       - in: query
         name: groupId
         schema:
-          description: 'Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+          description: 'Filter the list of commissions by the associated partner group.
+
+            Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+
+            - "group_abc"
+
+            - "group_abc,group_xyz"
+
+            - "-group_abc"'
           type: string
-        description: 'Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+        description: 'Filter the list of commissions by the associated partner group.
+
+          Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+
+          - "group_abc"
+
+          - "group_abc,group_xyz"
+
+          - "-group_abc"'
       - in: query
         name: partnerTagId
         schema:
-          description: 'Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.'
+          description: 'Filter the list of commissions by the associated partner tag.
+
+            Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+
+            Examples:
+
+            - "ptag_abc"
+
+            - "ptag_abc,ptag_xyz"
+
+            - "-ptag_abc"'
           type: string
-        description: 'Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.'
+        description: 'Filter the list of commissions by the associated partner tag.
+
+          Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+
+          Examples:
+
+          - "ptag_abc"
+
+          - "ptag_abc,ptag_xyz"
+
+          - "-ptag_abc"'
       - in: query
         name: invoiceId
         schema:
@@ -335,6 +516,7 @@ paths:
           - duplicate
           - fraud
           - canceled
+          - hold
         description: Filter the list of commissions by their corresponding status.
       - in: query
         name: sortBy
@@ -390,6 +572,25 @@ paths:
         schema:
           type: string
       - in: query
+        name: query
+        schema:
+          description: 'Filter by lead or sale event metadata. Top-level keys only. Compares string values only — numeric and boolean metadata values are not matched.
+
+            Examples:
+
+            - "metadata[''key'']=''value''"
+
+            - "metadata[''key'']!=''value''"'
+          type: string
+          maxLength: 10000
+        description: 'Filter by lead or sale event metadata. Top-level keys only. Compares string values only — numeric and boolean metadata values are not matched.
+
+          Examples:
+
+          - "metadata[''key'']=''value''"
+
+          - "metadata[''key'']!=''value''"'
+      - in: query
         name: endingBefore
         schema:
           description: If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
@@ -409,8 +610,8 @@ paths:
           description: DEPRECATED. Use `startingAfter` instead.
           example: 1
           deprecated: true
-          type: number
-          exclusiveMinimum: 0
+          type: integer
+          maximum: 9007199254740991
         description: DEPRECATED. Use `startingAfter` instead.
       - in: query
         name: pageSize
@@ -418,9 +619,8 @@ paths:
           default: 100
           description: The number of items per page.
           example: 50
-          type: number
+          type: integer
           maximum: 100
-          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -444,12 +644,16 @@ paths:
                       - sale
                       - referral
                       - custom
+                      description: The type of commission. Can be `click`, `lead`, `sale`, `referral`, or `custom`.
                     amount:
                       type: number
+                      description: The associated event amount in cents. For sale commissions, this is the sale amount.
                     earnings:
                       type: number
+                      description: The amount earned by the partner, in cents.
                     currency:
                       type: string
+                      description: The currency of the commission, as an ISO 4217 currency code.
                     status:
                       type: string
                       enum:
@@ -460,25 +664,43 @@ paths:
                       - duplicate
                       - fraud
                       - canceled
+                      - hold
+                      description: The current status of the commission.
                     invoiceId:
+                      description: The associated invoice ID. Only set for sale commissions.
                       type:
                       - string
                       - 'null'
                     description:
+                      description: An optional description of the commission.
                       type:
                       - string
                       - 'null'
                     quantity:
                       type: number
+                      description: The event quantity. Used for click and lead commissions; typically `1` for sale and custom commissions.
                     userId:
                       description: The user who created the manual commission.
                       type:
                       - string
                       - 'null'
+                    metadata:
+                      description: Metadata from the associated lead or sale event (`lead.metadata` / `sale.metadata`), or from Stripe webhook metadata.
+                      type:
+                      - object
+                      - 'null'
+                      additionalProperties: {}
                     createdAt:
+                      description: The date and time when the commission was created.
                       type: string
                     updatedAt:
+                      description: The date and time when the commission was last updated.
                       type: string
+                    paidAt:
+                      description: The date the commission was paid out to the partner. Null if not paid yet.
+                      type:
+                      - string
+                      - 'null'
                     partner:
                       type: object
                       properties:
@@ -589,6 +811,7 @@ paths:
                       additionalProperties: false
                   required:
                   - id
+                  - type
                   - amount
                   - earnings
                   - currency
@@ -596,8 +819,10 @@ paths:
                   - invoiceId
                   - description
                   - quantity
+                  - metadata
                   - createdAt
                   - updatedAt
+                  - paidAt
                   - partner
                   additionalProperties: false
         '400':
@@ -696,12 +921,16 @@ paths:
                     - sale
                     - referral
                     - custom
+                    description: The type of commission. Can be `click`, `lead`, `sale`, `referral`, or `custom`.
                   amount:
                     type: number
+                    description: The associated event amount in cents. For sale commissions, this is the sale amount.
                   earnings:
                     type: number
+                    description: The amount earned by the partner, in cents.
                   currency:
                     type: string
+                    description: The currency of the commission, as an ISO 4217 currency code.
                   status:
                     type: string
                     enum:
@@ -712,25 +941,43 @@ paths:
                     - duplicate
                     - fraud
                     - canceled
+                    - hold
+                    description: The current status of the commission.
                   invoiceId:
+                    description: The associated invoice ID. Only set for sale commissions.
                     type:
                     - string
                     - 'null'
                   description:
+                    description: An optional description of the commission.
                     type:
                     - string
                     - 'null'
                   quantity:
                     type: number
+                    description: The event quantity. Used for click and lead commissions; typically `1` for sale and custom commissions.
                   userId:
                     description: The user who created the manual commission.
                     type:
                     - string
                     - 'null'
+                  metadata:
+                    description: Metadata from the associated lead or sale event (`lead.metadata` / `sale.metadata`), or from Stripe webhook metadata.
+                    type:
+                    - object
+                    - 'null'
+                    additionalProperties: {}
                   createdAt:
+                    description: The date and time when the commission was created.
                     type: string
                   updatedAt:
+                    description: The date and time when the commission was last updated.
                     type: string
+                  paidAt:
+                    description: The date the commission was paid out to the partner. Null if not paid yet.
+                    type:
+                    - string
+                    - 'null'
                   partner:
                     type: object
                     properties:
@@ -841,6 +1088,7 @@ paths:
                     additionalProperties: false
                 required:
                 - id
+                - type
                 - amount
                 - earnings
                 - currency
@@ -848,8 +1096,10 @@ paths:
                 - invoiceId
                 - description
                 - quantity
+                - metadata
                 - createdAt
                 - updatedAt
+                - paidAt
                 - partner
                 additionalProperties: false
         '400':
@@ -928,6 +1178,8 @@ paths:
                       - duplicate
                       - fraud
                       - canceled
+                      - hold
+                      description: The current status of the commission.
                   required:
                   - id
                   - status
@@ -952,68 +1204,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
     '400':
       description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       content:
@@ -1045,12 +1235,12 @@ components:
                 - message
             required:
             - error
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InviteExpired
+            x-speakeasy-name-override: InternalServerError
             type: object
             properties:
               error:
@@ -1059,9 +1249,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - invite_expired
+                    - internal_server_error
                     description: A short code indicating the error code returned.
-                    example: invite_expired
+                    example: internal_server_error
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1070,7 +1260,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message
@@ -1138,12 +1328,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -1152,9 +1342,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1163,38 +1353,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -1226,6 +1385,99 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message

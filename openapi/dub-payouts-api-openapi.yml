@@ -60,6 +60,12 @@ paths:
           type: string
         description: Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.
       - in: query
+        name: groupId
+        schema:
+          description: 'Filter the list of payouts by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+          type: string
+        description: 'Filter the list of payouts by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.'
+      - in: query
         name: sortBy
         schema:
           default: amount
@@ -83,21 +89,20 @@ paths:
       - in: query
         name: page
         schema:
-          description: The page number for pagination.
+          description: The page number for pagination. The first page is `1`.
           example: 1
           deprecated: false
-          type: number
-          exclusiveMinimum: 0
-        description: The page number for pagination.
+          type: integer
+          maximum: 9007199254740991
+        description: The page number for pagination. The first page is `1`.
       - in: query
         name: pageSize
         schema:
           default: 100
           description: The number of items per page.
           example: 50
-          type: number
+          type: integer
           maximum: 100
-          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -172,6 +177,7 @@ paths:
                       - connect
                       - stablecoin
                       - paypal
+                      - tremendous
                     traceId:
                       type:
                       - string
@@ -206,6 +212,7 @@ paths:
                           - connect
                           - stablecoin
                           - paypal
+                          - tremendous
                         payoutsEnabledAt:
                           description: The date when the partner enabled payouts.
                           type:
@@ -296,68 +303,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
     '400':
       description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       content:
@@ -389,12 +334,12 @@ components:
                 - message
             required:
             - error
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InviteExpired
+            x-speakeasy-name-override: InternalServerError
             type: object
             properties:
               error:
@@ -403,9 +348,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - invite_expired
+                    - internal_server_error
                     description: A short code indicating the error code returned.
-                    example: invite_expired
+                    example: internal_server_error
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -414,7 +359,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message
@@ -482,12 +427,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -496,9 +441,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -507,38 +452,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -570,6 +484,99 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message

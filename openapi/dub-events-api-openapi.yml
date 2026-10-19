@@ -190,6 +190,12 @@ paths:
           type: string
         description: 'The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.'
       - in: query
+        name: eventName
+        schema:
+          description: 'The conversion event name to retrieve analytics for. Only available for lead and sale events. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Sign up`, `Sign up,Purchase`, `-Sign up`.'
+          type: string
+        description: 'The conversion event name to retrieve analytics for. Only available for lead and sale events. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Sign up`, `Sign up,Purchase`, `-Sign up`.'
+      - in: query
         name: referer
         schema:
           description: 'The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.'
@@ -284,13 +290,20 @@ paths:
         name: page
         schema:
           default: 1
-          type: number
+          description: The page number for pagination. The first page is `1`.
+          example: 1
+          deprecated: false
+          type: integer
+          maximum: 9007199254740991
       - in: query
         name: limit
         schema:
           default: 100
-          type: number
+          description: The number of items per page.
+          example: 50
+          type: integer
           maximum: 1000
+        description: The number of items per page.
       - in: query
         name: sortOrder
         schema:
@@ -361,6 +374,10 @@ paths:
                             type: string
                           os:
                             type: string
+                          ua:
+                            type:
+                            - string
+                            - 'null'
                           trigger:
                             type:
                             - string
@@ -428,13 +445,17 @@ paths:
                           archived:
                             type: boolean
                           expiresAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           expiredUrl:
                             type:
                             - string
                             - 'null'
                           disabledAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           password:
                             description: The password required to access the destination URL of the short link.
                             type:
@@ -498,11 +519,6 @@ paths:
                             type:
                             - string
                             - 'null'
-                          webhookIds:
-                            type: array
-                            items:
-                              type: string
-                            description: The IDs of the webhooks that the short link is associated with.
                           comments:
                             description: The comments for the short link.
                             type:
@@ -567,9 +583,13 @@ paths:
                             - url: https://example.com/variant-2
                               percentage: 50
                           testStartedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testCompletedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           userId:
                             type:
                             - string
@@ -598,7 +618,9 @@ paths:
                             default: 0
                             type: number
                           lastClicked:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           createdAt:
                             type: string
                           updatedAt:
@@ -612,6 +634,12 @@ paths:
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
+                            deprecated: true
+                          webhookIds:
+                            type: array
+                            items:
+                              type: string
+                            description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
                             deprecated: true
                         required:
                         - id
@@ -641,7 +669,6 @@ paths:
                         - publicStats
                         - tags
                         - folderId
-                        - webhookIds
                         - comments
                         - shortLink
                         - qrCode
@@ -664,6 +691,7 @@ paths:
                         - updatedAt
                         - tagId
                         - projectId
+                        - webhookIds
                         additionalProperties: false
                       click_id:
                         type: string
@@ -773,6 +801,10 @@ paths:
                             type: string
                           os:
                             type: string
+                          ua:
+                            type:
+                            - string
+                            - 'null'
                           trigger:
                             type:
                             - string
@@ -840,13 +872,17 @@ paths:
                           archived:
                             type: boolean
                           expiresAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           expiredUrl:
                             type:
                             - string
                             - 'null'
                           disabledAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           password:
                             description: The password required to access the destination URL of the short link.
                             type:
@@ -910,11 +946,6 @@ paths:
                             type:
                             - string
                             - 'null'
-                          webhookIds:
-                            type: array
-                            items:
-                              type: string
-                            description: The IDs of the webhooks that the short link is associated with.
                           comments:
                             description: The comments for the short link.
                             type:
@@ -979,9 +1010,13 @@ paths:
                             - url: https://example.com/variant-2
                               percentage: 50
                           testStartedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testCompletedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           userId:
                             type:
                             - string
@@ -1010,7 +1045,9 @@ paths:
                             default: 0
                             type: number
                           lastClicked:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           createdAt:
                             type: string
                           updatedAt:
@@ -1024,6 +1061,12 @@ paths:
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
+                            deprecated: true
+                          webhookIds:
+                            type: array
+                            items:
+                              type: string
+                            description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
                             deprecated: true
                         required:
                         - id
@@ -1053,7 +1096,6 @@ paths:
                         - publicStats
                         - tags
                         - folderId
-                        - webhookIds
                         - comments
                         - shortLink
                         - qrCode
@@ -1076,6 +1118,7 @@ paths:
                         - updatedAt
                         - tagId
                         - projectId
+                        - webhookIds
                         additionalProperties: false
                       customer:
                         type: object
@@ -1251,6 +1294,7 @@ paths:
                             - paddle
                             - apple
                             - revenuecat
+                            - lemonsqueezy
                             - dub
                             - custom
                           currency:
@@ -1301,13 +1345,17 @@ paths:
                           archived:
                             type: boolean
                           expiresAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           expiredUrl:
                             type:
                             - string
                             - 'null'
                           disabledAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           password:
                             description: The password required to access the destination URL of the short link.
                             type:
@@ -1371,11 +1419,6 @@ paths:
                             type:
                             - string
                             - 'null'
-                          webhookIds:
-                            type: array
-                            items:
-                              type: string
-                            description: The IDs of the webhooks that the short link is associated with.
                           comments:
                             description: The comments for the short link.
                             type:
@@ -1440,9 +1483,13 @@ paths:
                             - url: https://example.com/variant-2
                               percentage: 50
                           testStartedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           testCompletedAt:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           userId:
                             type:
                             - string
@@ -1471,7 +1518,9 @@ paths:
                             default: 0
                             type: number
                           lastClicked:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           createdAt:
                             type: string
                           updatedAt:
@@ -1485,6 +1534,12 @@ paths:
                           projectId:
                             type: string
                             description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
+                            deprecated: true
+                          webhookIds:
+                            type: array
+                            items:
+                              type: string
+                            description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
                             deprecated: true
                         required:
                         - id
@@ -1514,7 +1569,6 @@ paths:
                         - publicStats
                         - tags
                         - folderId
-                        - webhookIds
                         - comments
                         - shortLink
                         - qrCode
@@ -1537,6 +1591,7 @@ paths:
                         - updatedAt
                         - tagId
                         - projectId
+                        - webhookIds
                         additionalProperties: false
                       click:
                         type: object
@@ -1561,6 +1616,10 @@ paths:
                             type: string
                           os:
                             type: string
+                          ua:
+                            type:
+                            - string
+                            - 'null'
                           trigger:
                             type:
                             - string
@@ -1763,68 +1822,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
     '400':
       description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       content:
@@ -1856,12 +1853,12 @@ components:
                 - message
             required:
             - error
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InviteExpired
+            x-speakeasy-name-override: InternalServerError
             type: object
             properties:
               error:
@@ -1870,9 +1867,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - invite_expired
+                    - internal_server_error
                     description: A short code indicating the error code returned.
-                    example: invite_expired
+                    example: internal_server_error
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1881,7 +1878,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message
@@ -1949,12 +1946,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -1963,9 +1960,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1974,38 +1971,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -2037,6 +2003,99 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message

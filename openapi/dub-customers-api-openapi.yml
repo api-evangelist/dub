@@ -50,9 +50,9 @@ paths:
       - in: query
         name: search
         schema:
-          description: A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.
+          description: A search query to filter customers by email, name, or customer ID (`cus_...`). If `email` or `externalId` is provided, this will be ignored.
           type: string
-        description: A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.
+        description: A search query to filter customers by email, name, or customer ID (`cus_...`). If `email` or `externalId` is provided, this will be ignored.
       - in: query
         name: country
         schema:
@@ -125,8 +125,8 @@ paths:
           description: DEPRECATED. Use `startingAfter` instead.
           example: 1
           deprecated: true
-          type: number
-          exclusiveMinimum: 0
+          type: integer
+          maximum: 9007199254740991
         description: DEPRECATED. Use `startingAfter` instead.
       - in: query
         name: pageSize
@@ -134,9 +134,8 @@ paths:
           default: 100
           description: The number of items per page.
           example: 50
-          type: number
+          type: integer
           maximum: 100
-          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -222,7 +221,6 @@ paths:
                           description: The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
                         url:
                           type: string
-                          format: uri
                           description: The destination URL of the short link.
                         programId:
                           description: The ID of the program the short link is associated with.
@@ -441,7 +439,6 @@ paths:
                         description: The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
                       url:
                         type: string
-                        format: uri
                         description: The destination URL of the short link.
                       programId:
                         description: The ID of the program the short link is associated with.
@@ -613,6 +610,11 @@ paths:
                 country:
                   type: string
                   description: The customer's country in ISO 3166-1 alpha-2 format. Updating this field will only affect the customer's country in Dub's system (and has no effect on existing conversion events).
+                subscriptionCanceledAt:
+                  description: The date the customer canceled their subscription. Set to a timestamp to mark the subscription as canceled, or `null` to clear it (e.g. if they resubscribe).
+                  type:
+                  - string
+                  - 'null'
       responses:
         '200':
           description: The customer was updated.
@@ -695,7 +697,6 @@ paths:
                         description: The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
                       url:
                         type: string
-                        format: uri
                         description: The destination URL of the short link.
                       programId:
                         description: The ID of the program the short link is associated with.
@@ -860,68 +861,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
     '400':
       description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       content:
@@ -953,12 +892,12 @@ components:
                 - message
             required:
             - error
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+    '500':
+      description: The server has encountered a situation it does not know how to handle.
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: InviteExpired
+            x-speakeasy-name-override: InternalServerError
             type: object
             properties:
               error:
@@ -967,9 +906,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - invite_expired
+                    - internal_server_error
                     description: A short code indicating the error code returned.
-                    example: invite_expired
+                    example: internal_server_error
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -978,7 +917,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                    example: https://dub.co/docs/api-reference/errors#internal-server_error
                 required:
                 - code
                 - message
@@ -1046,12 +985,12 @@ components:
                 - message
             required:
             - error
-    '404':
-      description: The server cannot find the requested resource.
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
       content:
         application/json:
           schema:
-            x-speakeasy-name-override: NotFound
+            x-speakeasy-name-override: RateLimitExceeded
             type: object
             properties:
               error:
@@ -1060,9 +999,9 @@ components:
                   code:
                     type: string
                     enum:
-                    - not_found
+                    - rate_limit_exceeded
                     description: A short code indicating the error code returned.
-                    example: not_found
+                    example: rate_limit_exceeded
                   message:
                     x-speakeasy-error-message: true
                     type: string
@@ -1071,38 +1010,7 @@ components:
                   doc_url:
                     type: string
                     description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
-                required:
-                - code
-                - message
-            required:
-            - error
-    '500':
-      description: The server has encountered a situation it does not know how to handle.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InternalServerError
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - internal_server_error
-                    description: A short code indicating the error code returned.
-                    example: internal_server_error
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#internal-server_error
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
                 required:
                 - code
                 - message
@@ -1134,6 +1042,99 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message

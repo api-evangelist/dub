@@ -276,24 +276,6 @@ apis:
     url: examples/dub-create-link-example.json
   - type: Examples
     url: examples/dub-link-response-example.json
-- aid: dub:dub-partner-applications-api
-  name: Dub Partner Applications API
-  description: The Partner Applications API from Dub — 3 operation(s) for partner applications.
-  humanURL: https://dub.co/docs/api-reference/introduction
-  baseURL: https://api.dub.co
-  tags:
-  - Partner Applications
-  properties:
-  - type: OpenAPI
-    url: openapi/dub-partner-applications-api-openapi.yml
-  - type: Documentation
-    url: https://dub.co/docs/api-reference/introduction
-  - type: JSONSchema
-    url: json-schema/dub-link-schema.json
-  - type: Examples
-    url: examples/dub-create-link-example.json
-  - type: Examples
-    url: examples/dub-link-response-example.json
 - aid: dub:dub-partners-api
   name: Dub Partners API
   description: The Partners API from Dub — 6 operation(s) for partners.
@@ -376,6 +358,42 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/dub-track-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-discount-codes-api
+  name: Dub Discount Codes API
+  description: The Discount Codes API from Dub — 2 operation(s) for discount codes.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Discount Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-discount-codes-api-openapi.yml
+  - type: Documentation
+    url: https://dub.co/docs/api-reference/introduction
+  - type: JSONSchema
+    url: json-schema/dub-link-schema.json
+  - type: Examples
+    url: examples/dub-create-link-example.json
+  - type: Examples
+    url: examples/dub-link-response-example.json
+- aid: dub:dub-program-applications-api
+  name: Dub Program Applications API
+  description: The Program Applications API from Dub — 3 operation(s) for program applications.
+  humanURL: https://dub.co/docs/api-reference/introduction
+  baseURL: https://api.dub.co
+  tags:
+  - Program Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/dub-program-applications-api-openapi.yml
   - type: Documentation
     url: https://dub.co/docs/api-reference/introduction
   - type: JSONSchema

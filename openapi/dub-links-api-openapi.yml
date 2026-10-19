@@ -52,15 +52,14 @@ paths:
                   minimum: 3
                   maximum: 190
                 externalId:
-                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
+                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace. Pass `null` or an empty string to remove it.
                   example: '123456'
                   type:
                   - string
                   - 'null'
-                  minLength: 1
                   maxLength: 255
                 tenantId:
-                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
                   type:
                   - string
                   - 'null'
@@ -174,38 +173,37 @@ paths:
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
                   type:
                   - string
                   - 'null'
-                webhookIds:
-                  description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  type:
-                  - array
-                  - 'null'
-                  items:
-                    type: string
+                  maxLength: 255
                 testVariants:
                   minItems: 2
                   maxItems: 4
@@ -250,6 +248,14 @@ paths:
                   type:
                   - string
                   - 'null'
+                webhookIds:
+                  description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+                  deprecated: true
+                  type:
+                  - array
+                  - 'null'
+                  items:
+                    type: string
               required:
               - url
       responses:
@@ -394,8 +400,8 @@ paths:
           description: DEPRECATED. Use `startingAfter` instead.
           example: 1
           deprecated: true
-          type: number
-          exclusiveMinimum: 0
+          type: integer
+          maximum: 9007199254740991
         description: DEPRECATED. Use `startingAfter` instead.
       - in: query
         name: pageSize
@@ -403,9 +409,8 @@ paths:
           default: 100
           description: The number of items per page.
           example: 50
-          type: number
+          type: integer
           maximum: 100
-          exclusiveMinimum: 0
         description: The number of items per page.
       responses:
         '200':
@@ -666,15 +671,14 @@ paths:
                   type: string
                   maxLength: 190
                 externalId:
-                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
+                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace. Pass `null` or an empty string to remove it.
                   example: '123456'
                   type:
                   - string
                   - 'null'
-                  minLength: 1
                   maxLength: 255
                 tenantId:
-                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
                   type:
                   - string
                   - 'null'
@@ -753,7 +757,7 @@ paths:
                 image:
                   anyOf:
                   - type: string
-                    pattern: ^data:image\/(png|jpeg|jpg|gif|webp);base64,
+                    pattern: ^data:image\/(png|jpeg|jpg|gif|webp|avif);base64,
                   - type: string
                     format: uri
                 video:
@@ -787,38 +791,37 @@ paths:
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
                   type:
                   - string
                   - 'null'
-                webhookIds:
-                  description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  type:
-                  - array
-                  - 'null'
-                  items:
-                    type: string
+                  maxLength: 255
                 testVariants:
                   minItems: 2
                   maxItems: 4
@@ -863,6 +866,14 @@ paths:
                   type:
                   - string
                   - 'null'
+                webhookIds:
+                  description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+                  deprecated: true
+                  type:
+                  - array
+                  - 'null'
+                  items:
+                    type: string
       responses:
         '200':
           description: The updated link
@@ -975,15 +986,14 @@ paths:
                     minimum: 3
                     maximum: 190
                   externalId:
-                    description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
+                    description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace. Pass `null` or an empty string to remove it.
                     example: '123456'
                     type:
                     - string
                     - 'null'
-                    minLength: 1
                     maxLength: 255
                   tenantId:
-                    description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+                    description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
                     type:
                     - string
                     - 'null'
@@ -1097,38 +1107,37 @@ paths:
                     type:
                     - string
                     - 'null'
+                    maxLength: 255
                   utm_medium:
                     description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
                     type:
                     - string
                     - 'null'
+                    maxLength: 255
                   utm_campaign:
                     description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
                     type:
                     - string
                     - 'null'
+                    maxLength: 255
                   utm_term:
                     description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
                     type:
                     - string
                     - 'null'
+                    maxLength: 255
                   utm_content:
                     description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
                     type:
                     - string
                     - 'null'
+                    maxLength: 255
                   ref:
                     description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
                     type:
                     - string
                     - 'null'
-                  webhookIds:
-                    description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                    type:
-                    - array
-                    - 'null'
-                    items:
-                      type: string
+                    maxLength: 255
                   testVariants:
                     minItems: 2
                     maxItems: 4
@@ -1173,6 +1182,14 @@ paths:
                     type:
                     - string
                     - 'null'
+                  webhookIds:
+                    description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+                    deprecated: true
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      type: string
                 required:
                 - url
       responses:
@@ -1242,7 +1259,7 @@ paths:
                       type: string
                       maxLength: 32000
                     tenantId:
-                      description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+                      description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
                       type:
                       - string
                       - 'null'
@@ -1353,38 +1370,37 @@ paths:
                       type:
                       - string
                       - 'null'
+                      maxLength: 255
                     utm_medium:
                       description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
                       type:
                       - string
                       - 'null'
+                      maxLength: 255
                     utm_campaign:
                       description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
                       type:
                       - string
                       - 'null'
+                      maxLength: 255
                     utm_term:
                       description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
                       type:
                       - string
                       - 'null'
+                      maxLength: 255
                     utm_content:
                       description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
                       type:
                       - string
                       - 'null'
+                      maxLength: 255
                     ref:
                       description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
                       type:
                       - string
                       - 'null'
-                    webhookIds:
-                      description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                      type:
-                      - array
-                      - 'null'
-                      items:
-                        type: string
+                      maxLength: 255
                     testVariants:
                       minItems: 2
                       maxItems: 4
@@ -1429,6 +1445,14 @@ paths:
                       type:
                       - string
                       - 'null'
+                    webhookIds:
+                      description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+                      deprecated: true
+                      type:
+                      - array
+                      - 'null'
+                      items:
+                        type: string
               required:
               - data
       responses:
@@ -1550,15 +1574,14 @@ paths:
                   minimum: 3
                   maximum: 190
                 externalId:
-                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
+                  description: The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace. Pass `null` or an empty string to remove it.
                   example: '123456'
                   type:
                   - string
                   - 'null'
-                  minLength: 1
                   maxLength: 255
                 tenantId:
-                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+                  description: The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
                   type:
                   - string
                   - 'null'
@@ -1672,38 +1695,37 @@ paths:
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_medium:
                   description: The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_campaign:
                   description: The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_term:
                   description: The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 utm_content:
                   description: The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
                   type:
                   - string
                   - 'null'
+                  maxLength: 255
                 ref:
                   description: The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
                   type:
                   - string
                   - 'null'
-                webhookIds:
-                  description: An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-                  type:
-                  - array
-                  - 'null'
-                  items:
-                    type: string
+                  maxLength: 255
                 testVariants:
                   minItems: 2
                   maxItems: 4
@@ -1748,6 +1770,14 @@ paths:
                   type:
                   - string
                   - 'null'
+                webhookIds:
+                  description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+                  deprecated: true
+                  type:
+                  - array
+                  - 'null'
+                  items:
+                    type: string
               required:
               - url
       responses:
@@ -1777,37 +1807,6 @@ paths:
           $ref: '#/components/responses/500'
 components:
   responses:
-    '429':
-      description: The user has sent too many requests in a given amount of time ("rate limiting")
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: RateLimitExceeded
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - rate_limit_exceeded
-                    description: A short code indicating the error code returned.
-                    example: rate_limit_exceeded
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
-                required:
-                - code
-                - message
-            required:
-            - error
     '400':
       description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       content:
@@ -1834,161 +1833,6 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#bad-request
-                required:
-                - code
-                - message
-            required:
-            - error
-    '410':
-      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: InviteExpired
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - invite_expired
-                    description: A short code indicating the error code returned.
-                    example: invite_expired
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#invite-expired
-                required:
-                - code
-                - message
-            required:
-            - error
-    '401':
-      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Unauthorized
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unauthorized
-                    description: A short code indicating the error code returned.
-                    example: unauthorized
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unauthorized
-                required:
-                - code
-                - message
-            required:
-            - error
-    '403':
-      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: Forbidden
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - forbidden
-                    description: A short code indicating the error code returned.
-                    example: forbidden
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#forbidden
-                required:
-                - code
-                - message
-            required:
-            - error
-    '422':
-      description: The request was well-formed but was unable to be followed due to semantic errors.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: UnprocessableEntity
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - unprocessable_entity
-                    description: A short code indicating the error code returned.
-                    example: unprocessable_entity
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
-                required:
-                - code
-                - message
-            required:
-            - error
-    '404':
-      description: The server cannot find the requested resource.
-      content:
-        application/json:
-          schema:
-            x-speakeasy-name-override: NotFound
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - not_found
-                    description: A short code indicating the error code returned.
-                    example: not_found
-                  message:
-                    x-speakeasy-error-message: true
-                    type: string
-                    description: A human readable explanation of what went wrong.
-                    example: The requested resource was not found.
-                  doc_url:
-                    type: string
-                    description: A link to our documentation with more details about this error code
-                    example: https://dub.co/docs/api-reference/errors#not-found
                 required:
                 - code
                 - message
@@ -2025,6 +1869,68 @@ components:
                 - message
             required:
             - error
+    '403':
+      description: The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Forbidden
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - forbidden
+                    description: A short code indicating the error code returned.
+                    example: forbidden
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#forbidden
+                required:
+                - code
+                - message
+            required:
+            - error
+    '429':
+      description: The user has sent too many requests in a given amount of time ("rate limiting")
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: RateLimitExceeded
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - rate_limit_exceeded
+                    description: A short code indicating the error code returned.
+                    example: rate_limit_exceeded
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#rate-limit_exceeded
+                required:
+                - code
+                - message
+            required:
+            - error
     '409':
       description: This response is sent when a request conflicts with the current state of the server.
       content:
@@ -2051,6 +1957,130 @@ components:
                     type: string
                     description: A link to our documentation with more details about this error code
                     example: https://dub.co/docs/api-reference/errors#conflict
+                required:
+                - code
+                - message
+            required:
+            - error
+    '422':
+      description: The request was well-formed but was unable to be followed due to semantic errors.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: UnprocessableEntity
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unprocessable_entity
+                    description: A short code indicating the error code returned.
+                    example: unprocessable_entity
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unprocessable-entity
+                required:
+                - code
+                - message
+            required:
+            - error
+    '401':
+      description: Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: Unauthorized
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - unauthorized
+                    description: A short code indicating the error code returned.
+                    example: unauthorized
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#unauthorized
+                required:
+                - code
+                - message
+            required:
+            - error
+    '404':
+      description: The server cannot find the requested resource.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: NotFound
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - not_found
+                    description: A short code indicating the error code returned.
+                    example: not_found
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#not-found
+                required:
+                - code
+                - message
+            required:
+            - error
+    '410':
+      description: This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+      content:
+        application/json:
+          schema:
+            x-speakeasy-name-override: InviteExpired
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - invite_expired
+                    description: A short code indicating the error code returned.
+                    example: invite_expired
+                  message:
+                    x-speakeasy-error-message: true
+                    type: string
+                    description: A human readable explanation of what went wrong.
+                    example: The requested resource was not found.
+                  doc_url:
+                    type: string
+                    description: A link to our documentation with more details about this error code
+                    example: https://dub.co/docs/api-reference/errors#invite-expired
                 required:
                 - code
                 - message
@@ -2084,14 +2114,35 @@ components:
       - color
       additionalProperties: false
       title: LinkTag
-    linkGeoTargeting:
-      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
-      type:
-      - object
-      - 'null'
-      additionalProperties:
-        type: string
-        maxLength: 32000
+    LinkErrorSchema:
+      type: object
+      properties:
+        link:
+          description: The link that caused the error.
+        error:
+          type: string
+          description: The error message.
+        code:
+          type: string
+          enum:
+          - bad_request
+          - unauthorized
+          - forbidden
+          - exceeded_limit
+          - not_found
+          - conflict
+          - invite_pending
+          - invite_expired
+          - unprocessable_entity
+          - rate_limit_exceeded
+          - internal_server_error
+          description: The error code.
+      required:
+      - link
+      - error
+      - code
+      additionalProperties: false
+      title: LinkError
     LinkSchema:
       type: object
       properties:
@@ -2106,7 +2157,6 @@ components:
           description: The short link slug. If not provided, a random 7-character slug will be generated.
         url:
           type: string
-          format: uri
           description: The destination URL of the short link.
         trackConversion:
           default: false
@@ -2223,11 +2273,6 @@ components:
           type:
           - string
           - 'null'
-        webhookIds:
-          type: array
-          items:
-            type: string
-          description: The IDs of the webhooks that the short link is associated with.
         comments:
           description: The comments for the short link.
           type:
@@ -2350,6 +2395,12 @@ components:
           type: string
           description: 'Deprecated: Use `workspaceId` instead. The project ID of the short link.'
           deprecated: true
+        webhookIds:
+          type: array
+          items:
+            type: string
+          description: 'Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.'
+          deprecated: true
       required:
       - id
       - domain
@@ -2378,7 +2429,6 @@ components:
       - publicStats
       - tags
       - folderId
-      - webhookIds
       - comments
       - shortLink
       - qrCode
@@ -2399,37 +2449,17 @@ components:
       - updatedAt
       - tagId
       - projectId
+      - webhookIds
       additionalProperties: false
       title: Link
-    LinkErrorSchema:
-      type: object
-      properties:
-        link:
-          description: The link that caused the error.
-        error:
-          type: string
-          description: The error message.
-        code:
-          type: string
-          enum:
-          - bad_request
-          - unauthorized
-          - forbidden
-          - exceeded_limit
-          - not_found
-          - conflict
-          - invite_pending
-          - invite_expired
-          - unprocessable_entity
-          - rate_limit_exceeded
-          - internal_server_error
-          description: The error code.
-      required:
-      - link
-      - error
-      - code
-      additionalProperties: false
-      title: LinkError
+    linkGeoTargeting:
+      description: 'Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.'
+      type:
+      - object
+      - 'null'
+      additionalProperties:
+        type: string
+        maxLength: 32000
   securitySchemes:
     token:
       type: http
