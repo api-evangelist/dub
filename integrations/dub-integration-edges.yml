@@ -1,22 +1,5 @@
 generated: '2026-10-14'
 edges:
-- partner_name: Twilio Segment
-  partner: segment
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://www.twilio.com/docs/segment/connections/sources/catalog/cloud-apps/dub
-  coverage_role:
-  - source
-  cdp_signals:
-    source:
-      catalog_entries:
-      - dub
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
 - partner_name: Stripe (own)
   partner: stripe
   partner_match: mirror
@@ -34,6 +17,23 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: affiliate_and_referrals
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/sources/catalog/cloud-apps/dub
+  coverage_role:
+  - source
+  cdp_signals:
+    source:
+      catalog_entries:
+      - dub
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -67,7 +67,7 @@ edges:
   channel: open-source-node
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/dub
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/dub
   category: null
   contract_reference:
     register: Pipedream components (PipedreamHQ/pipedream components/)
@@ -88,6 +88,7 @@ edges:
 method: searched
 checked:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://www.twilio.com/docs/segment/connections/sources/catalog/cloud-apps/dub
 - https://zapier.com/api/v4/apps/
 - stripe/integrations/stripe-integration-edges.yml
