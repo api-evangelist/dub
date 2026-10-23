@@ -902,3 +902,9 @@ components:
       description: Default authentication mechanism
       scheme: bearer
       x-speakeasy-example: DUB_API_KEY
+x-provenance:
+  method: harvested
+  publisher: Dub
+  source: https://dub.co/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
