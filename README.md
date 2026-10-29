@@ -1,4 +1,4 @@
-# Dub (dub)
+# Dub
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,61 +64,204 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dub is the open-source link attribution platform for short links, conversion tracking, and affiliate programs. It provides a REST API for creating and managing short links, tracking analytics and conversion events (clicks, leads, and sales), managing workspaces and custom domains, and building affiliate partner programs. Dub powers over 100 million clicks and 2 million links monthly for marketing teams at companies including Vercel, Perplexity, Twilio, Buffer, and Framer.
+Dub is an open-source link attribution platform for creating short links, QR codes, and managing affiliate programs. It provides a REST API that allows developers to programmatically create and manage links, track conversion events (clicks, leads, and sales), retrieve analytics, and manage workspaces and custom domains. Dub powers over 100 million clicks and 2 million links monthly for marketing teams at companies like Vercel, Perplexity, Twilio, and Framer. The platform offers native SDKs in TypeScript, Python, Go, Ruby, and PHP, along with mobile SDKs for iOS and React Native.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dub/refs/heads/main/apis.yml)
+**Areas:** Link Management · URL Shorteners · Analytics · Conversion Tracking · Affiliate Programs · Open Source
 
-Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=dub-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=dub-api-evangelist&utm_content=repo)
+## Dub on APIs.io
 
-## Tags
+Everything profiled for Dub is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dub/](https://apis.io/providers/dub/)** — or go straight to one of the APIs or properties below.
 
-- Link Management
-- URL Shortener
-- Analytics
-- Conversion Tracking
-- Affiliate Programs
-- Open Source
+### APIs (18)
 
-## APIs
+- [Dub Analytics API](https://apis.io/apis/dub/analytics/) — Retrieve analytics and event data for links and workspaces including click counts, conversion events (leads and sales), geographic breakdowns, device…
+- [Dub Partners API](https://apis.io/apis/dub/partners/) — Create and manage affiliate partners, partner groups, and partner tags. Supports payout management and advanced reward structures including geo-specific,…
+- [Dub Domains API](https://apis.io/apis/dub/domains/) — List and manage custom domains associated with a Dub workspace, including SSL certificate provisioning and free .link domain support.
+- [Dub Analytics API](https://apis.io/apis/dub/dub-analytics-api/) — The Analytics API from Dub — 1 operation(s) for analytics.
+- [Dub Bounties API](https://apis.io/apis/dub/dub-bounties-api/) — The Bounties API from Dub — 3 operation(s) for bounties.
+- [Dub Commissions API](https://apis.io/apis/dub/dub-commissions-api/) — The Commissions API from Dub — 3 operation(s) for commissions.
+- [Dub Customers API](https://apis.io/apis/dub/dub-customers-api/) — The Customers API from Dub — 2 operation(s) for customers.
+- [Dub Domains API](https://apis.io/apis/dub/dub-domains-api/) — The Domains API from Dub — 4 operation(s) for domains.
+- [Dub Embed Tokens API](https://apis.io/apis/dub/dub-embed-tokens-api/) — The Embed Tokens API from Dub — 1 operation(s) for embed tokens.
+- [Dub Events API](https://apis.io/apis/dub/dub-events-api/) — The Events API from Dub — 1 operation(s) for events.
+- [Dub Folders API](https://apis.io/apis/dub/dub-folders-api/) — The Folders API from Dub — 2 operation(s) for folders.
+- [Dub Links API](https://apis.io/apis/dub/dub-links-api/) — The Links API from Dub — 6 operation(s) for links.
+- [Dub Partner Applications API](https://apis.io/apis/dub/dub-partner-applications-api/) — The Partner Applications API from Dub — 3 operation(s) for partner applications.
+- [Dub Partners API](https://apis.io/apis/dub/dub-partners-api/) — The Partners API from Dub — 6 operation(s) for partners.
+- [Dub Payouts API](https://apis.io/apis/dub/dub-payouts-api/) — The Payouts API from Dub — 1 operation(s) for payouts.
+- [Dub QR Codes API](https://apis.io/apis/dub/dub-qr-codes-api/) — The QR Codes API from Dub — 1 operation(s) for qr codes.
+- [Dub Tags API](https://apis.io/apis/dub/dub-tags-api/) — The Tags API from Dub — 2 operation(s) for tags.
+- [Dub Track API](https://apis.io/apis/dub/dub-track-api/) — The Track API from Dub — 3 operation(s) for track.
 
-| API | Description | Docs |
-|-----|-------------|------|
-| Dub Links API | Create, retrieve, update, and delete short links with custom domains, UTM parameters, deep links, cloaking, expiration, and geo targeting | [Docs](https://dub.co/docs/api-reference/introduction) |
-| Dub Analytics API | Retrieve analytics and event data including click counts, conversion events, geographic breakdowns, device info, and referrer tracking | [Docs](https://dub.co/docs/api-reference/introduction) |
-| Dub Partners API | Create and manage affiliate partners, groups, tags, payouts, and advanced reward structures | [Docs](https://dub.co/docs/api-reference/introduction) |
-| Dub Domains API | List and manage custom domains with SSL certificate provisioning | [Docs](https://dub.co/docs/api-reference/introduction) |
+### Published properties
 
-## Plans / Rate Limits / FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- [Plans & Pricing](plans/dub-plans-pricing.yml) — Free, Pro ($25/mo), Business ($75/mo), Advanced ($250/mo), Enterprise (custom)
-- [Rate Limits](rate-limits/dub-rate-limits.yml) — 60–3,000 req/min depending on plan; 429 on breach; IETF rate limit headers
-- [FinOps](finops/dub-finops.yml) — FOCUS-aligned cost tracking for links, events, API requests, and partner payouts
+#### Agentic access (1)
 
-## Timestamps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Created: 2026-06-12
-- Modified: 2026-06-12
+- [Dub Agentic Access](https://apis.io/agentic-access/dub/dub-agentic-access/)
 
-## Common Properties
+#### JSON Schema (5)
 
-| Type | URL |
-|------|-----|
-| Website | https://dub.co |
-| Documentation | https://dub.co/docs |
-| API Reference | https://dub.co/docs/api-reference/introduction |
-| GitHub Organization | https://github.com/dubinc |
-| LinkedIn | https://www.linkedin.com/company/dubinc |
-| X / Twitter | https://x.com/dubdotco |
-| Blog | https://dub.co/blog |
-| Changelog | https://dub.co/changelog |
-| Pricing | https://dub.co/pricing |
-| Status Page | https://status.dub.co |
-| TypeScript SDK | https://github.com/dubinc/dub-ts |
-| Python SDK | https://github.com/dubinc/dub-python |
-| Go SDK | https://github.com/dubinc/dub-go |
-| Ruby SDK | https://github.com/dubinc/dub-ruby |
-| PHP SDK | https://github.com/dubinc/dub-php |
+The data models the API reads and writes.
 
-## Maintainers
+- [AnalyticsCount](https://apis.io/schemas/dub/dub-analyticscount/)
+- [AnalyticsTimeseries](https://apis.io/schemas/dub/dub-analyticstimeseries/)
+- [DomainSchema](https://apis.io/schemas/dub/dub-domain/)
+- [FolderSchema](https://apis.io/schemas/dub/dub-folder/)
+- [Link](https://apis.io/schemas/dub/dub-link/)
 
-- **Kin Lane** — kin@apievangelist.com
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Dub Context](https://apis.io/jsonld/dub/dub-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Dub Vocabulary](https://apis.io/vocabularies/dub/dub-vocabulary/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Dub Analytics Response Example](https://apis.io/examples/dub/dub-analytics-response-example/)
+- [Dub Create Link Example](https://apis.io/examples/dub/dub-create-link-example/)
+- [Dub Link Response Example](https://apis.io/examples/dub/dub-link-response-example/)
+- [Dub Track Sale Example](https://apis.io/examples/dub/dub-track-sale-example/)
+
+#### Collections (30)
+
+Postman and Open Collection request collections.
+
+- [Dub Analytics API](https://apis.io/collections/dub/open-dub-analytics-api/)
+- [Dub Analytics Bounties API](https://apis.io/collections/dub/open-dub-bounties-api/)
+- [Dub Analytics Commissions API](https://apis.io/collections/dub/open-dub-commissions-api/)
+- [Dub Analytics Customers API](https://apis.io/collections/dub/open-dub-customers-api/)
+- [Dub Analytics Domains API](https://apis.io/collections/dub/open-dub-domains-api/)
+- [Dub Analytics Embed Tokens API](https://apis.io/collections/dub/open-dub-embed-tokens-api/)
+- [Dub Analytics Events API](https://apis.io/collections/dub/open-dub-events-api/)
+- [Dub Analytics Folders API](https://apis.io/collections/dub/open-dub-folders-api/)
+- [Dub Analytics Links API](https://apis.io/collections/dub/open-dub-links-api/)
+- [Dub Analytics Partner Applications API](https://apis.io/collections/dub/open-dub-partner-applications-api/)
+- [Dub Analytics Partners API](https://apis.io/collections/dub/open-dub-partners-api/)
+- [Dub Analytics Payouts API](https://apis.io/collections/dub/open-dub-payouts-api/)
+- [Dub Analytics QR Codes API](https://apis.io/collections/dub/open-dub-qr-codes-api/)
+- [Dub Analytics Tags API](https://apis.io/collections/dub/open-dub-tags-api/)
+- [Dub Analytics Track API](https://apis.io/collections/dub/open-dub-track-api/)
+- [Dub Analytics API](https://apis.io/collections/dub/postman-dub-analytics-api/)
+- [Dub Analytics Bounties API](https://apis.io/collections/dub/postman-dub-bounties-api/)
+- [Dub Analytics Commissions API](https://apis.io/collections/dub/postman-dub-commissions-api/)
+- [Dub Analytics Customers API](https://apis.io/collections/dub/postman-dub-customers-api/)
+- [Dub Analytics Domains API](https://apis.io/collections/dub/postman-dub-domains-api/)
+- [Dub Analytics Embed Tokens API](https://apis.io/collections/dub/postman-dub-embed-tokens-api/)
+- [Dub Analytics Events API](https://apis.io/collections/dub/postman-dub-events-api/)
+- [Dub Analytics Folders API](https://apis.io/collections/dub/postman-dub-folders-api/)
+- [Dub Analytics Links API](https://apis.io/collections/dub/postman-dub-links-api/)
+- [Dub Analytics Partner Applications API](https://apis.io/collections/dub/postman-dub-partner-applications-api/)
+- …and 5 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Dub — jsonschema rules](https://apis.io/rules/dub/dub-jsonschema-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dub Authentication](https://apis.io/security/dub/dub-authentication/)
+- [Dub Domain Security](https://apis.io/security/dub/dub-domain-security/)
+- [Dub Trust Center](https://apis.io/security/dub/dub-trust-center/)
+- [Dub Vulnerability Disclosure](https://apis.io/security/dub/dub-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dub Plans Pricing](https://apis.io/plans/dub/dub-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dub Rate Limits](https://apis.io/rate-limits/dub/dub-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dub Finops](https://apis.io/finops/dub/dub-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://dub.co)
+- [Documentation](https://dub.co/docs)
+- [API reference](https://dub.co/docs/api-reference/introduction)
+- [Pricing](https://dub.co/pricing)
+- [Changelog](https://dub.co/changelog)
+- [Blog](https://dub.co/blog)
+- [GitHub](https://github.com/dubinc)
+- [Status](https://status.dub.co)
+
+## API Evangelist rating
+
+**Kin Score 52.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 70.0 |
+| Contract governance | 23.5 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 26.3 |
+
+**Agent readiness 23.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dub/](https://apis.io/providers/dub/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dub: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dub/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
